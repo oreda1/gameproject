@@ -1,5 +1,8 @@
 #include "Dxlib.h"
 int Key[256];
+int fsize, fwidh;
+//int CreateFontToHandle()
+
 int gpUpdateKey() {
 	char tmpKey[1280]; //現在のキー入力状態を格納する
 	GetHitKeyStateAll(tmpKey); //すべてのキー入力状態を得る
@@ -25,13 +28,16 @@ struct MenuElement_t {
 int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpC, int nC) {
 	ChangeWindowMode(true);
 	if (DxLib_Init() == -1) return -1;
+	
 	MenuElement_t MenuElement[10] = {
+		{150,100,"脱出ゲーム"},
 			{400, 260, "Game Start"},		//タグの中身の順番で格納
 			{290, 300, "Option"},
 		
 		
 	};
 	int SelectNum = 0;
+	
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 && gpUpdateKey() == 0) {
 		if ((Key[KEY_INPUT_DOWN] == 1) || (Key[KEY_INPUT_UP] == 1)) {
 			SelectNum = 1 - SelectNum;
@@ -41,8 +47,9 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpC, int nC) {
 		}
 		if ((Key[KEY_INPUT_Z] == 1) || (Key[KEY_INPUT_RETURN] == 1)) {
 			break;
-		}
+		}		
 		for (int i = 0; i < 10; i++) {		//メニュー項目を描画
+			
 			DrawFormatString(MenuElement[i].x, MenuElement[i].y,GetColor(255, 255, 255), MenuElement[i].name);
 		}
 	}
