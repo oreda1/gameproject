@@ -146,8 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileManeger.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GamePlayingScene.h" />
+    <ClInclude Include="ImageFile.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="KeyConfigScene.h" />
     <ClInclude Include="PauseScene.h" />
@@ -158,8 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileManeger.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GamePlayingScene.cpp" />
+    <ClCompile Include="ImageFile.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="KeyConfigScene.cpp" />
     <ClCompile Include="PauseScene.cpp" />

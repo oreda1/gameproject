@@ -16,6 +16,7 @@ void KeyConfigScene::NoramlUpdate(Input&input)
 	if (input.IsTriggered("OK"))
 	{
 		
+		
 
 	}
 

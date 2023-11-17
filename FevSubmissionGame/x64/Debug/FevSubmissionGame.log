@@ -1,3 +1,4 @@
 ﻿  Main.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\Dxlib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Main.cpp(58,3): warning C4145: '==': switch ステートメントの制御式と関係する式 ; 式 '=' は、case 式と見なされます。
   FevSubmissionGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe
