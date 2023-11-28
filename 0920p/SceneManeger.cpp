@@ -17,6 +17,12 @@ void SceneManeger::PopScene()
 {
 	
 }
+SceneManeger::SceneManeger()
+{
+}
+SceneManeger::~SceneManeger()
+{
+}
 void SceneManeger::Update()
 {
 	scene_->Update();

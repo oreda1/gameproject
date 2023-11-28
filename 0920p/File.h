@@ -10,11 +10,12 @@ protected:
 	int count_;
 	bool isErernal_;
 	std::wstring path_;
+	virtual void Delete() = 0;//ImageFile‚âSoundeFile‘¤‚ÅÀ‘•
 public:
 	File(FileManager& manager);
 
-  virtual int GetHandle()const;
-  virtual void Delete();
+  virtual int GetHandle()const;//‚Á‚Ä‚éƒnƒ“ƒhƒ‹‚ğ•Ô‚·
+  
   virtual ~File();
 };
 

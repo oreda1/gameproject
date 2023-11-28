@@ -13,6 +13,7 @@ namespace {
 		float version = 1.0f;
 		size_t dataCount=0;
 	};
+	
 }
 
 const InputTable_t Input::GetCommandTable()const
@@ -127,6 +128,10 @@ void Input::Save(const std::string& path)
 void Input::Load(const std::wstring& path)
 {
 	auto handle = FileRead_open(path.c_str());
+	if (handle==0)
+	{
+		return;
+	}
 	KeyConfHeader header;
 	FileRead_read(&header,sizeof(header),handle);
 

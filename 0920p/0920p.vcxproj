@@ -156,6 +156,7 @@
     <ClInclude Include="PauseScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManeger.h" />
+    <ClInclude Include="SoundFile.h" />
     <ClInclude Include="StrungUtlity.h" />
     <ClInclude Include="TitleScene.h" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClCompile Include="PauseScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManeger.cpp" />
+    <ClCompile Include="SoundFile.cpp" />
     <ClCompile Include="StrungUtlity.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>

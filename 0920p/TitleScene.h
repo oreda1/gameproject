@@ -8,9 +8,14 @@ class TitleScene : public Scene
 {
 
 private:
+	std::shared_ptr<File>titleImg_;
+	std::shared_ptr<File>buttonsImg_;
+
+	void NomalDraw();
+
 	
-   using DrawFunc_t =void(PauseScene::*)();
-   UpdateFunc_t updateFunc_;
+   using DrawFunc_t =void(TitleScene::*)();
+   DrawFunc_t updateFunc_;
 
 	//描画メンバ巻子ポインタ
 	using DrawFnuc_t = void(TitleScene::*)();

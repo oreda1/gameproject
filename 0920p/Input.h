@@ -13,6 +13,7 @@ enum class InputType
 };
 
 using InputTable_t = std::map<std::string, std::map<InputType, int>>;
+
 class KeyConfigScene;
 
 
@@ -23,7 +24,8 @@ class Input //:public Scene
 private:
 
 
-	InputTable_t commandTable_;
+	InputTable_t commandtable_;
+
 	std::vector<std::string>
 	
 

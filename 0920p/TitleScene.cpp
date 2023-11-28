@@ -28,6 +28,15 @@ void TitleScene::Draw()
 }
 
 
+void TitleScene::NomalDraw()
+{
+	DrawString(100, 100, _T("Title Scene"), 0xffffff);
+	DrawGraph(100, 100, titleImg_->GetHandle(), true);
+	int x = abs((frame_ + 640) % (640 * 2) - 640);
+	DrawCircle(x, 240, 10, 0xffaaaa, true);
+
+}
+
 TitleScene::TitleScene(SceneManeger& maneger):Scene(maneger)
 {
 
@@ -42,7 +51,7 @@ TitleScene::TitleScene(SceneManeger& maneger):Scene(maneger)
 
 TitleScene::~TitleScene()
 {
-	
+  
 }
 
 void TitleScene::FadeInuUpdate(Input&)

@@ -2,13 +2,22 @@
 #include "TitleScene.h"
 #include<DxLib.h>
 #include "SceneManeger.h"
+#include <cassert>
+class File;
+
 void TitleScene::Update(Input& input)
 {
 }
 
 void TitleScene::Draw()
 {
-	DrawString(100, 100,);
+	
 }
 
+void GamePlayingScene::Update(Input& input)
+{
+}
 
+void GamePlayingScene::Draw()
+{
+}

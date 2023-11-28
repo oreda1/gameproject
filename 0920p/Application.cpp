@@ -1,5 +1,6 @@
 #include "Application.h"
 #include <DxLib.h>
+#include "FileManeger.h"
 #include "SceneManeger.h"
 #include <cassert>
 
@@ -14,6 +15,7 @@ int MyLoadGraph(const TCHAR* path) {
 	return handle;
 }
 Application::Application() {
+
 	
 
 }
@@ -45,7 +47,25 @@ Application::Init()
 void 
 Application::Run()
 {
-	
-	
+	{
+		FileManager fileManager;
+		SceneManeger sceneManeger(fileManager);
+		sceneManeger.ChangeScene(std::make_shared<TitleScene>);
+		Input input;
+		while (ProcessMessage()!=-1)
+		{
+			ClearDrawScreen();
+			input.Update(input);
+			sceneManeger.Update(input);
+			sceneManeger.Draw();
+			ScreenFlip();
 
+
+		}
+
+
+
+
+	}
+	Terminate();
 }
