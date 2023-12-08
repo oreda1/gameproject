@@ -39,6 +39,7 @@ void TitleScene::NomalDraw()
 
 TitleScene::TitleScene(SceneManeger& maneger):Scene(maneger)
 {
+	
 
 	handle_t = LoadGraph(_T(""));
 	
@@ -47,11 +48,18 @@ TitleScene::TitleScene(SceneManeger& maneger):Scene(maneger)
 	oss << "TitleScene handle=" << std::hex << "frame=" << std::dec << ",FPS=" << std::fixed << std:: << GetFPS();
 	OutputDebugStringA(oss.str().c_str());
 
+
 }
 
 TitleScene::~TitleScene()
 {
-  
+
+	if (frame_%5==0)
+	{
+		Position2 pos = { (float)x,320.0f };
+	}
+	
+  //bombs_.remove_if([](const))
 }
 
 void TitleScene::FadeInuUpdate(Input&)
@@ -88,4 +96,14 @@ void TitleScene::FadeDraw()
 
 void TitleScene::NormalDraw()
 {
+}
+
+void TitleScene::BombSetter::CheckWall()
+{
+}
+
+void
+TitleScene::BombSetter::Rotate()
+{
+
 }

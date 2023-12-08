@@ -145,15 +145,20 @@
     <None Include="ソース.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="ControllerCharacter.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="FileManeger.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GamePlayingScene.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="ImageFile.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="KeyConfigScene.h" />
     <ClInclude Include="PauseScene.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManeger.h" />
     <ClInclude Include="SoundFile.h" />
@@ -161,11 +166,15 @@
     <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="ControllerCharacter.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="FileManeger.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GamePlayingScene.cpp" />
+    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="ImageFile.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="KeyConfigScene.cpp" />
@@ -178,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="テキスト.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="0920p.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

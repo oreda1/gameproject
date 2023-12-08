@@ -1,5 +1,7 @@
-﻿  Application.cpp
+﻿  Actor.cpp
+  Application.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(13,14): error C2143: 構文エラー: ';' が '&' の前にありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(13,14): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(13,24): error C2238: ';' の前に無効なトークンがあります。
@@ -32,8 +34,9 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\Application.cpp(54,9): error C2079
 C:\Users\fko2347033\Desktop\gameproject\0920p\Application.cpp(59,16): error C2660: 'SceneManeger::Update': 関数に 1 個の引数を指定できません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(15,7): message : 'SceneManeger::Update' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\Application.cpp(59,16): message : 引数リスト '(int)' を一致させようとしているとき
-  File.cpp
+  Character.cpp
   FileManeger.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(5,35): error C2511: 'std::shared_ptr<File> FileManager::LoadGraphic(const std::wstring &)': オーバーロードされたメンバー関数が 'FileManager' にありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\File.h(3,7): message : 'FileManager' の宣言を確認してください
@@ -47,12 +50,15 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(19,58): error C267
 C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(19,34): error C2672: 'std::make_shared': 一致するオーバーロードされた関数が見つかりませんでした。
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(2703,5): message : 'std::shared_ptr<_Ty> std::make_shared(_Types &&...)' の可能性があります
 C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(23,2): error C2065: 'file': 定義されていない識別子です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(24,37): error C2244: 'std::dynamic_pointer_cast': 関数の定義を既存の宣言と合致させることができませんでした。
-C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(24,14): error C2672: 'std::make_shared': 一致するオーバーロードされた関数が見つかりませんでした。
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(25,37): error C2244: 'std::dynamic_pointer_cast': 関数の定義を既存の宣言と合致させることができませんでした。
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(25,14): error C2672: 'std::make_shared': 一致するオーバーロードされた関数が見つかりませんでした。
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(2703,5): message : 'std::shared_ptr<_Ty> std::make_shared(_Types &&...)' の可能性があります
-C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(39,14): error C2275: 'FileManager::FileTable_t': 型の代わりに式が必要です
-C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(40,8): error C3536: 'file': 初期化前に使用することはできません
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(40,14): error C2275: 'FileManager::FileTable_t': 型の代わりに式が必要です
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(41,8): error C3536: 'file': 初期化前に使用することはできません
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(42,10): error C2059: 構文エラー: '->'
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.cpp(43,2): error C2143: 構文エラー: ';' が '{' の前にありません。
   GameOverScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -62,6 +68,7 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,22): error C2923
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,33): message : 'Scene' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(28,43): error C2533: 'Scene': コンストラクターの宣言に戻り値の型が含まれています。
   GamePlayingScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -70,22 +77,18 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,33): error C2065
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,22): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,33): message : 'Scene' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(28,43): error C2533: 'Scene': コンストラクターの宣言に戻り値の型が含まれています。
-C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.h(12,3): error C2146: 構文エラー: ':' が、識別子 'GamePlayingScene' の前に必要です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.h(12,38): error C2238: ';' の前に無効なトークンがあります。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(12,27): error C2653: 'PauseScene': 識別子がクラス名でも名前空間名でもありません。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(12,40): error C2061: 構文エラー: 識別子 'PauseScene'
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(13,17): error C3646: 'updateFunc_': 不明なオーバーライド指定子です
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(13,28): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(17,13): error C3646: 'drawFunc_': 不明なオーバーライド指定子です
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(17,22): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.cpp(14,22): error C2059: 構文エラー: ')'
+  Geometry.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\Geometry.cpp(41,14): error C2039: 'hypotf': 'std' のメンバーではありません
+C:\Users\fko2347033\Desktop\gameproject\0920p\predefined C++ types (compiler internal)(341,11): message : 'std' の宣言を確認してください
+C:\Users\fko2347033\Desktop\gameproject\0920p\Geometry.cpp(41,20): error C3861: 'hypotf': 識別子が見つかりませんでした
   ImageFile.cpp
 C:\Users\fko2347033\Desktop\gameproject\0920p\ImageFile.cpp(4,1): error C2512: 'File': クラス、構造体、共用体に既定のコンストラクターがありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\File.h(4,7): message : 'File' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\ImageFile.cpp(10,9): error C2027: 認識できない型 'FileManager' が使われています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\File.h(3,7): message : 'FileManager' の宣言を確認してください
   Input.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -221,6 +224,7 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\Input.cpp(146,17): error C2530: 'c
 C:\Users\fko2347033\Desktop\gameproject\0920p\Input.cpp(156,13): error C3536: 'command': 初期化前に使用することはできません
 C:\Users\fko2347033\Desktop\gameproject\0920p\Input.cpp(156,17): error C2677: 二項演算子 '[': 型 'InputType' を扱うグローバルな演算子が見つかりません (または変換できません) (新しい動作; ヘルプを参照)。
   KeyConfigScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -250,6 +254,7 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\KeyConfigScene.cpp(81,2): error C3
 C:\Users\fko2347033\Desktop\gameproject\0920p\KeyConfigScene.cpp(81,16): error C2143: 構文エラー: ';' が ':' の前にありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\KeyConfigScene.cpp(81,33): error C2143: 構文エラー: ';' が ')' の前にありません。
   PauseScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -269,6 +274,7 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\PauseScene.cpp(20,31): error C2059
 C:\Users\fko2347033\Desktop\gameproject\0920p\PauseScene.cpp(23,37): error C2065: 'flame_': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\PauseScene.cpp(23,47): error C3688: リテラル サフィックス 'fl' が無効です。リテラル演算子またはリテラル演算子テンプレート 'operator ""fl' が見つかりません
   Scene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -283,8 +289,11 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(13,14): error C4430: 型�
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(13,24): error C2238: ';' の前に無効なトークンがあります。
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(28,21): error C2061: 構文エラー: 識別子 'SceneManeger'
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(28,43): error C2533: 'Scene': コンストラクターの宣言に戻り値の型が含まれています。
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.cpp(28,2): error C2065: 'scene_': 定義されていない識別子です。
+  SoundFile.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
   StrungUtlity.cpp
 C:\Users\fko2347033\Desktop\gameproject\0920p\StrungUtlity.h(18,14): error C2039: 'wstring': 'std' のメンバーではありません
 C:\Users\fko2347033\Desktop\gameproject\0920p\predefined C++ types (compiler internal)(341,11): message : 'std' の宣言を確認してください
@@ -292,6 +301,7 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\StrungUtlity.h(22,1): error C2143:
 C:\Users\fko2347033\Desktop\gameproject\0920p\StrungUtlity.h(22,1): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
 C:\Users\fko2347033\Desktop\gameproject\0920p\StrungUtlity.cpp(27,1): error C2144: 構文エラー: 'bool' は ';' によって先行されなければなりません。
   TitleScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(8,1): error C2059: 構文エラー: '{'
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(6,1): error C2504: 'Scene': 定義されていない基底クラスが宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,35): error C2065: 'Scene': 定義されていない識別子です。
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(19,24): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
@@ -300,31 +310,29 @@ C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,33): error C2065
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,22): error C2923: 'std::shared_ptr': 'Scene' は、パラメーター '_Ty' の有効な テンプレート 型引数ではありません
 C:\Users\fko2347033\Desktop\gameproject\0920p\SceneManeger.h(21,33): message : 'Scene' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\Scene.h(28,43): error C2533: 'Scene': コンストラクターの宣言に戻り値の型が含まれています。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(12,27): error C2653: 'PauseScene': 識別子がクラス名でも名前空間名でもありません。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(12,40): error C2061: 構文エラー: 識別子 'PauseScene'
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(13,17): error C3646: 'updateFunc_': 不明なオーバーライド指定子です
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(13,28): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(17,13): error C3646: 'drawFunc_': 不明なオーバーライド指定子です
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.h(17,22): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
 C:\Users\fko2347033\Desktop\gameproject\0920p\KeyConfigScene.h(36,2): error C2530: 'KeyConfigScene::input': 参照が初期化されずに宣言されています。
 C:\Users\fko2347033\Desktop\gameproject\0920p\KeyConfigScene.h(35,72): error C2614: 'KeyConfigScene': イニシャライズ リスト内のクラス 'input_' が基底クラスでもメンバーでもありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\Input.h(34,29): error C3646: 'inputDate_': 不明なオーバーライド指定子です
 C:\Users\fko2347033\Desktop\gameproject\0920p\Input.h(34,7): error C2838: 'map': メンバー宣言内の限定名が間違っています
-C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.h(12,3): error C2146: 構文エラー: ':' が、識別子 'GamePlayingScene' の前に必要です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.h(12,38): error C2238: ';' の前に無効なトークンがあります。
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(13,11): error C2059: 構文エラー: '.'
 C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(13,31): error C2143: 構文エラー: ';' が '{' の前にありません。
 C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(27,2): error C2660: 'DxLib::DrawString': 関数に 3 個の引数を指定できません。
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3780,14): message : 'DxLib::DrawString' の宣言を確認してください
 C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(27,2): message : 引数リスト '(int, int, const wchar_t [16])' を一致させようとしているとき
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(34,11): error C2513: 'RPC_BINDING_HANDLE': 指定された型は、識別子の名前を指定せずに宣言されています。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(38,100): error C2589: '<<': スコープ解決演算子 (::) の右側にあるトークンは使えません。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(38,100): error C2062: 型 'unknown-type' は不要です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(55,11): error C2059: 構文エラー: '.'
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(56,2): error C2143: 構文エラー: ';' が '{' の前にありません。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(65,2): error C2065: 'frame_': 定義されていない識別子です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(66,6): error C2065: 'frame_': 定義されていない識別子です。
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(76,39): error C2059: 構文エラー: ')'
-C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(77,22): error C2065: 'handle_': 定義されていない識別子です。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(34,31): error C2027: 認識できない型 'File' が使われています。
+C:\Users\fko2347033\Desktop\gameproject\0920p\GamePlayingScene.h(3,7): message : 'File' の宣言を確認してください
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(34,33): error C2039: 'GetHandle': 'std::shared_ptr<File>' のメンバーではありません
+C:\Users\fko2347033\Desktop\gameproject\0920p\FileManeger.h(11,41): message : 'std::shared_ptr<File>' の宣言を確認してください
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(34,2): error C2660: 'DxLib::DrawGraph': 関数に 3 個の引数を指定できません。
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2907,14): message : 'DxLib::DrawGraph' の宣言を確認してください
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(34,2): message : 引数リスト '(int, int, bool)' を一致させようとしているとき
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(44,11): error C2513: 'RPC_BINDING_HANDLE': 指定された型は、識別子の名前を指定せずに宣言されています。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(48,100): error C2589: '<<': スコープ解決演算子 (::) の右側にあるトークンは使えません。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(48,100): error C2062: 型 'unknown-type' は不要です。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(59,28): error C2065: 'x': 定義されていない識別子です。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(72,11): error C2059: 構文エラー: '.'
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(73,2): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(93,39): error C2059: 構文エラー: ')'
+C:\Users\fko2347033\Desktop\gameproject\0920p\TitleScene.cpp(94,22): error C2065: 'handle_': 定義されていない識別子です。
   コードを生成中...

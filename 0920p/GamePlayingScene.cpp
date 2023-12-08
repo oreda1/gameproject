@@ -16,6 +16,7 @@ void TitleScene::Draw()
 
 void GamePlayingScene::Update(Input& input)
 {
+	
 }
 
 void GamePlayingScene::Draw()
