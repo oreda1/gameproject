@@ -36,8 +36,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetGraphMode(GameWidth,GameHeight, 32);
 	ChangeWindowMode(true);
 	
-   GameScene*ga_scene=new GameScene;
-   //Character* mv_chara = new Character;
+  GameScene*ga_scene=new GameScene;
+   Character* mv_chara = new Character;
   
    CharaMove charamove;
    Character characrer;
@@ -58,16 +58,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (title.Key[KEY_INPUT_DOWN])
 		{
 			
-			triangle.y1 =triangle.y1 + 25;
-			triangle.y2 =triangle.y2 + 25;
-			triangle.y3 =triangle.y3 + 25;
+			triangle.y1 =345;
+			triangle.y2 =330;
+			triangle.y3 =370;
+
+
 		}
+		
 		if (title.Key[KEY_INPUT_UP])
 		{
-			triangle.y1 = triangle.y1 -25;
-			triangle.y2 = triangle.y2 - 25;
-			triangle.y3 = triangle.y3 - 25;
+			triangle.y1 = 305;
+			triangle.y2 = 290;
+			triangle.y3 = 330;
 		}
+		
 		
 		
 
@@ -85,11 +89,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		DxLib_End();
 	}
 	//‚±‚±‚ÉƒQ[ƒ€–{•Ò‚ð‘‚­B
-	
-    ga_scene->DrawPicture();
-	characrer.Draw();
-	
 	ClearDrawScreen();
+	ga_scene->DrawPicture();
+	mv_chara->Draw();
+	
+	
 	
 	WaitKey();
 	DxLib_End();

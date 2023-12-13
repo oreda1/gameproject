@@ -12,22 +12,41 @@ namespace
 	constexpr int mapX = GameWidth / PictureWidth;//8
 	constexpr int mapY = GameHeight / PicrureHeight;//5
 
-	//画像読み込みハンドル
-	int CharHandle = LoadGraph("Cockroach.png");
+	//キャラクターの画像サイズ
+	constexpr int PlayerChipX = 384;
+	constexpr int PlayerChipY = 256;
+	//キャラクター画像の最大公約数
+	constexpr int PlayerChip = 128;
+	//キャラクターチップ
+	constexpr int PlayerX = PlayerChipX / PlayerChip;//3
+	constexpr int PlayerY = PlayerChipY / PlayerChip;//2
+	
+	//マップ1マス分の大きさ
+	constexpr int  MapChipSize=10;
+	//キャラ1マス分の大きさ
+	constexpr int PlayerChipSize = 12;
+
+
+
+	//プレイヤー読み込みハンドル
+	int PlayerHandle = LoadGraph("Cockroach.png");
 
     //マップ読み込みハンドル
 	int MapHandle = LoadGraph("[A]Water3_pipo.png");
+
+	//エネミー読み込みハンドル
+	int EnemyHandle = LoadGraph("DevilLeech.png");
 
 
 	struct CharaMove
 	{
 		//移動処理
-		int moveX;
-		int moveY;
+		int moveX=0;
+		int moveY=0;
 
 		//ジャンプ処理
-		int jumpX;
-		int jumpY;
+		int jumpX=0;
+		int jumpY=0;
 
 		//キャラにかかる重力処理の値
 
@@ -42,9 +61,9 @@ namespace
 		int x2 = 200;//2つの頂点x座標(上)
 		int y2 = 290;//2つの頂点y座標(上)
 		int x3 = 200;//2つの頂点x座標(下)
-		int y3 =y2+40;//2つの頂点y座標(下)
+		int y3 =y2+40;//2つの頂点y座標(下)330
 		int x1 = 240;//1つの頂点x座標
-        int y1 = (y2+y3)/2;//1つの頂点y座標
+        int y1 = (y2+y3)/2;//1つの頂点y座標305
 	}triangle;
 
 
@@ -80,17 +99,18 @@ namespace
 	//マップチップ
 	constexpr int MakeMap[mapY][mapX]
 	{
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
+		{1,1,1,1,1,1,1,1},
+		{1,1,1,1,1,1,1,1},
+		{1,1,1,1,1,1,1,1},
+		{1,1,1,1,1,1,1,1},
 		{1,1,1,1,1,1,1,1}
 	
 
 	};
-	constexpr int MakePlayer
+	constexpr int MakePlayer[PlayerChipY][PlayerChipX]
 	{
-
+		{1,1,1},
+	    {1,1,1}
 
 
 	};

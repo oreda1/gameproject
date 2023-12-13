@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "GameScene.h"
 #include "BaseNuber.h"	
+#include "Character.h"
 #include <iostream>
 #include <fstream>
 #include<string>
@@ -31,9 +32,11 @@ void GameScene::DrawPicture()
 	{
 		for (int y = 0; y < mapY; y++)
 		{
+			if (MakeMap[y][x] == 1)
+			{
+				DrawGraph(384,240, MapHandle, false);
 
-	       
-
+			}
 		}
 
 
