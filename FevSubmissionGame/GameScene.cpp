@@ -28,13 +28,15 @@ GameScene::~GameScene()
 void GameScene::DrawPicture()
 {
 	
-	for (int x = 0; x < mapX; x++)
+
+	
+	for (int x = 0; x < SumMapX; x++)
 	{
-		for (int y = 0; y < mapY; y++)
+		for (int y = 0; y < SumMapY; y++)
 		{
 			if (MakeMap[y][x] == 1)
 			{
-				DrawGraph(384,240, MapHandle, false);
+				DrawGraph(GameWidth*x,GameHeight*y, MapHandle, false);
 
 			}
 		}

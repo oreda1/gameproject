@@ -1,5 +1,6 @@
 #pragma once
 #include "DxLib.h"
+#include "Character.h"
 namespace 
 {
 	constexpr int GameWidth = 768;//ゲーム画面のサイズ(横)
@@ -8,9 +9,18 @@ namespace
 	constexpr int PictureWidth = 96;//横のゲーム画面と縦のゲーム画面のサイズの値の最大公約数
 	constexpr int PicrureHeight = 96;
 
-	//マップのチップ数
-	constexpr int mapX = GameWidth / PictureWidth;//8
-	constexpr int mapY = GameHeight / PicrureHeight;//5
+	//マップのチップの合計数
+	constexpr int SumMapX = GameWidth / PictureWidth;//8
+	constexpr int SumMapY = GameHeight / PicrureHeight;//5
+
+	//マップ1マス分の大きさ
+	constexpr int  MapChipSize = 10;
+	//マップの座標
+	/* int MapPosX= (MapDate % SumMapX) * GameWidth;
+     int MapPosY= (MapDate / SumMapY) * GameHeight;
+	 int MapDate =MakeMap[SumMapY][SumMapX];*/
+
+	
 
 	//キャラクターの画像サイズ
 	constexpr int PlayerChipX = 384;
@@ -21,10 +31,11 @@ namespace
 	constexpr int PlayerX = PlayerChipX / PlayerChip;//3
 	constexpr int PlayerY = PlayerChipY / PlayerChip;//2
 	
-	//マップ1マス分の大きさ
-	constexpr int  MapChipSize=10;
 	//キャラ1マス分の大きさ
 	constexpr int PlayerChipSize = 12;
+	
+
+
 
 
 
@@ -97,7 +108,7 @@ namespace
 	
 
 	//マップチップ
-	constexpr int MakeMap[mapY][mapX]
+	 constexpr int MakeMap[SumMapY][SumMapX]
 	{
 		{1,1,1,1,1,1,1,1},
 		{1,1,1,1,1,1,1,1},

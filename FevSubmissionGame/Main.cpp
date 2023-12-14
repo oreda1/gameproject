@@ -36,7 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetGraphMode(GameWidth,GameHeight, 32);
 	ChangeWindowMode(true);
 	
-  GameScene*ga_scene=new GameScene;
+   GameScene*ga_scene=new GameScene;
    Character* mv_chara = new Character;
   
    CharaMove charamove;
@@ -90,8 +90,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	//‚±‚±‚ÉƒQ[ƒ€–{•Ò‚ð‘‚­B
 	ClearDrawScreen();
-	ga_scene->DrawPicture();
-	mv_chara->Draw();
+	characrer.Draw();
+
 	
 	
 	

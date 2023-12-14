@@ -9,7 +9,7 @@ public:
 
 	void Init();
 	void Draw();
-	void Move(CharaMove& cara_move);
+	void Move();
     void Update();
 
 	//キャラの最初のポジション
@@ -22,7 +22,7 @@ private:
 
 
 
-	bool sceneX =GameWidth;
+	
 	
 	
 
