@@ -1,6 +1,5 @@
 #pragma once
-#include "GameScene.h"
-#include "BaseNuber.h"
+
 class  Character
 {
 public:
@@ -11,26 +10,17 @@ public:
 	void Draw();
 	void Move();
     void Update();
+	int gpUpdateKey();
 
-	//キャラの最初のポジション
-	int start_posX;
-	int start_posY;
-
-	
 	
 private:
+	int PlayerHandle;
+  //キャラ移動スピード
+	int CharaMoveSpeed=2;
 
+	//キャラクターベクトル
+	int CharaVect;
 
-
-	
-	
-	
-
-	
-	
-	
-	
-	
 };
 
 

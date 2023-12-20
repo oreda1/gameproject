@@ -1,103 +1,55 @@
 #include "Dxlib.h"
+#include "BaseNumber.h"
+#include "TitleScene.h"
 #include "GameScene.h"
-#include "BaseNuber.h"
 #include "Character.h"
 
-
-int gpUpdateKey() {
-	char tmpkey[256]; //現在のキー入力状態を格納する
-	GetHitKeyStateAll(tmpkey); //すべてのキー入力状態を得る
-	for (int i = 0; i < 256; i++) {	//i番のキーコードに対応するキーが押されていたら
-		if (tmpkey[i] != 0) {
-			title.Key[i]++;				//加算
-		}
-		else {						//押されていなければ
-			title.Key[i] = 0;
-		}
-
-	}
-	return 0;
-}
-
-void MakeSelectTriangle()
+/*メイン*/
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	
-	DrawTriangle(triangle.x1, 
-		triangle.y1,
-		triangle.x2,
-		triangle.y2,
-		triangle.x3,
-		triangle.y3,
-		GetColor(255, 255, 255), true);
-
-};
- 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-	SetGraphMode(GameWidth,GameHeight, 32);
+	/*Dxlib初期化処理(設定込み)*/
+	//SetGraphMode(GameWidth, GameHeight, 32);
 	ChangeWindowMode(true);
-	
-   GameScene*ga_scene=new GameScene;
-   Character* mv_chara = new Character;
-  
-   CharaMove charamove;
-   Character characrer;
-    
-    
-
-
 	if (DxLib_Init() == -1) { return -1; }
-	
-	
+	SetDrawScreen(DX_SCREEN_BACK);//裏画面書き込み
 
-	int SelectNum = 0;
+	/*ゲームオブジェクトの作成*/
+	TitleScene title;
+	GameScene game;
+	Character character;
 
 
-	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 && gpUpdateKey() == 0)
+	/*ゲームループ*/
+	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
+	while (TRUE)
 	{
-		MakeSelectTriangle();
-		if (title.Key[KEY_INPUT_DOWN])
+		/*画面の初期化*/
+		ClearDrawScreen();
+
+		/*ゲーム処理*/
+		if (sceneFlag)
 		{
-			
-			triangle.y1 =345;
-			triangle.y2 =330;
-			triangle.y3 =370;
-
-
+			sceneFlag = title.Update();
 		}
-		
-		if (title.Key[KEY_INPUT_UP])
+		else
 		{
-			triangle.y1 = 305;
-			triangle.y2 = 290;
-			triangle.y3 = 330;
+			game.Update();
+			character.Draw();
+			character.Move();
 		}
-		
-		
-		
 
-		if ((title.Key[KEY_INPUT_Z] == 1) || (title.Key[KEY_INPUT_RETURN] == 1)) {
+		/*描画の確定*/
+		ScreenFlip();
 
-			break;
-
-		}
-		for (int i = 0; i < 50; i++) {		//メニュー項目を描画
-
-			DrawFormatString(MenuElement[i].x,MenuElement[i].y, GetColor(255, 255, 255),MenuElement[i].name);
-		}
+		/*ゲームループ終了処理*/
+		// マイナスの値（エラー値）が返ってきたらループを抜ける
+		if (ProcessMessage() < 0) { break; }
+		// もしＥＳＣキーが押されていたらループから抜ける
+		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { break; }
 	}
-	if (SelectNum == 1) {
-		DxLib_End();
-	}
-	//ここにゲーム本編を書く。
-	ClearDrawScreen();
-	characrer.Draw();
 
-	
-	
-	
-	WaitKey();
-	DxLib_End();
+	/*Dxlib終了処理*/
+	DxLib::DxLib_End();
 	return 0;
-
-
 }
+

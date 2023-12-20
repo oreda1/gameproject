@@ -1,59 +1,17 @@
-#include "DxLib.h"
 #include "GameScene.h"
-#include "BaseNuber.h"	
-#include "Character.h"
-#include <iostream>
-#include <fstream>
-#include<string>
-using namespace std;
+#include "BaseNumber.h"
+#include "Dxlib.h"
 
-
-
-
-
-GameScene::GameScene() :
-	water3(0)
+void GameScene::Update()
 {
 	
-}
-GameScene::~GameScene()
-{
-
-
-
-
+	//ゲームシーンの処理
+	int MapHandle = LoadGraph("[A]Water3_Cave1_pipo.png");
+	DrawGraph(100,100, MapHandle, false);
 }
 
 
-void GameScene::DrawPicture()
+
+void GameScene::Init()
 {
-	
-
-	
-	for (int x = 0; x < SumMapX; x++)
-	{
-		for (int y = 0; y < SumMapY; y++)
-		{
-			if (MakeMap[y][x] == 1)
-			{
-				DrawGraph(GameWidth*x,GameHeight*y, MapHandle, false);
-
-			}
-		}
-
-
-	}
-
-	
-
-
-}
-
-//マップの初期化
-void GameScene::InitriseMap()
-{
-
-
-
-
 }
