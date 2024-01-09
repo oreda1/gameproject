@@ -22,12 +22,18 @@ Character::Character()
 
     void Character::Draw()
     {
-        for (int y= 0; y < PlayerChipY; y++)
+       PlayerHandle = LoadGraph("Cockroach.png"); 
+        for (int y= 0; y < PlayerPerChipY; y++)
         {
-            for (int x= 0; x < PlayerChipX; x++)
+            for (int x= 0; x < PlayerPerChipX; x++)
             {
-                PlayerHandle = LoadGraph("Cockroach.png");
-                DrawGraph(start_posX, start_posY, PlayerHandle, false);
+                int PlayerChipDate = MakePlayer[y][x];
+
+                //キャラクターチップ
+                int PlayerX = PlayerPerChipX * x;
+                int PlayerY = PlayerPerChipY * y;
+               
+                DrawGraph(PlayerX, PlayerY, PlayerHandle, false);
 
             }
         }
@@ -56,11 +62,7 @@ Character::Character()
             
             Jumpgravity = -10;
             start_posY += (CharaY - start_posY) + Jumpgravity;
-                       
-           
-
-               
-             
+                  
         }
        
 
@@ -103,6 +105,10 @@ Character::Character()
     void Character::Update()
     {
         
+    }
+
+    void Character::Collision()
+    {
     }
 
     int Character::gpUpdateKey() {

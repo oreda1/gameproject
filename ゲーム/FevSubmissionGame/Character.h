@@ -10,13 +10,14 @@ public:
 	void Draw();
 	void Move();
     void Update();
+	void Collision();
 	int gpUpdateKey();
 
 	
 private:
 	int PlayerHandle;
   //キャラ移動スピード
-	int CharaMoveSpeed=2;
+	int CharaMoveSpeed=10;
 	//キャラジャンプフラグ
 	bool JumpFlag;
 	
@@ -32,6 +33,8 @@ private:
 
 	//キャラクターベクトル
 	int CharaVect;
+
+
 
 };
 

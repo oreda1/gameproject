@@ -38,7 +38,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			character.Draw();
 			character.Move();
 			enemy.Draw();
-			enemy.enemymove();
+			enemy.EnemyMove();
 		}
 
 		/*•`‰æ‚ÌŠm’è*/

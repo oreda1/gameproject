@@ -7,10 +7,14 @@ void Enemy::Draw()
 	DrawGraph(enemyX, enemyY, EnemyHandle,false);
 }
 
-void Enemy::enemymove()
+void Enemy::EnemyMove()
 {
 	
 
+}
+
+void Enemy::EnemyCollision()
+{
 }
 
 

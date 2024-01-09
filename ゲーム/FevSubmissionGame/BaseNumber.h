@@ -3,49 +3,43 @@
 
 namespace
 {
-	constexpr int GameWidth = 768;//ゲーム画面のサイズ(横)
+	constexpr int GameWidth = 640;//ゲーム画面のサイズ(横)
 	constexpr int GameHeight = 480;//ゲーム画面のサイズ(縦)
 
-	constexpr int PictureWidth = 96;//横のゲーム画面と縦のゲーム画面のサイズの値の最大公約数
-	constexpr int PicrureHeight = 96;
+	constexpr int PictureWidth = 160;//横のゲーム画面と縦のゲーム画面のサイズの値の最大公約数
+	constexpr int PicrureHeight = 160;
 
 	//マップのチップの合計数
-	constexpr int SumMapX = GameWidth / PictureWidth;//8
-	constexpr int SumMapY = GameHeight / PicrureHeight;//5
+	constexpr int SumMapX = GameWidth / PictureWidth;//16
+	constexpr int SumMapY = GameHeight / PicrureHeight;//12
 
 	//マップ1マス分の大きさ
 	constexpr int  MapChipSize = 10;
 	//マップの座標
-	/* int MapPosX= (MapDate % SumMapX) * GameWidth;
+	/*int MapPosX= (MapDate % SumMapX) * GameWidth;
      int MapPosY= (MapDate / SumMapY) * GameHeight;
 	 int MapDate =MakeMap[SumMapY][SumMapX];*/
 
-	
 
 	//キャラクターの画像サイズ
 	constexpr int PlayerChipX = 384;
 	constexpr int PlayerChipY = 256;
-	//キャラクター画像の最大公約数
-	constexpr int PlayerChip = 128;
-	//キャラクターチップ
-	constexpr int PlayerX = PlayerChipX / PlayerChip;//3
-	constexpr int PlayerY = PlayerChipY / PlayerChip;//2
-	
 	//キャラ1マス分の大きさ
-	constexpr int PlayerChipSize = 12;
+	constexpr int PlayerChipSizeX = 16;
+	constexpr int PlayerChipSizeY = 32;
+	
+	//キャラクターチップ1マスあたりの大きさ
+	constexpr int PlayerPerChipX=PlayerChipX/PlayerChipSizeX;
+	constexpr int PlayerPerChipY=PlayerChipY/PlayerChipSizeY;
+	
+
+	
+	
 	
     //プレイヤーの初期位置
 	//キャラの最初のポジション
 	int start_posX=200;
 	int start_posY = 200;
-
-	
-
-	
-
-
-
-	
 
 	struct Triangle
 	{
@@ -92,19 +86,20 @@ namespace
 	//マップチップ
 	constexpr int MakeMap[SumMapY][SumMapX]
 	{
-		{1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1}
+		
 	
 
 	};
-	constexpr int MakePlayer[PlayerChipY][PlayerChipX]
+	constexpr int MakePlayer[PlayerPerChipY][PlayerPerChipX]
 	{
-		{1,1,1},
-	    {1,1,1}
-
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0},
+	{1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1}
 
 	};
 }

@@ -1,5 +1,0 @@
-﻿  Character.cpp
-C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(46,36): warning C4244: '=': 'double' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(47,37): warning C4244: '=': 'double' から 'int' への変換です。データが失われる可能性があります。
-  FevSubmissionGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe

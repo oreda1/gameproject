@@ -3,7 +3,8 @@ class Enemy
 {
 public:
 	void Draw();
-	void enemymove();
+	void EnemyMove();
+	void EnemyCollision();
 	
 	
 
