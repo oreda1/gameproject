@@ -1,56 +1,73 @@
-#pragma once
+ï»¿#pragma once
 #include "DxLib.h"
+namespace{
 
-namespace
-{
-	constexpr int GameWidth = 640;//ƒQ[ƒ€‰æ–Ê‚ÌƒTƒCƒY(‰¡)
-	constexpr int GameHeight = 480;//ƒQ[ƒ€‰æ–Ê‚ÌƒTƒCƒY(c)
 
-	constexpr int PictureWidth = 160;//‰¡‚ÌƒQ[ƒ€‰æ–Ê‚Æc‚ÌƒQ[ƒ€‰æ–Ê‚ÌƒTƒCƒY‚Ì’l‚ÌÅ‘åŒö–ñ”
-	constexpr int PicrureHeight = 160;
 
-	//ƒ}ƒbƒv‚Ìƒ`ƒbƒv‚Ì‡Œv”
-	constexpr int SumMapX = GameWidth / PictureWidth;//16
-	constexpr int SumMapY = GameHeight / PicrureHeight;//12
 
-	//ƒ}ƒbƒv1ƒ}ƒX•ª‚Ì‘å‚«‚³
+	constexpr int GameWidth = 640;//ã‚²ãƒ¼ãƒ ç”»é¢ã®ã‚µã‚¤ã‚º(æ¨ª)
+	constexpr int GameHeight = 480;//ã‚²ãƒ¼ãƒ ç”»é¢ã®ã‚µã‚¤ã‚º(ç¸¦)
+
+	//ãƒãƒƒãƒ—ã€€ç¸¦ã¨æ¨ª
+	constexpr int MapWidth = 256;
+	constexpr int MapHeight = 160;
+
+	constexpr int MapPer = 32;
+
+	//ãƒãƒƒãƒ—ã®ãƒãƒƒãƒ—ã®åˆè¨ˆæ•°
+	constexpr int SumMapX = GameWidth/MapHeight;//4
+	constexpr int SumMapY = GameHeight / MapHeight;//3
+
+	constexpr int MakeMap[SumMapY][SumMapX]
+	{
+
+	 {1,1,1,1},
+	 {1,1,1,1},
+	 {1,1,1,1},
+
+
+
+
+	};
+
+	
+
+	//ãƒãƒƒãƒ—1ãƒã‚¹åˆ†ã®å¤§ãã•
 	constexpr int  MapChipSize = 10;
-	//ƒ}ƒbƒv‚ÌÀ•W
-	/*int MapPosX= (MapDate % SumMapX) * GameWidth;
-     int MapPosY= (MapDate / SumMapY) * GameHeight;
-	 int MapDate =MakeMap[SumMapY][SumMapX];*/
 
 
-	//ƒLƒƒƒ‰ƒNƒ^[‚Ì‰æ‘œƒTƒCƒY
+
+	//384:256=12:8=3:2
+	// 384:12= 96:3=32:1
+	// 256:8=32:1
+	//ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®ç”»åƒã‚µã‚¤ã‚º
 	constexpr int PlayerChipX = 384;
 	constexpr int PlayerChipY = 256;
-	//ƒLƒƒƒ‰1ƒ}ƒX•ª‚Ì‘å‚«‚³
-	constexpr int PlayerChipSizeX = 16;
-	constexpr int PlayerChipSizeY = 32;
 	
-	//ƒLƒƒƒ‰ƒNƒ^[ƒ`ƒbƒv1ƒ}ƒX‚ ‚½‚è‚Ì‘å‚«‚³
-	constexpr int PlayerPerChipX=PlayerChipX/PlayerChipSizeX;
-	constexpr int PlayerPerChipY=PlayerChipY/PlayerChipSizeY;
+	
+	//ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒãƒƒãƒ—1ãƒã‚¹ã‚ãŸã‚Šã®å¤§ãã•
+	constexpr int PlayerPerChipX=PlayerChipX/32;
+	constexpr int PlayerPerChipY=PlayerChipY/32;
 	
 
 	
 	
 	
-    //ƒvƒŒƒCƒ„[‚Ì‰ŠúˆÊ’u
-	//ƒLƒƒƒ‰‚ÌÅ‰‚Ìƒ|ƒWƒVƒ‡ƒ“
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åˆæœŸä½ç½®
+	//ã‚­ãƒ£ãƒ©ã®æœ€åˆã®ãƒã‚¸ã‚·ãƒ§ãƒ³
 	int start_posX=200;
 	int start_posY = 200;
 
 	struct Triangle
 	{
-		//ƒRƒ}ƒ“ƒhOŠpŒ`‚ğì‚éÀ•W
+		//ã‚³ãƒãƒ³ãƒ‰ä¸‰è§’å½¢ã‚’ä½œã‚‹åº§æ¨™
 		
-		int x2 = 200;//2‚Â‚Ì’¸“_xÀ•W(ã)
-		int y2 = 290;//2‚Â‚Ì’¸“_yÀ•W(ã)
-		int x3 = 200;//2‚Â‚Ì’¸“_xÀ•W(‰º)
-		int y3 =y2+40;//2‚Â‚Ì’¸“_yÀ•W(‰º)330
-		int x1 = 240;//1‚Â‚Ì’¸“_xÀ•W
-        int y1 = (y2+y3)/2;//1‚Â‚Ì’¸“_yÀ•W305
+		int x2 = 200;//2ã¤ã®é ‚ç‚¹xåº§æ¨™(ä¸Š)
+		int y2 = 290;//2ã¤ã®é ‚ç‚¹yåº§æ¨™(ä¸Š)
+		int x3 = 200;//2ã¤ã®é ‚ç‚¹xåº§æ¨™(ä¸‹)
+		int y3 =y2+40;//2ã¤ã®é ‚ç‚¹yåº§æ¨™(ä¸‹)330
+		int x1 = 240;//1ã¤ã®é ‚ç‚¹xåº§æ¨™
+        int y1 = (y2+y3)/2;//1ã¤ã®é ‚ç‚¹yåº§æ¨™305
 	}triangle;
 
 
@@ -70,36 +87,68 @@ namespace
 	
 
 	struct MenuElement_t {
-		int x, y;			//À•WŠi”[—p•Ï”
-		char name[256];//€–Ú–¼Ši”[—p•Ï”
+		int x, y;			//åº§æ¨™æ ¼ç´ç”¨å¤‰æ•°
+		char name[256];//é …ç›®åæ ¼ç´ç”¨å¤‰æ•°
 
 
 	};
+
 	MenuElement_t MenuElement[50]{
+		
 	 {250,100,"SUPER\n JUMPMAN BROTHERS"},
 	 {250,300,"1 PLAYER GAME"},
-	 {250,340,"2 PLAYER GAME"}
+	 {250,340,"2 PLAYER GAME"},
+	 {250,380,"OPTION"},
+	 {0,0,"ï¼­ï¼¡ã€‡ï¼©ï¼¯\nï¼ï¼ï¼ï¼ï¼ï¼"},
+	 {400,0,"ï¼·ï¼¯ï¼²ï¼¬ï¼¤"},
+	 {420,20,"ï¼‘ãƒ¼ï¼‘"}
 
 	};
+
+	
 	
 
-	//ƒ}ƒbƒvƒ`ƒbƒv
-	constexpr int MakeMap[SumMapY][SumMapX]
-	{
-		
-	
 
-	};
 	constexpr int MakePlayer[PlayerPerChipY][PlayerPerChipX]
 	{
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1,1,1}
+		{1,1,1,1,1,1,1,1,1,1,1,1},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0}
+
+	
 
 	};
+
+
+	 constexpr int EnemyTextureX = 384;
+     constexpr int EnemyTextureY = 256;
+
+	constexpr int EnemyPerChraSize = 32;
+
+
+	 constexpr int EnemyChipX = EnemyTextureX / EnemyPerChraSize;
+    constexpr int EnemyChipY = EnemyTextureY / EnemyPerChraSize;
+
+  
+	int MakeEnemy[EnemyChipY][EnemyChipX]
+	{
+		{1,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0}
+
+
+
+	};
+
+	
 }

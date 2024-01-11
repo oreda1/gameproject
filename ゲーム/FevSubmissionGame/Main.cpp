@@ -34,9 +34,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else
 		{
+			
 			game.Update();
 			character.Draw();
 			character.Move();
+			game.Draw();
 			enemy.Draw();
 			enemy.EnemyMove();
 		}

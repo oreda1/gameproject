@@ -5,6 +5,8 @@
 
 
 
+
+
 Character::Character()
     {
         
@@ -18,28 +20,34 @@ Character::Character()
     {
 
 
-    };
+    }
 
     void Character::Draw()
     {
-       PlayerHandle = LoadGraph("Cockroach.png"); 
-        for (int y= 0; y < PlayerPerChipY; y++)
-        {
-            for (int x= 0; x < PlayerPerChipX; x++)
-            {
-                int PlayerChipDate = MakePlayer[y][x];
+        PlayerHandle = LoadGraph("Cockroach.png");
 
+        for (int x = 0; x < PlayerPerChipX; x++)
+        {
+            for (int y = 0; y < PlayerPerChipY; y++)
+            {
                 //キャラクターチップ
                 int PlayerX = PlayerPerChipX * x;
                 int PlayerY = PlayerPerChipY * y;
-               
-                DrawGraph(PlayerX, PlayerY, PlayerHandle, false);
+                if (MakePlayer[y][x] == 1)
+                {
+
+                    DrawRectGraph(start_posX, start_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
+                }
+
+
 
             }
         }
-        
-    }
 
+
+
+    }
+    
 
     void Character::Move()
     {
@@ -61,7 +69,9 @@ Character::Character()
         {
             
             Jumpgravity = -10;
-            start_posY += (CharaY - start_posY) + Jumpgravity;
+            start_posY += (CharaY - start_posY)+Jumpgravity;
+
+            
                   
         }
        
@@ -85,6 +95,9 @@ Character::Character()
         {
          
            start_posX = CharaMoveSpeed + start_posX;
+           PlayerChipSizeX = 64;
+           PlayerChipSizeY = 64;
+           
 
         }
 
@@ -96,6 +109,8 @@ Character::Character()
                 start_posX = 0;
                 start_posY = start_posY;
             }
+            PlayerChipSizeX = 32;
+            PlayerChipSizeY = 32;
         }
 
 

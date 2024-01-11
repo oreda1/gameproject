@@ -9,6 +9,7 @@ bool TitleScene::Update()
 	MakeSelectTriangle();
 	//Key“ü—Í
 	gpUpdateKey();
+
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
 		triangle.y1 = 345;
@@ -43,7 +44,7 @@ int TitleScene::gpUpdateKey() {
 			titleP.Key[i]++;				//‰ÁŽZ
 		}
 		else {						//‰Ÿ‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
-			titleP.Key[i] = 0;
+		   titleP.Key[i] = 0;
 		}
 
 	}
@@ -61,4 +62,4 @@ void TitleScene::MakeSelectTriangle()
 		triangle.y3,
 		GetColor(255, 255, 255), true);
 
-};
+}

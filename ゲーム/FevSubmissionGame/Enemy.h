@@ -6,6 +6,7 @@ public:
 	void EnemyMove();
 	void EnemyCollision();
 	
+
 	
 
 	//エネミー初期位置
@@ -14,5 +15,12 @@ public:
 	//エネミーの移動処理
 	int enemy_moveX;
 	int enemy_moveY;
+ 
+
+	
+
+	
+	
+
 };
 

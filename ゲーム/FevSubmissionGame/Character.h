@@ -17,7 +17,7 @@ public:
 private:
 	int PlayerHandle;
   //キャラ移動スピード
-	int CharaMoveSpeed=10;
+	int CharaMoveSpeed=5;
 	//キャラジャンプフラグ
 	bool JumpFlag;
 	
@@ -31,8 +31,16 @@ private:
 	//キャラにかかる重力処理の値
 	int  Jumpgravity;
 
-	//キャラクターベクトル
-	int CharaVect;
+	//キャラ1マス分の大きさ
+	 int PlayerChipSizeX=32;
+	 int PlayerChipSizeY=32;
+
+
+	//キャラ切り抜きサイズ
+	int PlayerWidthX=32;
+	int PlayerHeightY=32;
+
+
 
 
 
