@@ -4,6 +4,7 @@
 
 
 
+
 void GameScene::Draw()
 {
 
@@ -20,10 +21,9 @@ void GameScene::Draw()
 			if(MakeMap[y][x]==1)
 			{
 				 
-				for (GroundX = 0; GroundX > 1500; ++GroundX)
-				{
-					DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
-				}
+				
+				DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
+				
 				
 			}
 
@@ -34,10 +34,11 @@ void GameScene::Draw()
 	}
 
 
-
+	
 
 
 }
+
 
 void GameScene::Update()
 {

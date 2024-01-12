@@ -21,15 +21,12 @@ private:
 	//キャラジャンプフラグ
 	bool JumpFlag;
 	
-	//キャラクターの移動後のY
-	int CharaY;
-
-	//キャラクターの移動する前の座標
-	int UpdateCharaY;
-
-
+	//キャラの初速度
+	int JumpInitialVelocity=0;
 	//キャラにかかる重力処理の値
-	int  Jumpgravity;
+	float Jumpgravity=0.5f;
+	//キャラのジャンプスピード
+	int JumpSpeed = 1;
 
 	//キャラ1マス分の大きさ
 	 int PlayerChipSizeX=32;

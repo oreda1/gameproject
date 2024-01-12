@@ -10,10 +10,9 @@ public:
 
 private:
 	
-	
-	// int text_X, text_Y;
-	//char GameSceneText[256];
-
+	int text_X;
+	int text_Y;
+	char GameText[256];
 	
 	
 

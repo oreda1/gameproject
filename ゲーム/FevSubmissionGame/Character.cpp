@@ -7,6 +7,7 @@
 
 
 
+
 Character::Character()
     {
         
@@ -35,7 +36,7 @@ Character::Character()
                 int PlayerY = PlayerPerChipY * y;
                 if (MakePlayer[y][x] == 1)
                 {
-
+                    
                     DrawRectGraph(start_posX, start_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
                 }
 
@@ -63,14 +64,14 @@ Character::Character()
             
         }
 
-        CharaY = start_posY;
-        Jumpgravity = -1;
+        JumpInitialVelocity = -10;
         if (titleP.Key[KEY_INPUT_SPACE])  
         {
             
-            Jumpgravity = -10;
-            start_posY += (CharaY - start_posY)+Jumpgravity;
-
+            JumpInitialVelocity += JumpSpeed;
+            start_posY -= JumpInitialVelocity;
+            
+            
             
                   
         }

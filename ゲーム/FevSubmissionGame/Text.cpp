@@ -8,7 +8,7 @@ Text::~Text()
 {
 }
 
-void Text()
+void GameSceneText()
 {
 	
 	

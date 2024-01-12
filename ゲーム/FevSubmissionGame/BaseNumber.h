@@ -2,9 +2,6 @@
 #include "DxLib.h"
 namespace{
 
-
-
-
 	constexpr int GameWidth = 640;//ゲーム画面のサイズ(横)
 	constexpr int GameHeight = 480;//ゲーム画面のサイズ(縦)
 
@@ -24,10 +21,6 @@ namespace{
 	 {1,1,1,1},
 	 {1,1,1,1},
 	 {1,1,1,1},
-
-
-
-
 	};
 
 	
@@ -69,6 +62,7 @@ namespace{
 		int x1 = 240;//1つの頂点x座標
         int y1 = (y2+y3)/2;//1つの頂点y座標305
 	}triangle;
+
 
 
 	struct TitleP
@@ -131,7 +125,7 @@ namespace{
 	constexpr int EnemyPerChraSize = 32;
 
 
-	 constexpr int EnemyChipX = EnemyTextureX / EnemyPerChraSize;
+	constexpr int EnemyChipX = EnemyTextureX / EnemyPerChraSize;
     constexpr int EnemyChipY = EnemyTextureY / EnemyPerChraSize;
 
   
