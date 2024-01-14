@@ -69,7 +69,8 @@ Character::Character()
         {
             
             JumpInitialVelocity += JumpSpeed;
-            start_posY -= JumpInitialVelocity;
+            Jumpgravity = -1;
+            start_posY += JumpInitialVelocity;
             
             
             
