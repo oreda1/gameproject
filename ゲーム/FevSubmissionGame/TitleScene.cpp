@@ -28,8 +28,10 @@ bool TitleScene::Update()
 	}
 	//メニューの描画
 	for (int i = 0; i < 50; i++) {		//メニュー項目を描画
-
-		DrawFormatString(MenuElement[i].x, MenuElement[i].y, GetColor(255, 255, 255), MenuElement[i].name);
+	
+		
+		ChangeFont("Super Mario 256");
+		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
 	}
 
 	//正常終了

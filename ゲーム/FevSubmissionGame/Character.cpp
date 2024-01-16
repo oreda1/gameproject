@@ -1,25 +1,25 @@
 #include "Character.h"
 #include "DxLib.h"
 #include "BaseNumber.h"
+#include "GameScene.h"
 #include <math.h>
-
-
-
-
 
 
 Character::Character()
     {
-        
+    m_gamescene = new GameScene;
+    m_gamescene = nullptr;
     }
 
     Character::~Character()
     {
+        delete m_gamescene;
+        m_gamescene = nullptr;
     }
 
     void Character::Init()
     {
-
+       
 
     }
 
@@ -27,6 +27,7 @@ Character::Character()
     {
         PlayerHandle = LoadGraph("Cockroach.png");
 
+       
         for (int x = 0; x < PlayerPerChipX; x++)
         {
             for (int y = 0; y < PlayerPerChipY; y++)
@@ -37,7 +38,7 @@ Character::Character()
                 if (MakePlayer[y][x] == 1)
                 {
                     
-                    DrawRectGraph(start_posX, start_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
+                    DrawRectGraph(start_posX,start_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
                 }
 
 
@@ -50,11 +51,14 @@ Character::Character()
     }
     
 
-    void Character::Move()
+    void Character::Move(GameScene& gamescene)
     {
+        JumpFlag = true;
         gpUpdateKey();
         if (titleP.Key[KEY_INPUT_UP])
         {
+            //--Character_pos.y;
+            //Character_pos = VAdd(Character_pos,VGet(0,-10,0));
             start_posY =start_posY-CharaMoveSpeed;
             if (start_posY<0)
             {
@@ -63,33 +67,32 @@ Character::Character()
 
             
         }
-
-        JumpInitialVelocity = -10;
-        if (titleP.Key[KEY_INPUT_SPACE])  
+        
+         
+        if (titleP.Key[KEY_INPUT_SPACE]==1)
         {
+            start_posY -= JumpSpeed;
+             
+            if (JumpFlag==false)
+            {
+                JumpSpeed += 1;
+            }
+            if (start_posY==368)
+            {
+                JumpFlag == true;
+            }
             
-            JumpInitialVelocity += JumpSpeed;
-            Jumpgravity = -1;
-            start_posY += JumpInitialVelocity;
-            
-            
-            
-                  
-        }
-       
+           
 
-        
-        
+            
+         
+        }
         //‰æ–Ê‚Ì”ä—¦320*240
         //‰æ‘œ‚Ì”ä—¦384*256
         if (titleP.Key[KEY_INPUT_DOWN])
         {
             start_posY = CharaMoveSpeed + start_posY;
-            if (start_posY>=496)
-            {
-                start_posX = 160;
-                start_posY = 120;
-            }
+            FallCollision();
 
         }
 
@@ -115,7 +118,7 @@ Character::Character()
             PlayerChipSizeY = 32;
         }
 
-
+        FallCollision();
 
     }
 
@@ -126,6 +129,20 @@ Character::Character()
 
     void Character::Collision()
     {
+    }
+
+    void Character::FallCollision()
+    {
+        if (start_posY >= 496)
+        {
+            start_posX = 160;
+            start_posY = 120;
+        }
+        if (start_posY > 368 && start_posX <= 256)
+        {
+            start_posY = 368;
+        }
+
     }
 
     int Character::gpUpdateKey() {

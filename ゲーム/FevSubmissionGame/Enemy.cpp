@@ -22,14 +22,16 @@ void Enemy::Draw()
 
 void Enemy::EnemyMove()
 {
-	++enemyX;
+	--enemyX;
 	if (enemyX<0)
 	{
 		enemyX = 0;
+	
 	}
-	if (enemyX>640)
+	
+	if (enemyX>608)
 	{
-		
+		enemyX = 608;
 		
 	}
 

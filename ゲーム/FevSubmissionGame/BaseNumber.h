@@ -6,10 +6,10 @@ namespace{
 	constexpr int GameHeight = 480;//ゲーム画面のサイズ(縦)
 
 	//マップ　縦と横
-	constexpr int MapWidth = 256;
-	constexpr int MapHeight = 160;
+	constexpr int MapWidth = 40;//256
+	constexpr int MapHeight = 40;//160
 
-	constexpr int MapPer = 32;
+	constexpr int MapPer = 32;//32
 
 	//マップのチップの合計数
 	constexpr int SumMapX = GameWidth/MapHeight;//4
@@ -18,9 +18,18 @@ namespace{
 	constexpr int MakeMap[SumMapY][SumMapX]
 	{
 
-	 {1,1,1,1},
-	 {1,1,1,1},
-	 {1,1,1,1},
+	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	};
 
 	
@@ -47,9 +56,11 @@ namespace{
 	
 	
     //プレイヤーの初期位置
-	//キャラの最初のポジション
+	//キャラの最初のポジション 
 	int start_posX=200;
-	int start_posY = 200;
+	int start_posY=200;
+
+	VECTOR Character_pos;
 
 	struct Triangle
 	{
@@ -88,8 +99,8 @@ namespace{
 	};
 
 	MenuElement_t MenuElement[50]{
-		
-	 {250,100,"SUPER\n JUMPMAN BROTHERS"},
+
+	{250, 100, "SUPER\n JUMPMAN BROTHERS"},
 	 {250,300,"1 PLAYER GAME"},
 	 {250,340,"2 PLAYER GAME"},
 	 {250,380,"OPTION"},
@@ -143,6 +154,8 @@ namespace{
 
 
 	};
+
+	
 
 	
 }

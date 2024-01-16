@@ -30,6 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		/*ÉQÅ[ÉÄèàóù*/
 		if (sceneFlag)
 		{
+			
 			sceneFlag = title.Update();
 		}
 		else
@@ -37,7 +38,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			
 			game.Update();
 			character.Draw();
-			character.Move();
+			character.Move(game);
 			game.Draw();
 			enemy.Draw();
 			enemy.EnemyMove();
