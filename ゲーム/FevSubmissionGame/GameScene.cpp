@@ -4,7 +4,7 @@
 
 void GameScene::Draw()
 {
-
+	
 	//ÉQÅ[ÉÄÉVÅ[ÉìÇÃèàóù
 	int MapHandle = LoadGraph("[A]Water3_Cave1_pipo.png");
 
@@ -15,9 +15,11 @@ void GameScene::Draw()
 		
                 
 			if (MakeMap[y][x] == 1)
-			{
-				DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
-				//DrawRectRotaGraph(GroundX,GroundY, CropX, CropY,MapIndicationX,MapIndicationY,3,0,MapHandle,true);
+			{				
+			
+				
+             DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);				
+			//DrawRectRotaGraph(GroundX,GroundY, CropX, CropY,MapIndicationX,MapIndicationY,5,0,MapHandle,true);
 				
 				
 			}

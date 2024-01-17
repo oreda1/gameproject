@@ -57,8 +57,7 @@ Character::Character()
         gpUpdateKey();
         if (titleP.Key[KEY_INPUT_UP])
         {
-            //--Character_pos.y;
-            //Character_pos = VAdd(Character_pos,VGet(0,-10,0));
+           
             start_posY =start_posY-CharaMoveSpeed;
             if (start_posY<0)
             {
@@ -70,13 +69,11 @@ Character::Character()
         
          
         if (titleP.Key[KEY_INPUT_SPACE]==1)
-        {
+        {   
             start_posY -= JumpSpeed;
+            JumpFlag = false;
              
-            if (JumpFlag==false)
-            {
-                JumpSpeed += 1;
-            }
+           
             if (start_posY==368)
             {
                 JumpFlag == true;

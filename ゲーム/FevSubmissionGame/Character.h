@@ -24,13 +24,14 @@ private:
 	bool JumpFlag;
 	//キャラ座標の保存
 	int preservationY;
-
 	//キャラの初速度
 	int JumpInitialVelocity=1;
 	//キャラにかかる重力処理の値
 	float Jumpgravity=1.2f;
 	//キャラのジャンプスピード
 	int JumpSpeed = 60;
+	//ジャンプ1秒当たりのフレーム
+	int JumpFlame;
 
 	//キャラ1マス分の大きさ
 	int PlayerChipSizeX=32;

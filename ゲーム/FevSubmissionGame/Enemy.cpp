@@ -33,6 +33,7 @@ void Enemy::EnemyMove()
 	{
 		enemyX = 608;
 		
+		
 	}
 
 }

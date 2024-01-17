@@ -7,8 +7,8 @@ public:
 	void Init();
 	
 	//’n–Ê•`‰æˆÊ’u
-	int GroundX=0;
-	int GroundY=400;
+	int GroundX=0;//320
+	int GroundY=400;//540
 
 	
 private:
