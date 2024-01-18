@@ -15,7 +15,10 @@ bool TitleScene::Update()
 		triangle.y1 = 345;
 		triangle.y2 = 330;
 		triangle.y3 = 370;
-	}
+	 
+
+		
+	};
 	if (titleP.Key[KEY_INPUT_UP])
 	{
 		triangle.y1 = 305;

@@ -1,7 +1,7 @@
 #include "Dxlib.h"
 #include "BaseNumber.h"
 #include "TitleScene.h"
-#include "GameScene.h"
+#include "Map.h"
 #include "Character.h"
 #include "Enemy.h"
 
@@ -16,7 +16,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	/*ゲームオブジェクトの作成*/
 	TitleScene title;
-	GameScene game;
+	Map map;
 	Character character;
 	Enemy enemy;
 
@@ -35,11 +35,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else
 		{
-			
-			game.Update();
+			map.BackGround();
+			map.Update();
 			character.Draw();
-			character.Move(game);
-			game.Draw();
+			character.Move(map);
+			map.Draw();
 			enemy.Draw();
 			enemy.EnemyMove();
 		}

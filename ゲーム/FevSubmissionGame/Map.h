@@ -1,10 +1,12 @@
 #pragma once
-class GameScene
+class Map
 {
 public:
 	void Draw();
 	void Update();
 	void Init();
+
+	void BackGround();
 	
 	//’n–Ê•`‰æˆÊ’u
 	int GroundX=0;//320

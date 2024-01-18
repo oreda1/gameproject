@@ -1,20 +1,20 @@
 #include "Character.h"
 #include "DxLib.h"
 #include "BaseNumber.h"
-#include "GameScene.h"
+#include "Map.h"
 #include <math.h>
 
 
 Character::Character()
     {
-    m_gamescene = new GameScene;
-    m_gamescene = nullptr;
+    m_map = new Map;
+    m_map = nullptr;
     }
 
     Character::~Character()
     {
-        delete m_gamescene;
-        m_gamescene = nullptr;
+        delete m_map;
+        m_map = nullptr;
     }
 
     void Character::Init()
@@ -27,7 +27,6 @@ Character::Character()
     {
         PlayerHandle = LoadGraph("Cockroach.png");
 
-       
         for (int x = 0; x < PlayerPerChipX; x++)
         {
             for (int y = 0; y < PlayerPerChipY; y++)
@@ -36,9 +35,8 @@ Character::Character()
                 int PlayerX = PlayerPerChipX * x;
                 int PlayerY = PlayerPerChipY * y;
                 if (MakePlayer[y][x] == 1)
-                {
-                    
-                    DrawRectGraph(start_posX,start_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
+                {                    
+                    DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
                 }
 
 
@@ -51,32 +49,37 @@ Character::Character()
     }
     
 
-    void Character::Move(GameScene& gamescene)
+    void Character::Move(Map& gamescene)
     {
         JumpFlag = true;
         gpUpdateKey();
         if (titleP.Key[KEY_INPUT_UP])
         {
            
-            start_posY =start_posY-CharaMoveSpeed;
-            if (start_posY<0)
+            Player_posY -=5;
+            if (Player_posY<0)
             {
-                start_posY = 0;
+                Player_posY = 0;
             }
 
             
         }
         
-         
+        
+        //重力
+        Player_posY += 1;
+       
         if (titleP.Key[KEY_INPUT_SPACE]==1)
         {   
-            start_posY -= JumpSpeed;
-            JumpFlag = false;
+            
+            Player_posY -= JumpSpeed+JumpInitialVelocity;
+            JumpFlag = false;       
              
            
-            if (start_posY==368)
+            if (Player_posY==368)
             {
                 JumpFlag == true;
+               
             }
             
            
@@ -88,7 +91,7 @@ Character::Character()
         //画像の比率384*256
         if (titleP.Key[KEY_INPUT_DOWN])
         {
-            start_posY = CharaMoveSpeed + start_posY;
+            Player_posY = CharaMoveSpeed + Player_posY;
             FallCollision();
 
         }
@@ -96,7 +99,7 @@ Character::Character()
         if (titleP.Key[KEY_INPUT_RIGHT])
         {
          
-           start_posX = CharaMoveSpeed + start_posX;
+           Player_posX = CharaMoveSpeed + Player_posX;
            PlayerChipSizeX = 64;
            PlayerChipSizeY = 64;
            
@@ -105,11 +108,11 @@ Character::Character()
 
         if (titleP.Key[KEY_INPUT_LEFT])
         {
-            start_posX = start_posX - CharaMoveSpeed;
-            if (start_posX < 0)
+            Player_posX = Player_posX - CharaMoveSpeed;
+            if (Player_posX < 0)
             {
-                start_posX = 0;
-                start_posY = start_posY;
+                Player_posX = 0;
+                Player_posY = Player_posY;
             }
             PlayerChipSizeX = 32;
             PlayerChipSizeY = 32;
@@ -126,18 +129,21 @@ Character::Character()
 
     void Character::Collision()
     {
+        
+       
+
     }
 
     void Character::FallCollision()
     {
-        if (start_posY >= 496)
+        if (Player_posY >= 496)
         {
-            start_posX = 160;
-            start_posY = 120;
+            Player_posX = 160;
+            Player_posY = 120;
         }
-        if (start_posY > 368 && start_posX <= 256)
+        if (Player_posY > 368 && Player_posX <= 256)
         {
-            start_posY = 368;
+            Player_posY = 368;
         }
 
     }
@@ -163,3 +169,5 @@ Character::Character()
 
 
 
+    //Artificial Providence 様
+    //ぴぽや倉庫様

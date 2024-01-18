@@ -1,8 +1,9 @@
-#include "GameScene.h"
+#include "Map.h"
 #include "BaseNumber.h"
 #include "Dxlib.h"
 
-void GameScene::Draw()
+
+void Map::Draw()
 {
 	
 	//ÉQÅ[ÉÄÉVÅ[ÉìÇÃèàóù
@@ -17,8 +18,9 @@ void GameScene::Draw()
 			if (MakeMap[y][x] == 1)
 			{				
 			
+				 DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
 				
-             DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);				
+             
 			//DrawRectRotaGraph(GroundX,GroundY, CropX, CropY,MapIndicationX,MapIndicationY,5,0,MapHandle,true);
 				
 				
@@ -30,19 +32,20 @@ void GameScene::Draw()
 
 	}
 
-
-	
-
-
 }
 
 
-void GameScene::Update()
+void Map::Update()
 {
 }
 
 
 
-void GameScene::Init()
+void Map::Init()
 {
+}
+
+void Map::BackGround()
+{
+	LoadGraph("pipo-battlebg009.png", false);
 }
