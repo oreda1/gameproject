@@ -1,11 +1,18 @@
 #include "SceneManager.h"
+#include <memory>
+class Map;
+class TitleScene;
 
-Map* gm_scene=nullptr;
+
+Map* gm_scene;
+TitleScene* m_title;
 
 
 
 SceneManager::SceneManager()
 {
+	
+
 
 }
 

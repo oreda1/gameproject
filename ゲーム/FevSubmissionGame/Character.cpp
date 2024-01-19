@@ -2,19 +2,27 @@
 #include "DxLib.h"
 #include "BaseNumber.h"
 #include "Map.h"
-#include <math.h>
+#include <memory>
+#include "Enemy.h"
+
 
 
 Character::Character()
     {
-    m_map = new Map;
-    m_map = nullptr;
+    //m_Enemy = new Enemy;
+    //m_Enemy = nullptr;
+
+    // m_map = new Map;
+    // m_map = nullptr;
     }
 
     Character::~Character()
     {
+      /*  delete m_Enemy;
+        m_Enemy = nullptr;
+
         delete m_map;
-        m_map = nullptr;
+        m_map = nullptr;*/
     }
 
     void Character::Init()
@@ -26,6 +34,7 @@ Character::Character()
     void Character::Draw()
     {
         PlayerHandle = LoadGraph("Cockroach.png");
+        
 
         for (int x = 0; x < PlayerPerChipX; x++)
         {
@@ -67,13 +76,14 @@ Character::Character()
         
         
         //d—Í
-        Player_posY += 1;
-       
-        if (titleP.Key[KEY_INPUT_SPACE]==1)
+        Player_posY +=Jumpgravity;  
+        JumpFlag == true;
+        if (titleP.Key[KEY_INPUT_SPACE]==1&&JumpFlag==true)
         {   
-            
+             JumpFlag = false;  
             Player_posY -= JumpSpeed+JumpInitialVelocity;
-            JumpFlag = false;       
+            JumpInitialVelocity -= 1;
+                
              
            
             if (Player_posY==368)
@@ -127,12 +137,17 @@ Character::Character()
         
     }
 
-    void Character::Collision()
+    void Character::Collision(Enemy&cEnemy)
     {
-        
+        if (Player_posX<cEnemy.enemyX&&cEnemy.enemyX-Player_posX<16||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16)
+        {
+            Player_posY+=20;
+
+        }
        
 
     }
+   
 
     void Character::FallCollision()
     {

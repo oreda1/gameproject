@@ -47,5 +47,5 @@ void Map::Init()
 
 void Map::BackGround()
 {
-	LoadGraph("pipo-battlebg009.png", false);
+	DrawGraph(0,0,LoadGraph("pipo-battlebg009.jpg"),true);
 }

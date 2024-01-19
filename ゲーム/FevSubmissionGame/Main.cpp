@@ -4,6 +4,7 @@
 #include "Map.h"
 #include "Character.h"
 #include "Enemy.h"
+#include <memory>
 
 /*メイン*/
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -20,6 +21,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Character character;
 	Enemy enemy;
 
+
+	
+
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
 	while (TRUE)
@@ -35,10 +39,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else
 		{
-			map.BackGround();
 			map.Update();
+			map.BackGround();
 			character.Draw();
 			character.Move(map);
+			character.Collision(enemy);
 			map.Draw();
 			enemy.Draw();
 			enemy.EnemyMove();

@@ -1,6 +1,7 @@
 #pragma once
 #include "Map.h"
 class Map;
+class Enemy;
 class  Character
 {
 public:
@@ -11,7 +12,7 @@ public:
 	void Draw();
 	void Move(Map& gamescene);
     void Update();
-	void Collision();
+	void Collision(Enemy&cEnemy);
 	void FallCollision();
 	int gpUpdateKey();
 
@@ -26,9 +27,9 @@ private:
 	//キャラの初速度
 	int JumpInitialVelocity=10;
 	//キャラにかかる重力処理の値
-	float Jumpgravity=1.2f;
+	float Jumpgravity=2.5f;
 	//キャラのジャンプスピード
-	int JumpSpeed = 30;
+	int JumpSpeed = 50;
 	//ジャンプ1秒当たりのフレーム
 	int JumpFlame;
 	//キャラ座標の保存
@@ -44,7 +45,8 @@ private:
 	int PlayerHeightY=32;
 
 
-	Map* m_map;
+	//Map* m_map;
+	//Enemy* m_Enemy;
 
 
 

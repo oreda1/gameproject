@@ -60,7 +60,6 @@ namespace{
 	int Player_posX=0;
 	int Player_posY=300;
 
-	VECTOR Character_pos;
 	struct Triangle
 	{
 		//コマンド三角形を作る座標
