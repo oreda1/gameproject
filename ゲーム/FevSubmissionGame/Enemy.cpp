@@ -25,8 +25,17 @@ void Enemy::Draw()
 void Enemy::KillerRabbit()
 {
 	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
-
-	DrawRectGraph(enemyX, enemyY - 50, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+	for (int y = 0; y < EnemyChipY; y++)
+	{
+		for (int x = 0; x < EnemyChipX; x++)
+		{
+			if (MakeEnemy[y][x] == 1)
+			{
+				DrawRectGraph(enemyX, enemyY - 50, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+			}
+		}
+	}
+	
 }
 
 void Enemy::EnemyMove() 

@@ -141,7 +141,7 @@ Character::Character()
     {
         if (Player_posX<cEnemy.enemyX&&cEnemy.enemyX-Player_posX<16||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16)
         {
-            Player_posY+=20;
+            GraphFilter(PlayerHandle, DX_GRAPH_FILTER_DOWN_SCALE);
 
         }
        
