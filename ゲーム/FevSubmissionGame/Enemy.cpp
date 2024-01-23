@@ -1,7 +1,15 @@
 #include "Enemy.h"
 #include"DxLib.h"
 #include "BaseNumber.h"
+#include "Character.h"
+#include <cmath>
 
+
+void Enemy::InitEnemy()
+{
+	
+
+}
 
 
 void Enemy::Draw()
@@ -22,39 +30,67 @@ void Enemy::Draw()
 	
 }
 
-void Enemy::KillerRabbit()
-{
-	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
 
-	DrawRectGraph(enemyX, enemyY - 50, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+void Enemy::KillerRabbit(Character& e_chara)
+{
+	
+	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
+	DrawRectGraph(RabbitX,RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+
+
+
 }
 
 void Enemy::EnemyMove() 
 {
-
-	--enemyX;
 	
-	if (enemyX<0)
+	--enemyX;
+	--RabbitY;
+	--RabbitX;
+
+	
+	
+	
+
+}
+
+void Enemy::EnemyWallBumped()
+{
+
+	if (enemyX < 0)
 	{
 		enemyX = 0;
-		
+
+
 	}
-	
-	if (enemyX>608)
+	if (enemyX > 608)
 	{
 		enemyX = 608;
 
 	}
+	if (RabbitX<0)
+	{
+		RabbitX = 0;
+	}
+	if (RabbitY < 0)
+	{
+		RabbitY = 0;
+	}
+
+
 
 }
 
-void Enemy::EnemyCollision()
+void Enemy::EnemyAirCollision(Character& e_chara)
 {
+	if (RabbitX-e_chara.Player_posX<16&&RabbitX>e_chara.Player_posX)
+	{
+		GraphFilter(e_chara.PlayerHandle ,DX_GRAPH_FILTER_MONO);
+	}
 
-	
-	
 
 }
+
 
 
 

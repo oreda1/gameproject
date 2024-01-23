@@ -4,7 +4,11 @@
 #include "Map.h"
 #include "Character.h"
 #include "Enemy.h"
+#include "Text.h"
+#include "OptionScene.h"
+#include "SceneManager.h"
 #include <memory>
+
 
 /*メイン*/
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -20,9 +24,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Map map;
 	Character character;
 	Enemy enemy;
-
-
-	
+	Text text;
+	OptionScene option;
+	SceneManager& sc_manager();
 
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
@@ -30,25 +34,36 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		/*画面の初期化*/
 		ClearDrawScreen();
-
+        
 		/*ゲーム処理*/
 		if (sceneFlag)
 		{
-			
 			sceneFlag = title.Update();
+			option.Draw();
+		  
+		
 		}
+		
+		
 		else
 		{
-			map.Update();
+			text.GameSceneText(text);
 			map.BackGround();
+			//map.Update();
+			map.Draw();
+			character.Collision(enemy);
 			character.Draw();
 			character.Move(map);
-			character.Collision(enemy);
-			map.Draw();
 			enemy.Draw();
+			enemy.EnemyWallBumped();
+			enemy.KillerRabbit(character);
+			enemy.InitEnemy();
 			enemy.EnemyMove();
+			
 		}
 
+	
+		
 		/*描画の確定*/
 		ScreenFlip();
 
@@ -57,6 +72,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (ProcessMessage() < 0) { break; }
 		// もしＥＳＣキーが押されていたらループから抜ける
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { break; }
+		
 	}
 
 	/*Dxlib終了処理*/

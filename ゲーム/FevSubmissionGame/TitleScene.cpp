@@ -1,7 +1,7 @@
 #include "TitleScene.h"
 #include "BaseNumber.h"
 #include "Dxlib.h"
-
+#include "SceneManager.h"
 bool TitleScene::Update()
 {
 	/*タイトルシーンの処理*/
@@ -9,16 +9,24 @@ bool TitleScene::Update()
 	MakeSelectTriangle();
 	//Key入力
 	gpUpdateKey();
+    
 
+	if (MenuElement->y == 340 && titleP.Key[KEY_INPUT_SPACE])
+	{
+		SceneManager::Scene::S_Option;
+	
+
+	}
+	
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
+		
 		triangle.y1 = 345;
 		triangle.y2 = 330;
 		triangle.y3 = 370;
-	 
 
-		
-	};
+	}
+	
 	if (titleP.Key[KEY_INPUT_UP])
 	{
 		triangle.y1 = 305;
@@ -65,6 +73,6 @@ void TitleScene::MakeSelectTriangle()
 		triangle.y2,
 		triangle.x3,
 		triangle.y3,
-		GetColor(255, 255, 255), true);
+		0xffffff, true);
 
 }

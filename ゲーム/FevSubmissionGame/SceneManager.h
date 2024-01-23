@@ -1,21 +1,22 @@
 #pragma once
 class SceneManager
 {
+public:
 	SceneManager();
-	~SceneManager();
+	virtual~SceneManager();
 
 	enum Scene
 	{
 		Title,
+		S_Option,
 		Playing,
-		SecondScene,
 		End
 	};
 
 
-void ChangeScene(Scene scene);
-void SceneUpdate();
-void SceneDraw();
+void ChangeScene(Scene);
+virtual void SceneUpdate()=0;
+virtual void SceneDraw()=0;
 
 
 

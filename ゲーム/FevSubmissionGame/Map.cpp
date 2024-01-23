@@ -18,7 +18,7 @@ void Map::Draw()
 			if (MakeMap[y][x] == 1)
 			{				
 			
-				 DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
+			DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
 				
              
 			//DrawRectRotaGraph(GroundX,GroundY, CropX, CropY,MapIndicationX,MapIndicationY,5,0,MapHandle,true);
