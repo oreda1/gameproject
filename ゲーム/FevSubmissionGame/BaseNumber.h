@@ -52,27 +52,11 @@ namespace{
 	constexpr int PlayerPerChipY=PlayerChipY/32;
 	
 
-	
-	
-	
-    //プレイヤーの初期位置
-	//キャラの最初のポジション 
-	int Player_posX=0;
-	int Player_posY=300;
-
-	struct Triangle
+	struct GameMoveKey
 	{
-		//コマンド三角形を作る座標
-		
-		int x2 = 200;//2つの頂点x座標(上)
-		int y2 = 290;//2つの頂点y座標(上)
-		int x3 = 200;//2つの頂点x座標(下)
-		int y3 =y2+40;//2つの頂点y座標(下)330
-		int x1 = 240;//1つの頂点x座標
-        int y1 = (y2+y3)/2;//1つの頂点y座標305
-	}triangle;
+		int gameKey[256];
 
-
+	}gamekey;
 
 	struct TitleP
 	{
@@ -80,14 +64,6 @@ namespace{
 		int fsize, fwidh;
 
 	}titleP;
-	
-	struct GameMoveKey
-	{
-		int gameKey[256];
-
-	}gamekey;
-
-	
 
 	struct MenuElement_t {
 		int x, y;			//座標格納用変数
@@ -100,16 +76,12 @@ namespace{
 
 	{250, 100, "SUPER\n JUMPMAN BROTHERS"},
 	 {250,300,"1 PLAYER GAME"},
-	 {250,340,"2 PLAYER GAME"},
-	 {250,380,"OPTION"},
+	 {250,340,"OPTION"},
 	 {0,0,"ＭＡ〇ＩＯ\n００００００"},
 	 {400,0,"ＷＯＲＬＤ"},
 	 {420,20,"１ー１"}
 
 	};
-
-	
-	
 
 
 	constexpr int MakePlayer[PlayerPerChipY][PlayerPerChipX]

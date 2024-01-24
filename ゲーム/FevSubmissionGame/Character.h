@@ -1,8 +1,10 @@
 #pragma once
 #include "Map.h"
+#include "SceneManager.h"
+#include "DxLib.h"
 class Map;
 class Enemy;
-class  Character
+class Character
 {
 public:
 	 Character();
@@ -15,10 +17,20 @@ public:
 	void Collision(Enemy&cEnemy);
 	void FallCollision();
 	int gpUpdateKey();
+	
+	//プレイヤーの初期位置
+   //キャラの最初のポジション 
+	int Player_posX = 0;
+	int Player_posY = 300;
+	
+	int PlayerHandle=LoadGraph("Cockroach.png");
+
+
+private:
 
 	
-private:
-	int PlayerHandle;
+
+
   //キャラ移動スピード
 	int CharaMoveSpeed=5;
 	//キャラジャンプフラグ
@@ -45,8 +57,6 @@ private:
 	int PlayerHeightY=32;
 
 
-	//Map* m_map;
-	//Enemy* m_Enemy;
 
 
 

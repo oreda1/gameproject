@@ -33,8 +33,7 @@ Character::Character()
 
     void Character::Draw()
     {
-        PlayerHandle = LoadGraph("Cockroach.png");
-        
+       
 
         for (int x = 0; x < PlayerPerChipX; x++)
         {
@@ -53,14 +52,14 @@ Character::Character()
             }
         }
 
-
+        DrawFormatString(0, 0, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
 
     }
     
 
     void Character::Move(Map& gamescene)
     {
-        JumpFlag = true;
+        
         gpUpdateKey();
         if (titleP.Key[KEY_INPUT_UP])
         {
@@ -91,10 +90,7 @@ Character::Character()
                 JumpFlag == true;
                
             }
-            
-           
 
-            
          
         }
         //‰æ–Ê‚Ì”ä—¦320*240
@@ -108,11 +104,11 @@ Character::Character()
 
         if (titleP.Key[KEY_INPUT_RIGHT])
         {
-         
-           Player_posX = CharaMoveSpeed + Player_posX;
-           PlayerChipSizeX = 64;
+            Player_posX= CharaMoveSpeed + Player_posX;
+
+           PlayerChipSizeX = 0;
            PlayerChipSizeY = 64;
-           
+          
 
         }
 
@@ -132,19 +128,25 @@ Character::Character()
 
     }
 
+    
     void Character::Update()
     {
+
         
     }
 
     void Character::Collision(Enemy&cEnemy)
     {
-        if (Player_posX<cEnemy.enemyX&&cEnemy.enemyX-Player_posX<16||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16)
+        //©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
+        if (cEnemy.enemyX>Player_posX&&cEnemy.enemyX-Player_posX<16&&cEnemy.enemyY-Player_posY<16||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16&& cEnemy.enemyY - Player_posY < 16)
         {
-            GraphFilter(PlayerHandle, DX_GRAPH_FILTER_DOWN_SCALE);
+            Player_posY+=20;
 
         }
-       
+        else
+        {
+            SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+        }
 
     }
    
@@ -178,8 +180,8 @@ Character::Character()
         return 0;
     }
 
-
-
+    
+  
 
 
 

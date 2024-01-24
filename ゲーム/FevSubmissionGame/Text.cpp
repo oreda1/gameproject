@@ -1,5 +1,6 @@
 #include "Text.h"
 #include "DxLib.h"
+class Character;
 Text::Text()
 {
 }
@@ -8,10 +9,10 @@ Text::~Text()
 {
 }
 
-void GameSceneText()
+void Text::GameSceneText(Text& text)
 {
 	
-	
-
 }
+
+
 

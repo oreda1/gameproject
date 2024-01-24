@@ -1,18 +1,25 @@
 #pragma once
+#include "Character.h"
 class Text
 {
 public:
 	Text();
 	~Text();
  
-	void GameSceneText();
+	void GameSceneText(Text&text);
 
+	Character t_chara;
 
-private:
+//private:
 	
-	int text_X;
-	int text_Y;
-	char GameText[256];
+	
+	int text_X=0;
+	int text_Y=0;
+	//プレイヤーの座標表示
+	int PlayerCoordinateX;
+	int PlayerCoordinataY;
+
+	int GameText[256];
 	
 	
 
