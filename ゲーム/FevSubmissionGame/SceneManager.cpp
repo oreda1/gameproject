@@ -2,22 +2,15 @@
 #include "TitleScene.h"
 #include "Map.h"
 #include "OptionScene.h"
-#include "Text.h"
-#include <memory>
-class Map;
-class TitleScene;
-class OptionScene;
-class Text;
 
-OptionScene* game_option;
-Map* gm_scene;
-TitleScene* m_title;
 
+TitleScene *scene_title;
+Map* scene_map;
+OptionScene* scene_option;
 
 
 SceneManager::SceneManager()
 {
-	
 
 }
 
@@ -27,33 +20,43 @@ SceneManager::~SceneManager()
 
 }
 
-void SceneManager::ChangeScene(Scene scene)
+void SceneManager::ChangeScene()
+{
+	if (NowScene==sceneitem::Title)
+	{
+		TitleScene&gpUpdateKey();
+		scene_title->Update();
+		scene_title->MakeSelectTriangle();
+		NowScene = sceneitem::Title;
+	}
+	if (NowScene==sceneitem::S_Option)
+	{
+		OptionScene&OptionText();
+	    OptionScene&DrawFrame();
+		NowScene = sceneitem::S_Option;
+	}
+	if (NowScene==sceneitem::Playing)
+	{
+		scene_map->Draw();
+		scene_map->BackGround();
+		NowScene = sceneitem::Playing;
+	}
+	if (NowScene==sceneitem::End)
+	{
+		false;
+		NowScene = sceneitem::End;
+	}
+
+	
+}
+
+void SceneManager::DecisionScene(sceneitem NextScene)
+{
+	NowScene = NextScene;
+}
+
+void SceneManager::DivideScene()
 {
 	
-	switch (scene)
-	{
-	case SceneManager::Title:
-		m_title = new TitleScene;
-		break;
-	case SceneManager::S_Option:
-		game_option = new OptionScene;
-		break;
-	case SceneManager::Playing:
-		gm_scene = new Map;
-		break;
-	case SceneManager::End:
-		false;
-		break;
-	default:
-		break;
-	}
-}
 
-void SceneManager::SceneUpdate()
-{
-
-}
-
-void SceneManager::SceneDraw()
-{
 }

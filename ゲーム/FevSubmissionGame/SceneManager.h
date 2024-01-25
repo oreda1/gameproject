@@ -5,21 +5,22 @@ public:
 	SceneManager();
 	virtual~SceneManager();
 
-	enum Scene
+	typedef enum Scene
 	{
 		Title,
 		S_Option,
 		Playing,
 		End
-	};
+	}sceneitem;
+
+void DivideScene();
+void ChangeScene();
+void DecisionScene(sceneitem NextScene);
 
 
-void ChangeScene(Scene);
-virtual void SceneUpdate()=0;
-virtual void SceneDraw()=0;
 
-
-
+//static
+ SceneManager::sceneitem NowScene = SceneManager::sceneitem::Title;
 
 
 

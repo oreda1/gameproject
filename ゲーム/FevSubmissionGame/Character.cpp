@@ -77,12 +77,12 @@ Character::Character()
         //èdóÕ
         Player_posY +=Jumpgravity;  
         JumpFlag == true;
-        if (titleP.Key[KEY_INPUT_SPACE]==1&&JumpFlag==true)
+        if (titleP.Key[KEY_INPUT_SPACE]==1)
         {   
-             JumpFlag = false;  
+            
             Player_posY -= JumpSpeed+JumpInitialVelocity;
             JumpInitialVelocity -= 1;
-                
+            JumpFlag = false;     
              
            
             if (Player_posY==368)

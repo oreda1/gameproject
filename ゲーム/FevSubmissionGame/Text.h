@@ -12,9 +12,6 @@ public:
 
 //private:
 	
-	
-	int text_X=0;
-	int text_Y=0;
 	//プレイヤーの座標表示
 	int PlayerCoordinateX;
 	int PlayerCoordinataY;

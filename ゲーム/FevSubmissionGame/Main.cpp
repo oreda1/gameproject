@@ -26,7 +26,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Enemy enemy;
 	Text text;
 	OptionScene option;
-	SceneManager& sc_manager();
+	SceneManager scene;
+	
+	
 
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
@@ -39,11 +41,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (sceneFlag)
 		{
 			sceneFlag = title.Update();
-			option.Draw();
-		  
 		
+			
+				
+
+			
 		}
-		
 		
 		else
 		{

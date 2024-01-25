@@ -2,8 +2,11 @@
 #include "BaseNumber.h"
 #include "Dxlib.h"
 #include "SceneManager.h"
+
+SceneManager scene;
 bool TitleScene::Update()
 {
+ 
 	/*タイトルシーンの処理*/
 	//矢印の描画
 	MakeSelectTriangle();
@@ -13,11 +16,10 @@ bool TitleScene::Update()
 
 	if (MenuElement->y == 340 && titleP.Key[KEY_INPUT_SPACE])
 	{
-		SceneManager::Scene::S_Option;
-	
-
+	    scene.ChangeScene();
+		scene.DecisionScene(scene.S_Option);
 	}
-	
+
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
 		
@@ -38,7 +40,7 @@ bool TitleScene::Update()
 		return false;//シーン切り替え
 	}
 	//メニューの描画
-	for (int i = 0; i < 50; i++) {		//メニュー項目を描画
+	for (int i = 0; i < 5; i++) {		//メニュー項目を描画
 	
 		
 		ChangeFont("Super Mario 256");

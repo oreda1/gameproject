@@ -3,18 +3,9 @@
 class TitleScene
 {
 public:
-	bool Update();
+bool Update();
 	
-	enum TitleMenu
-	{
-		Player1,
-		Player2,
-		Option
-
-	};
 	
-
-
 	struct Triangle
 	{
 		//コマンド三角形を作る座標
@@ -28,7 +19,7 @@ public:
 	}triangle;
 
 
-private:
+//private:
 	int gpUpdateKey();
 	void MakeSelectTriangle();
 };
