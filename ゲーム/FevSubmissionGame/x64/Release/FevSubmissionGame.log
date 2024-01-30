@@ -1,0 +1,27 @@
+﻿  BaseNumber.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  Enemy.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Enemy.cpp(37,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Enemy.cpp(37,16): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Map.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Map.cpp(51,18): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  Main.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\Dxlib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  Character.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Character.cpp(78,23): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Character.cpp(79,18): warning C4553: '==': 式の結果が使用されていません。'=' を意図していますか?
+C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\Character.cpp(90,26): warning C4553: '==': 式の結果が使用されていません。'=' を意図していますか?
+  OptionScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  SceneManager.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  TitleScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 35 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  FevSubmissionGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\x64\Release\FevSubmissionGame.exe

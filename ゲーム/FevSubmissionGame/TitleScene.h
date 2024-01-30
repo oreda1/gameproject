@@ -3,9 +3,8 @@
 class TitleScene
 {
 public:
-bool Update();
-	
-	
+ bool Update();
+
 	struct Triangle
 	{
 		//コマンド三角形を作る座標

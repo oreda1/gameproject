@@ -3,8 +3,6 @@
 class Character;
 class Enemy
 {
-	
-
 public:
 
 	void Draw();
@@ -15,8 +13,6 @@ public:
 	void InitEnemy();
 	
 
-	
-
 	//エネミー初期位置
  	int enemyX=300;
 	int	enemyY=368;
@@ -25,17 +21,10 @@ public:
 	float RabbitX = 300;
 	float RabbitY = 310;
 
-	
-
 	//エネミーの移動処理
 	int enemy_moveX;
 	int enemy_moveY;
  
-
-	
-
-	
-	
 
 };
 

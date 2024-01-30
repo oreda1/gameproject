@@ -6,11 +6,16 @@ public:
 	void Update();
 	void Init();
 
+	void TimeLimit();
+
 	void BackGround();
 	
 	//’n–Ê•`‰æˆÊ’u
-	int GroundX=0;//320
+	int GroundX = 0;//320
 	int GroundY=400;//540
+
+
+	float time_count=0.0;
 
 	
 private:

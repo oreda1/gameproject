@@ -43,6 +43,18 @@ void Map::Update()
 
 void Map::Init()
 {
+
+}
+
+void Map::TimeLimit()
+{
+	time_count+=0.02;
+	if (time_count<=60)
+	{
+		false;
+	}
+
+	DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 }
 
 void Map::BackGround()

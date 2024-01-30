@@ -52,7 +52,7 @@ Character::Character()
             }
         }
 
-        DrawFormatString(0, 0, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+        DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
 
     }
     
@@ -163,6 +163,10 @@ Character::Character()
             Player_posY = 368;
         }
 
+    }
+
+    void Character::Effect()
+    {
     }
 
     int Character::gpUpdateKey() {

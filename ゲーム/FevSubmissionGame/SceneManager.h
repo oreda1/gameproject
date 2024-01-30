@@ -3,24 +3,32 @@ class SceneManager
 {
 public:
 	SceneManager();
-	virtual~SceneManager();
+	~SceneManager();
 
 	typedef enum Scene
 	{
 		Title,
 		S_Option,
 		Playing,
+		Return_Title,
 		End
-	}sceneitem;
+	};
+
+//Œ»İ‚ÌƒV[ƒ“‚ğ”»•Ê
+Scene NowScene;
+
+
 
 void DivideScene();
 void ChangeScene();
-void DecisionScene(sceneitem NextScene);
+void DecisionScene();
+
+void ExplanationScene();
 
 
 
-//static
- SceneManager::sceneitem NowScene = SceneManager::sceneitem::Title;
+
+//SceneManager::sceneitem NowScene;
 
 
 

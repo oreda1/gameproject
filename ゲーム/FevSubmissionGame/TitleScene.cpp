@@ -12,21 +12,14 @@ bool TitleScene::Update()
 	MakeSelectTriangle();
 	//Key入力
 	gpUpdateKey();
-    
 
-	if (MenuElement->y == 340 && titleP.Key[KEY_INPUT_SPACE])
-	{
-	    scene.ChangeScene();
-		scene.DecisionScene(scene.S_Option);
-	}
+	
 
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
-		
 		triangle.y1 = 345;
 		triangle.y2 = 330;
 		triangle.y3 = 370;
-
 	}
 	
 	if (titleP.Key[KEY_INPUT_UP])
@@ -37,12 +30,12 @@ bool TitleScene::Update()
 	}
 	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)) {
 
-		return false;//シーン切り替え
+		scene.DecisionScene();
+        return scene.NowScene;//シーン切り替え
 	}
 	//メニューの描画
 	for (int i = 0; i < 5; i++) {		//メニュー項目を描画
 	
-		
 		ChangeFont("Super Mario 256");
 		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
 	}

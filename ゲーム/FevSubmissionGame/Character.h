@@ -16,6 +16,7 @@ public:
     void Update();
 	void Collision(Enemy&cEnemy);
 	void FallCollision();
+	void Effect();
 	int gpUpdateKey();
 	
 	//プレイヤーの初期位置
@@ -24,12 +25,10 @@ public:
 	int Player_posY = 300;
 	
 	int PlayerHandle=LoadGraph("Cockroach.png");
+	int EffectHandle=LoadGraph("pipo-btleffect088c");
 
 
 private:
-
-	
-
 
   //キャラ移動スピード
 	int CharaMoveSpeed=5;
@@ -55,11 +54,6 @@ private:
 	//キャラ切り抜きサイズ
 	int PlayerWidthX=32;
 	int PlayerHeightY=32;
-
-
-
-
-
 
 };
 

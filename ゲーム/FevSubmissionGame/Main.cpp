@@ -4,7 +4,6 @@
 #include "Map.h"
 #include "Character.h"
 #include "Enemy.h"
-#include "Text.h"
 #include "OptionScene.h"
 #include "SceneManager.h"
 #include <memory>
@@ -19,16 +18,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	if (DxLib_Init() == -1) { return -1; }
 	SetDrawScreen(DX_SCREEN_BACK);//裏画面書き込み
 
+
+
 	/*ゲームオブジェクトの作成*/
 	TitleScene title;
 	Map map;
 	Character character;
 	Enemy enemy;
-	Text text;
 	OptionScene option;
 	SceneManager scene;
-	
-	
+
+
 
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
@@ -36,37 +36,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		/*画面の初期化*/
 		ClearDrawScreen();
-        
+
 		/*ゲーム処理*/
-		if (sceneFlag)
+		if(sceneFlag)
 		{
 			sceneFlag = title.Update();
-		
-			
-				
+			scene.DecisionScene();
 
-			
 		}
-		
-		else
-		{
-			text.GameSceneText(text);
+		else if (scene.NowScene==scene.Playing)
+		{	
 			map.BackGround();
-			//map.Update();
 			map.Draw();
+			map.TimeLimit();
+			character.Effect();
 			character.Collision(enemy);
 			character.Draw();
 			character.Move(map);
 			enemy.Draw();
 			enemy.EnemyWallBumped();
+			enemy.EnemyAirCollision(character);
 			enemy.KillerRabbit(character);
 			enemy.InitEnemy();
 			enemy.EnemyMove();
-			
+
+		}
+		else if (scene.NowScene==scene.S_Option)
+		{
+			option.DrawFrame();
+			option.OptionText();
 		}
 
-	
-		
 		/*描画の確定*/
 		ScreenFlip();
 
