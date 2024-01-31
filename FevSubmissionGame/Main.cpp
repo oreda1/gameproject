@@ -36,12 +36,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		/*ÉQÅ[ÉÄèàóù*/
 		if(sceneFlag)
 		{	sceneFlag = title.Update();
-		scene.ExplanationScene();
+		    scene.ExplanationScene();
 			scene.DecisionScene();
 			
 		}
 		else if (scene.NowScene==scene.Playing)
 		{	
+			
 			map.BackGround();
 			map.Draw();
 			map.TimeLimit();
@@ -53,12 +54,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.EnemyWallBumped();
 			enemy.EnemyAirCollision(character);
 			enemy.KillerRabbit(character);
-			enemy.InitEnemy();
+			enemy.UpdateEnemy();
 			enemy.EnemyMove();
+			
+		
 
 		}
 		else if(scene.NowScene==scene.S_Option)
 		{
+			
 			option.DrawFrame();
 			option.OptionText(title);
 		}

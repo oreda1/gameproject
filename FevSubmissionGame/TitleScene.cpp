@@ -12,6 +12,7 @@ bool TitleScene::Update()
 	MakeSelectTriangle();
 	//Key入力
 	gpUpdateKey();
+	
 
 	
 	if (titleP.Key[KEY_INPUT_DOWN])
@@ -34,7 +35,7 @@ bool TitleScene::Update()
 	//メニューの描画
 	for (int i = 0; i < 5; i++) {		//メニュー項目を描画
 	
-		ChangeFont("Super Mario 256");
+		ChangeFont("07ふぉんとうは怖い明朝体");
 		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
 	}
 

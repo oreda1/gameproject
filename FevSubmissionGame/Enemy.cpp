@@ -2,12 +2,42 @@
 #include"DxLib.h"
 #include "BaseNumber.h"
 #include "Character.h"
+#include <math.h>
+Character en_chara;
 
-void Enemy::InitEnemy()
+
+
+void Enemy::UpdateEnemy()
 {
-	
+
+	if (RabbitX[EnemyNum] < 0 || RabbitY[EnemyNum] < 0)
+	{
+		RabbitX[EnemyNum] = 608;
+        RabbitY[EnemyNum] = 310;
+		if (RabbitY[EnemyNum]<0)
+		{
+			enemyHit = true;
+		}
+
+		for (int i = 0; i < 30; i++)
+		{
+			
+			DrawRectGraph(RabbitX[i], RabbitY[i], EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+			
+		}
+		if (enemyHit==true)
+		{
+			RabbitY[EnemyNum] += 5;
+			
+		
+		}
+		
+	}
+
 
 }
+
+
 
 void Enemy::Draw()
 {
@@ -30,30 +60,27 @@ void Enemy::Draw()
 
 void Enemy::KillerRabbit(Character& e_chara)
 {
-	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
-
-	
-	
-	DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
-	if (RabbitX<0)
-	{
-		DeleteGraph(EnemyHandle2);
-		DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
-	}
-
-	
-
+	RabbitX[EnemyNum] = 608;
+	RabbitY[EnemyNum] = 310;
+	DrawRectGraph(RabbitX[EnemyNum], RabbitY[EnemyNum], EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
 }
 
 
 void Enemy::EnemyMove() 
 {
+	if (RabbitY[EnemyNum]>448)
+	{
+		enemyHit = false;
+	}
+	
+	if (enemyHit==false&&RabbitY[EnemyNum]>0)
+	{
+		RabbitY[EnemyNum] -= 3;
+	}
+	
 	--enemyX;
-	
-	--RabbitX;
-	--RabbitY;
-
-	
+	--RabbitX[EnemyNum];
+	--RabbitY[EnemyNum];
 	
 
 }
@@ -78,9 +105,9 @@ void Enemy::EnemyWallBumped()
 	//{
 	//	RabbitY= 0;
 	//}
-	if (RabbitY>388)
+	if (RabbitY[EnemyNum]>388)
 	{
-		RabbitY= 388;
+		RabbitY[EnemyNum] = 388;
 	}
 
 
@@ -88,10 +115,10 @@ void Enemy::EnemyWallBumped()
 
 void Enemy::EnemyAirCollision(Character& e_chara)
 {
-	if (RabbitY< e_chara.Player_posY && e_chara.Player_posY - RabbitY<16
-		|| RabbitY>e_chara.Player_posY && RabbitY - e_chara.Player_posY<16
-		|| RabbitX>e_chara.Player_posX && RabbitX - e_chara.Player_posX<16
-		|| e_chara.Player_posX>RabbitX &&RabbitY <e_chara.Player_posY&& e_chara.Player_posX - RabbitX< 16)
+	if (RabbitY[EnemyNum] < e_chara.Player_posY && e_chara.Player_posY - RabbitY[EnemyNum]<16
+		|| RabbitY[EnemyNum]>e_chara.Player_posY && RabbitY[EnemyNum] - e_chara.Player_posY<16
+		|| RabbitX[EnemyNum]>e_chara.Player_posX && RabbitX[EnemyNum] - e_chara.Player_posX<16
+		|| e_chara.Player_posX>RabbitX[EnemyNum] &&RabbitY[EnemyNum] <e_chara.Player_posY&& e_chara.Player_posX - RabbitX[EnemyNum] < 16)
 	{
 		DrawRectRotaGraph(e_chara.Player_posX + 30, e_chara.Player_posY, 0, 0, 120, 120, 1, 0, e_chara.EffectHandle, true);
 		

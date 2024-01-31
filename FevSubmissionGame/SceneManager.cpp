@@ -99,7 +99,7 @@ bool SceneManager::ChangeScene()
 void SceneManager::ExplanationScene()
 {
 
-	DrawString(0, 100, "スペースキーでジャンプ", 0xffffff);
-	DrawString(0, 130, "敵に60秒当たるな!!",0xffffff);
+	DrawString(0, 100, "スペースキーでジャンプ", 0xff0000);
+	DrawString(0, 130, "敵に60秒当たるな!!",0xff0000);
 
 }
