@@ -1,4 +1,5 @@
 #pragma once
+#include "DxLib.h"
 class SceneManager
 {
 public:
@@ -25,8 +26,9 @@ void DecisionScene();
 
 void ExplanationScene();
 
+int NomalFontHandle = CreateFontToHandle(NULL, 30, 1, DX_FONTTYPE_NORMAL);
 
-//SceneManager::sceneitem NowScene;
+
 
 
 

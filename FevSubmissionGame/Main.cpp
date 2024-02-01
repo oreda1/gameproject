@@ -51,9 +51,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			character.Draw();
 			character.Move(map);
 			enemy.Draw();
+			enemy.EnemyVerticalMove();
+			enemy.Drawcircle();
 			enemy.EnemyWallBumped();
-			enemy.EnemyAirCollision(character);
 			enemy.KillerRabbit(character);
+			enemy.EnemyAirCollision(character);
 			enemy.UpdateEnemy();
 			enemy.EnemyMove();
 			

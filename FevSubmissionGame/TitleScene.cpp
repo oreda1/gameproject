@@ -12,6 +12,8 @@ bool TitleScene::Update()
 	MakeSelectTriangle();
 	//Key“ü—Í
 	gpUpdateKey();
+
+	//DrawRectGraph(100, 100, 100, 100,400,100, TitleHandle, false);
 	
 
 	

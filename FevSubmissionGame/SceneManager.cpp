@@ -98,8 +98,10 @@ bool SceneManager::ChangeScene()
 
 void SceneManager::ExplanationScene()
 {
-
+	ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ", 0xff0000);
 	DrawString(0, 130, "敵に60秒当たるな!!",0xff0000);
+	DrawString(470, 0, "素材提供者様", 0xfffff);
+	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 
 }
