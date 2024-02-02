@@ -1,7 +1,9 @@
 #include "Map.h"
 #include "BaseNumber.h"
 #include "Dxlib.h"
+#include "SceneManager.h"
 
+SceneManager m_scene;
 
 void Map::Draw()
 {
@@ -47,10 +49,13 @@ void Map::TimeLimit()
 	time_count+=0.02;
 	if (time_count>=60)
 	{
-		DrawExtendFormatString(300, 240, 2, 2, 0xffffff, "Game Clear");
+		DrawExtendFormatString(100, 100,5, 5, 0xffffff, "Game Clear");
+		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing");
 	}
-
+	
 	DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
+	
+	
 }
 
 void Map::BackGround()

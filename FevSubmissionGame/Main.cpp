@@ -28,6 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SceneManager scene;
 
 	/*ゲームループ*/
+	title.TitleMusic();
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
 	while (TRUE)
 	{
@@ -35,14 +36,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 		/*ゲーム処理*/
 		if(sceneFlag)
-		{	sceneFlag = title.Update();
+		{
+			
+			sceneFlag = title.Update();
 		    scene.ExplanationScene();
 			scene.DecisionScene();
 			
 		}
 		else if (scene.NowScene==scene.Playing)
 		{	
-			
+			StopSoundFile();
 			map.BackGround();
 			map.Draw();
 			map.TimeLimit();
@@ -53,7 +56,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.Draw();
 			enemy.EnemyVerticalMove();
 			enemy.Drawcircle();
-			enemy.EnemyWallBumped();
+			enemy.InitEnemy();
 			enemy.KillerRabbit(character);
 			enemy.EnemyAirCollision(character);
 			enemy.UpdateEnemy();

@@ -10,36 +10,50 @@ void Enemy::UpdateEnemy()
 {
 	//false + true -
 	//Á‚¦‚½‚Ìˆ—
-	if (RabbitX[0]>640||RabbitY[0]>452)
+	if (RabbitY<= 0)
 	{
-		enemyHit = false;
+		rabbitHitY = true;
 	}
-	if (RabbitX[0] < -10 || RabbitY[0] < -10)
+	else if (RabbitY >= 448)
 	{
-		enemyHit = true;
+		rabbitHitY = false;
 	}
-	if (enemyY<0||enemyY > 448)
+	if (RabbitX<= 0)
+	{
+		rabbitHitX = true;
+	}
+	else if (RabbitX >= 608)
+	{
+		rabbitHitX = false;
+	}
+
+
+	//true‚Ìê‡‘«‚·ˆ—Afalse‚Ìê‡Œ¸‚ç‚·ˆ—
+	if (enemyY<=0)
 	{
 		enemyHitY = true;
 	}
-	if (enemyX<0||enemyX > 608)
+	if (enemyY>=448)
 	{
-	  enemyHitY = false;
-	
+		enemyHitY = false;
+	}
+	if (enemyX<=0)
+	{
+		enemyHitX = true;
+	}
+    if (enemyX>=608)
+	{
+		enemyHitX = false;
 	}
 	
-	
-
 }
 
 void Enemy::Drawcircle()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 6; i++)
 	{
-       DrawCircle(circleX[i], circleY[i],5,0xffffff,DectionCircle);
+       DrawCircle(circleX[i], circleY[i],5,0xffffff,DectionCircle[i]);
 	}
-
-	
 
 }
 
@@ -47,7 +61,7 @@ void Enemy::Drawcircle()
 
 void Enemy::Draw()
 {
-	int EnemyHandle=LoadGraph("RoperMan.png");
+
 	
 	for (int y = 0; y < EnemyChipY; y++)
 	{
@@ -68,7 +82,7 @@ void Enemy::Draw()
 void Enemy::KillerRabbit(Character& e_chara)
 {
 	
-	DrawRectGraph(RabbitX[0], RabbitY[0], EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
+	DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
 	
 	
 }
@@ -78,44 +92,46 @@ void Enemy::KillerRabbit(Character& e_chara)
 void Enemy::EnemyMove() 
 {
 	
-	
-	if (enemyHit!=false&& enemyHit!=true)
-	{
-		RabbitX[0] += 5;
-		
-	}
-	//‰Šú‚ÌˆÚ“®
-	if (enemyHit == false)
-	{
-		RabbitX[0] -= 5;
-		FirstHit = false;
-		
-	}
-	if (enemyHit == true)
-	{
-		
-		RabbitX[0] += 5;
-		RabbitY[0] -= 5;
-		FirstHit = true;
-		
-	}
-	//‚»‚êˆÈŠO‚ÌˆÚ“®
-	if (enemyHit == false&&FirstHit==false)
-	{
-		RabbitX[0] -= 5;
-		RabbitY[0] += 5;
-	}
-	
-	
-	if (RabbitY[0] < 0 && FirstHit == true)
-	{
-		
-		RabbitY[0] += 5;
-		RabbitX[0] += 5;
-	}
-	
 
+	
+	//-ó‘Ô
+	if (rabbitHitY == true)
+	{
+		RabbitY += getX;
+	}
+	if (rabbitHitX == true)
+	{
+		RabbitX+= getY;
 
+	}
+	//+ó‘Ô
+	if (rabbitHitY == false)
+	{
+		RabbitY -= getX;
+
+	}
+	if (rabbitHitX== false)
+	{
+		RabbitX -= getY;
+
+	}
+	//—¼•û–‚½‚·®
+	if (rabbitHitX == true && rabbitHitY == true)
+	{
+		RabbitX += 3;
+		RabbitY+= 3;
+	}
+	if (rabbitHitX == false && rabbitHitY == false)
+	{
+		RabbitX -= 3;
+		RabbitY-= 3;
+	}
+	
+	if (IsFlag==false)
+	{
+      RabbitX -= 4;
+	  RabbitY += 2;
+	}
 	
 
 }
@@ -123,64 +139,100 @@ void Enemy::EnemyMove()
 void Enemy::EnemyVerticalMove()
 {
 
-	//Å‰‚ÌˆÚ“®
-	if (FirstHitY!=true&&FirstHitY!=false)
+	if (IsFlag==false)
 	{
-		enemyY -= 5;
-		enemyHitY = true;
+		enemyX+= getX;
+		enemyY-= getY;
+	}
 		
-	}
-	if (enemyHitY==true)
-	{
-		enemyY += 5;
+	//0<enemyX<640
+	//0<enemyY<448 
+
+		//-ó‘Ô
+		if (enemyHitY == true)
+		{
+			enemyY += getX;
+		}
+		if (enemyHitX == true)
+		{
+			enemyX += getY;
+
+		}
+		//+ó‘Ô
+		if (enemyHitY == false)
+		{
+			enemyY -= getX;
+
+		}
+		if (enemyHitX == false)
+		{
+		   enemyX -= getY;
+
+		}
+		//—¼•û–‚½‚·®
+		if (enemyHitX == true && enemyHitY == true)
+		{
+			enemyX += 2;
+			enemyY += 2;
+		}
+		if (enemyHitX == false && enemyHitY == false)
+		{
+			enemyY -= 2;
+			enemyX -= 2;
+		}
+
+
 		
-
-	}
-	if (enemyHitY==false)
-	{
-		enemyY += 2;
-		enemyX -= 5;
-
-	}
-	//-ó‘Ô
-	if (FirstHitY==false&&enemyHitY==false)
-	{
-		enemyX += 5;
-	
-	}
-	//+ó‘Ô
-	if (FirstHitY==true&&enemyHitY==true)
-	{
-		
-		enemyY -= 5;
-		
-	}
-
-
 }
 
-void Enemy::EnemyWallBumped()
+void Enemy::InitEnemy()
 {
-
-	if (RabbitY[0]>388)
+	
+	if (enemyX > GameWidth-EnemyPerChraSize || enemyY > GameHeight-EnemyPerChraSize || enemyX < 0 || enemyY < 0)
 	{
-		RabbitY[0] = 388;
+		IsFlag = true;
+		enemyX = rand_eX; enemyY = rand_eY;
 	}
-
+	else
+	{	
+		IsFlag = false;
+	}
+	if (RabbitX > GameWidth-EnemyPerChraSize || RabbitY > GameHeight-EnemyPerChraSize || RabbitX < 0 || RabbitY < 0)
+	{
+		IsFlag = true;
+		RabbitX = rand_rX; RabbitY = rand_rY;
+	}
+	else 
+	{
+		IsFlag = false;
+	}
+	
 
 }
+
+
 
 void Enemy::EnemyAirCollision(Character& e_chara)
 {
-	if (RabbitX[0]>e_chara.Player_posX&&RabbitY[0]<e_chara.Player_posY&&RabbitX[0]-e_chara.Player_posX<8
-		||RabbitY[0]<e_chara.Player_posY&&e_chara.Player_posY-RabbitY[0]<8
-		||e_chara.Player_posX>RabbitX[0]&&e_chara.Player_posX-RabbitX[0]<8
-		||RabbitY[0]>e_chara.Player_posY&&RabbitY[0]-e_chara.Player_posY<8)
+
+
+
+	if (RabbitX > e_chara.Player_posX && RabbitY < e_chara.Player_posY && RabbitX - e_chara.Player_posX < 8
+		|| RabbitY < e_chara.Player_posY && e_chara.Player_posY - RabbitY<8
+		|| e_chara.Player_posX>RabbitX && e_chara.Player_posX - RabbitX<8
+		|| RabbitY>e_chara.Player_posY && RabbitY - e_chara.Player_posY < 8)
 	{
 		DrawRectRotaGraph(e_chara.Player_posX + 30, e_chara.Player_posY, 0, 0, 120, 120, 1, 0, e_chara.EffectHandle, true);
-		
+		for (int i = 0; i < 6; i++)
+		{
+			
+			DectionCircle[i]= false;
+
+
+
+		}
 	}
-	
+
 
 }
 

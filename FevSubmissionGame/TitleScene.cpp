@@ -13,7 +13,9 @@ bool TitleScene::Update()
 	//Key“ü—Í
 	gpUpdateKey();
 
-	//DrawRectGraph(100, 100, 100, 100,400,100, TitleHandle, false);
+	
+
+	DrawRectGraph(50, 0, 70,30,350,100, TitleHandle, false);
 	
 
 	
@@ -73,4 +75,9 @@ void TitleScene::MakeSelectTriangle()
 		triangle.y3,
 		0xffffff, true);
 
+}
+
+void TitleScene::TitleMusic()
+{
+	PlayMusic("MusMus-BGM-062.mp3",DX_PLAYTYPE_BACK);
 }

@@ -17,11 +17,12 @@ public:
 		int y1 = (y2 + y3) / 2;//1‚Â‚Ì’¸“_yÀ•W305
 	}triangle;
 
-	int TitleHandle=LoadGraph("gameicon.png");
+	int TitleHandle=LoadGraph("gameicon2.png");
 	
 
 
 //private:
 	int gpUpdateKey();
 	void MakeSelectTriangle();
+	void TitleMusic();
 };

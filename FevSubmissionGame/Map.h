@@ -6,7 +6,7 @@ public:
 	void Update();
 	void Init();
 
-	void TimeLimit();
+   void TimeLimit();
 
 	void BackGround();
 	
