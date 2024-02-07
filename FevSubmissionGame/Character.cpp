@@ -6,7 +6,6 @@
 #include "Enemy.h"
 
 
-
 Character::Character()
     {
     //m_Enemy = new Enemy;
@@ -61,38 +60,15 @@ Character::Character()
     {
         
         gpUpdateKey();
-        if (titleP.Key[KEY_INPUT_UP])
+        Player_posY += Jumpgravity;
+        JumpFlag = true;
+        if (titleP.Key[KEY_INPUT_SPACE]==1&&JumpFlag==true)
         {
+            Player_posY -= JumpSpeed + JumpInitialVelocity - Jumpgravity;
            
-            Player_posY -=5;
-            if (Player_posY<0)
-            {
-                Player_posY = 0;
-            }
-
-            
         }
         
-        
-        //d—Í
-        Player_posY +=Jumpgravity;  
-        JumpFlag == true;
-        if (titleP.Key[KEY_INPUT_SPACE]==1)
-        {   
-            
-            Player_posY -= JumpSpeed+JumpInitialVelocity;
-            JumpInitialVelocity -= 1;
-            JumpFlag = false;     
-             
-           
-            if (Player_posY==368)
-            {
-                JumpFlag == true;
-               
-            }
 
-         
-        }
         //‰æ–Ê‚Ì”ä—¦320*240
         //‰æ‘œ‚Ì”ä—¦384*256
         if (titleP.Key[KEY_INPUT_DOWN])
@@ -102,27 +78,27 @@ Character::Character()
 
         }
 
-        if (titleP.Key[KEY_INPUT_RIGHT])
-        {
-            Player_posX= CharaMoveSpeed + Player_posX;
+        //if (titleP.Key[KEY_INPUT_RIGHT])
+        //{
+        //    Player_posX= CharaMoveSpeed + Player_posX;
 
-           PlayerChipSizeX = 0;
-           PlayerChipSizeY = 64;
-          
+        //   PlayerChipSizeX = 0;
+        //   PlayerChipSizeY = 64;
+        //  
 
-        }
+        //}
 
-        if (titleP.Key[KEY_INPUT_LEFT])
-        {
-            Player_posX = Player_posX - CharaMoveSpeed;
-            if (Player_posX < 0)
-            {
-                Player_posX = 0;
-                Player_posY = Player_posY;
-            }
-            PlayerChipSizeX = 32;
-            PlayerChipSizeY = 32;
-        }
+        //if (titleP.Key[KEY_INPUT_LEFT])
+        //{
+        //    Player_posX = Player_posX - CharaMoveSpeed;
+        //    if (Player_posX < 0)
+        //    {
+        //        Player_posX = 0;
+        //        Player_posY = Player_posY;
+        //    }
+        //    PlayerChipSizeX = 32;
+        //    PlayerChipSizeY = 32;
+        //}
 
         FallCollision();
 
@@ -138,10 +114,14 @@ Character::Character()
     void Character::Collision(Enemy&cEnemy)
     {
         
-            //©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
-            if (cEnemy.enemyX> Player_posX && cEnemy.enemyX- Player_posX < 16 && cEnemy.enemyY- Player_posY<16 || Player_posX>cEnemy.enemyX&& Player_posX - cEnemy.enemyX< 16 && cEnemy.enemyY- Player_posY < 16)
+            //‹ó’†‚É‚¢‚é‚Æ‚«‚Ì©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
+            if (cEnemy.enemyX>Player_posX&&cEnemy.enemyX-Player_posX<16
+                ||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16
+                ||cEnemy.enemyY>Player_posY&&cEnemy.enemyY-Player_posY<16
+                ||Player_posY>cEnemy.enemyY&&Player_posY-cEnemy.enemyY<16)
             {
                 SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
+               
 
             }
             else
@@ -150,9 +130,7 @@ Character::Character()
             }
         
         
-
     }
-   
 
     void Character::FallCollision()
     {

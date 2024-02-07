@@ -37,7 +37,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		/*ÉQÅ[ÉÄèàóù*/
 		if(sceneFlag)
 		{
-			
 			sceneFlag = title.Update();
 		    scene.ExplanationScene();
 			scene.DecisionScene();
@@ -45,7 +44,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else if (scene.NowScene==scene.Playing)
 		{	
-			StopSoundFile();
 			map.BackGround();
 			map.Draw();
 			map.TimeLimit();
@@ -54,16 +52,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			character.Draw();
 			character.Move(map);
 			enemy.Draw();
+			enemy.InitEnemy();	
 			enemy.EnemyVerticalMove();
+			enemy.EnemyMove();	
 			enemy.Drawcircle();
-			enemy.InitEnemy();
 			enemy.KillerRabbit(character);
 			enemy.EnemyAirCollision(character);
 			enemy.UpdateEnemy();
-			enemy.EnemyMove();
-			
-		
-
+			enemy.AdditionMove();
 		}
 		else if(scene.NowScene==scene.S_Option)
 		{

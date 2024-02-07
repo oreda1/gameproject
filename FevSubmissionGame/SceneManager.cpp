@@ -99,8 +99,8 @@ bool SceneManager::ChangeScene()
 void SceneManager::ExplanationScene()
 {
 	ChangeFont("NomalFontHandle");
-	DrawString(0, 100, "スペースキーでジャンプ\n左右キーでそれぞれの方向に移動", 0xff0000);
-	DrawString(0, 140, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
+	DrawString(0, 100, "スペースキーでジャンプ", 0xff0000);
+	DrawString(0, 120, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 

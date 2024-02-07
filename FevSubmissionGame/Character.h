@@ -22,7 +22,7 @@ public:
 	//プレイヤーの初期位置
    //キャラの最初のポジション 
 	int Player_posX = 0;
-	int Player_posY = 300;
+	int Player_posY = 400;
 	
 	int PlayerHandle=LoadGraph("Cockroach.png");
 	int EffectHandle=LoadGraph("pipo-btleffect088c.png");
@@ -41,8 +41,7 @@ private:
 	float Jumpgravity=2.5f;
 	//キャラのジャンプスピード
 	int JumpSpeed = 50;
-	//ジャンプ1秒当たりのフレーム
-	int JumpFlame;
+ 
 	//キャラ座標の保存
 	int preservationY;
 
