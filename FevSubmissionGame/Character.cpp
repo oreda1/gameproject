@@ -111,26 +111,7 @@ Character::Character()
         
     }
 
-    void Character::Collision(Enemy&cEnemy)
-    {
-        
-            //‹ó’†‚É‚¢‚é‚Æ‚«‚Ì©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
-            if (cEnemy.enemyX>Player_posX&&cEnemy.enemyX-Player_posX<16
-                ||Player_posX>cEnemy.enemyX&&Player_posX-cEnemy.enemyX<16
-                ||cEnemy.enemyY>Player_posY&&cEnemy.enemyY-Player_posY<16
-                ||Player_posY>cEnemy.enemyY&&Player_posY-cEnemy.enemyY<16)
-            {
-                SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
-               
-
-            }
-            else
-            {
-                SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-            }
-        
-        
-    }
+ 
 
     void Character::FallCollision()
     {

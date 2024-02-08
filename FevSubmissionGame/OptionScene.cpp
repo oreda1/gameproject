@@ -15,10 +15,7 @@ void OptionScene::OptionText(TitleScene opt_title)
 	{
 		DrawFormatString(option_date->Option_posX,option_date->Option_posY,0xffffff,option_date->OptionItemName);
 	}
-	if (titleP.Key[KEY_INPUT_RETURN])
-	{
-		
-	}
+	
 	
 	
 }

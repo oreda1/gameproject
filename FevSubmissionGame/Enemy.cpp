@@ -3,7 +3,7 @@
 #include "BaseNumber.h"
 #include "Character.h"
 #include <math.h>
-Character en_chara;
+class  Character character;
 Map en_map;
 
 
@@ -11,45 +11,44 @@ void Enemy::UpdateEnemy()
 {
 	//false + true -
 	//Á‚¦‚½‚Ìˆ—
-	if (RabbitY<= 0)
+	if (RabbitY< 0)
 	{
 		RabbitY = 0;
 		rabbitHitY = true;
 	}
-	else if (RabbitY >= 448)
+	else if (RabbitY >448)
 	{
 		RabbitY = 448;
 		rabbitHitY = false;
 	}
-	if (RabbitX<= 0)
+	if (RabbitX< 0)
 	{
 		RabbitX = 0;
 		rabbitHitX = true;
 	}
-	else if (RabbitX >= 608)
+	else if (RabbitX > 608)
 	{
 		RabbitX = 608;
 		rabbitHitX = false;
 	}
 
-
 	//true‚Ìê‡‘«‚·ˆ—Afalse‚Ìê‡Œ¸‚ç‚·ˆ—
-	if (enemyY<=0)
+	if (enemyY<0)
 	{
 		enemyY = 0;
 		enemyHitY = true;
 	}
-	else if (enemyY>=448)
+	else if (enemyY>448)
 	{
 		enemyY = 448;
 		enemyHitY = false;
 	}
-	if (enemyX<=0)
+	if (enemyX<0)
 	{
 		enemyX = 0;
 		enemyHitX = true;
 	}
-    else if (enemyX>=608)
+    else if (enemyX>608)
 	{
 		enemyX = 608;
 		enemyHitX = false;
@@ -61,7 +60,7 @@ void Enemy::AdditionMove()
 {
 	if (RabbitX > 550)
 	{
-		enemyX = en_chara.Player_posX + 20;
+		enemyX = character.Player_posX + 20;
 	}
 	if (en_map.time_count==10)
 	{
@@ -69,21 +68,21 @@ void Enemy::AdditionMove()
 		enemyY =rand_rY;
 	}
 	
-	if (RabbitX<400 && RabbitY<300)
+	if (RabbitX<400 && RabbitY<250)
 	{
 		RabbitY += 5;
 	}
-
+	
 }
 
 void Enemy::Drawcircle()
 {
+	
 	for (int i = 0; i < 6; i++)
 	{
-       DrawCircle(circleX[i], circleY[i],5,0xffffff,DectionCircle[i]);
+	   lifecolor[i] = {static_cast<int>(GetColor(255, 255, 255))};
+       DrawCircle(circleX[i], circleY[i],5,lifecolor[i], DectionCircle[i]);
 	}	
-	
-	
 	
 	
 }
@@ -120,15 +119,15 @@ void Enemy::EnemyMove()
 
 	if (IsFlag == false)
 	{
-		RabbitX -= rabgetX;
-		RabbitY -=rabgetY;
+		RabbitX +=rabgetY;
+		RabbitY -=rabgetX;
 	
 		//-ó‘Ô
 		if (rabbitHitY == true)
 		{
 			RabbitY += rabgetX;
 		}
-		if (rabbitHitX == true)
+		else if (rabbitHitX == true)
 		{
 			RabbitX += rabgetY;
 
@@ -138,8 +137,8 @@ void Enemy::EnemyMove()
 		{
 			RabbitY -=rabgetX;
 
-		}
-		if (rabbitHitX == false)
+		} 
+		else if (rabbitHitX == false)
 		{
 			RabbitX -= rabgetY;
 
@@ -151,23 +150,24 @@ void Enemy::EnemyVerticalMove()
 {
 	if (IsFlag == false)
 	{
-		enemyY += getY;
-		enemyX -= getX;
+		
+		enemyY +=getY+2;
+		enemyX -=getX+2;
 		if (enemyHitX == true)
 		{
-			enemyX += getX;
+			enemyX += 1+getY;
 		}
-		if (enemyHitX == false)
+		else if (enemyHitX == false)
 		{
-			enemyX -= getX;
+			enemyX -= 1+getY;
 		}
 		if (enemyHitY == true)
 		{
-			enemyY += getY;
+			enemyY += 1+getX;
 		}
-	    if (enemyHitY == false)
+	    else if (enemyHitY == false)
 		{
-			enemyY -= getY;
+			enemyY -= 1+getX;
 		}
 	}
 
@@ -197,26 +197,73 @@ void Enemy::InitEnemy()
 
 }
 
-
-
-void Enemy::EnemyAirCollision(Character& e_chara)
+void Enemy::EnemyAirCollision()
 {
 
-	if (RabbitX > e_chara.Player_posX && RabbitY < e_chara.Player_posY && RabbitX - e_chara.Player_posX < 8
-		|| RabbitY < e_chara.Player_posY && e_chara.Player_posY - RabbitY<8
-		|| e_chara.Player_posX>RabbitX && e_chara.Player_posX - RabbitX<8
-		|| RabbitY>e_chara.Player_posY && RabbitY - e_chara.Player_posY < 8)
+	if (character.Player_posY>RabbitY&&character.Player_posX<RabbitX&&character.Player_posY-RabbitY<16&&character.Player_posX-RabbitX<16)
 	{
-		DrawRectRotaGraph(e_chara.Player_posX + 30, e_chara.Player_posY, 0, 0, 120, 120, 1, 0, e_chara.EffectHandle, true);
-		
-
-
-
-
-
-
+		DrawRectRotaGraph(character.Player_posX + 30, character.Player_posY, 0, 0, 120, 120, 1, 0, character.EffectHandle, true);
+		circlecount = circlecount + 1;
+		switch (circlecount)
+		{
+		case 0:
+			DectionCircle[circlecount] = false;
+			break;
+		case 1:
+			DectionCircle[circlecount] = false;
+			break;
+		case 2:
+			DectionCircle[circlecount] = false;
+			break;
+		case 3:
+			DectionCircle[circlecount] = false;
+			break;
+		case 4:
+			DectionCircle[circlecount] = false;
+			break;
+		case 5:
+			DectionCircle[circlecount] = false;
+			break;
+		default:
+			break;
+		}
 	}
+	//‹ó’†‚É‚¢‚é‚Æ‚«‚Ì©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
+	if (enemyX > character.Player_posX && enemyX - character.Player_posX<4
+		|| character.Player_posX>enemyX && character.Player_posX - enemyX<4
+		|| enemyY>character.Player_posY && enemyY - character.Player_posY<4
+		|| character.Player_posY>enemyY && character.Player_posY - enemyY < 4)
+	{
+		SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
 
+		switch (circlecount)
+		{
+		case 0:
+			DectionCircle[circlecount] = false;
+			break;
+		case 1:
+			DectionCircle[circlecount] = false;
+			break;
+		case 2:
+			DectionCircle[circlecount] = false;
+			break;
+		case 3:
+			DectionCircle[circlecount] = false;
+			break;
+		case 4:
+			DectionCircle[circlecount] = false;
+			break;
+		case 5:
+			DectionCircle[circlecount] = false;
+			break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	}
 
 }
 

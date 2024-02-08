@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	/*Dxlibèâä˙âªèàóù(ê›íËçûÇ›)*/
 	//SetGraphMode(GameWidth, GameHeight, 32);
 	ChangeWindowMode(true);
-	SetWindowText("Nameless");
+	SetWindowText("UNNAMED");
 	if (DxLib_Init() == -1) { return -1; }
 	SetDrawScreen(DX_SCREEN_BACK);//ó†âÊñ èëÇ´çûÇ›
 
@@ -48,7 +48,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			map.Draw();
 			map.TimeLimit();
 			character.Effect();
-			character.Collision(enemy);
 			character.Draw();
 			character.Move(map);
 			enemy.Draw();
@@ -57,7 +56,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.EnemyMove();	
 			enemy.Drawcircle();
 			enemy.KillerRabbit(character);
-			enemy.EnemyAirCollision(character);
+			enemy.EnemyAirCollision();
 			enemy.UpdateEnemy();
 			enemy.AdditionMove();
 		}

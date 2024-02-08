@@ -12,7 +12,7 @@ public:
 	void EnemyMove();
 	void EnemyVerticalMove();
 	void InitEnemy();
-	void EnemyAirCollision(Character&e_chara);
+	void EnemyAirCollision();
 	void UpdateEnemy();
 	void AdditionMove();
 	
@@ -26,11 +26,12 @@ public:
 	int RabbitX=200;
 	int	RabbitY= 400;
 
-	int getX = GetRand(10);
-	int getY = GetRand(10);
+	int getX = GetRand(5);
+	int getY = GetRand(5);
+	
 
-	int rabgetX = GetRand(10);
-	int rabgetY = GetRand(10);
+	int rabgetX = GetRand(5);
+	int rabgetY = GetRand(5);
 
 
 	int rand_rX=GetRand(600);
@@ -53,13 +54,13 @@ public:
 
 	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
 
-
-
 	void Drawcircle();
-	int circlecount=6;
+	int circlecount=0;
 	bool DectionCircle[6];
-	int circleX[6] = {10,10,10,20,20,20};
+	int circleX[6] = {10,10,10,25,25,25};
 	int circleY[6] = {25,45,65,25,45,65};
+	int lifecolor[6];
+	int circlecolor=GetColor(255, 0, 0);
  
 
 };

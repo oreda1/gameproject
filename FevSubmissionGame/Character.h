@@ -14,7 +14,6 @@ public:
 	void Draw();
 	void Move(Map& gamescene);
     void Update();
-	void Collision(Enemy&cEnemy);
 	void FallCollision();
 	void Effect();
 	int gpUpdateKey();
@@ -46,8 +45,8 @@ private:
 	int preservationY;
 
 	//キャラ1マス分の大きさ
-	int PlayerChipSizeX=32;
-	int PlayerChipSizeY=32;
+	int PlayerChipSizeX=64;
+	int PlayerChipSizeY=64;
 
 
 	//キャラ切り抜きサイズ

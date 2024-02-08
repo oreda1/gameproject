@@ -13,8 +13,6 @@ bool TitleScene::Update()
 	//Key“ü—Í
 	gpUpdateKey();
 
-	
-
 	DrawRectGraph(50, 0, 70,30,350,100, TitleHandle, false);
 	
 
