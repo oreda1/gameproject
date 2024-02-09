@@ -74,8 +74,7 @@ namespace{
 
 	MenuElement_t MenuElement[50]{
 
-	 {250,300,"1 PLAYER GAME"},
-	 {250,340,"OPTION"},
+	 {250,300,"GAME START"}
 
 
 	};

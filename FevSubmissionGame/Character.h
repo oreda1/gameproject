@@ -20,7 +20,7 @@ public:
 	
 	//プレイヤーの初期位置
    //キャラの最初のポジション 
-	int Player_posX = 0;
+	int Player_posX = 300;
 	int Player_posY = 400;
 	
 	int PlayerHandle=LoadGraph("Cockroach.png");

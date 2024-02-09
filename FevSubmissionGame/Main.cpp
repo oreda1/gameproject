@@ -59,6 +59,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.EnemyAirCollision();
 			enemy.UpdateEnemy();
 			enemy.AdditionMove();
+
+		
 		}
 		else if(scene.NowScene==scene.S_Option)
 		{

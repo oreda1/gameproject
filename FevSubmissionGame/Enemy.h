@@ -55,8 +55,8 @@ public:
 	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
 
 	void Drawcircle();
-	int circlecount=0;
-	bool DectionCircle[6];
+	int circlecount=-1;
+	bool DectionCircle[6] = { true,true,true,true,true,true };
 	int circleX[6] = {10,10,10,25,25,25};
 	int circleY[6] = {25,45,65,25,45,65};
 	int lifecolor[6];

@@ -12,8 +12,10 @@ TitleScene s_title;
 
 
 
-SceneManager::SceneManager()
+SceneManager::SceneManager():
+	NowScene(Title)
 {
+	
 	scene_title = new TitleScene;
 	scene_map = new Map;
 	scene_option = new OptionScene;

@@ -6,22 +6,16 @@
 #include "Enemy.h"
 
 
-Character::Character()
+Character::Character():
+JumpFlag(false),
+preservationY(0)
     {
-    //m_Enemy = new Enemy;
-    //m_Enemy = nullptr;
-
-    // m_map = new Map;
-    // m_map = nullptr;
+  
     }
 
     Character::~Character()
     {
-      /*  delete m_Enemy;
-        m_Enemy = nullptr;
-
-        delete m_map;
-        m_map = nullptr;*/
+     
     }
 
     void Character::Init()
@@ -115,14 +109,22 @@ Character::Character()
 
     void Character::FallCollision()
     {
-        if (Player_posY >= 496)
+        //if (Player_posY >= 496)
+        //{
+        //    Player_posX = 160;
+        //    Player_posY = 120;
+        //}
+        //if (Player_posY > 368 && Player_posX <= 256)
+        //{
+        //    Player_posY = 368;
+        //}
+        if (Player_posY>370)
         {
-            Player_posX = 160;
-            Player_posY = 120;
+            Player_posY = 370;
         }
-        if (Player_posY > 368 && Player_posX <= 256)
+        if (Player_posY<0)
         {
-            Player_posY = 368;
+            Player_posY = 0;
         }
 
     }

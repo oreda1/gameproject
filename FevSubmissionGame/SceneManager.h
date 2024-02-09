@@ -20,6 +20,7 @@ Scene NowScene;
 
 
 
+
 bool DivideScene();
 bool ChangeScene();
 void DecisionScene();

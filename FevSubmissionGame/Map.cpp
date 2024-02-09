@@ -2,8 +2,10 @@
 #include "BaseNumber.h"
 #include "Dxlib.h"
 #include "SceneManager.h"
+#include "Enemy.h"
 
 SceneManager m_scene;
+Enemy m_enemy;
 
 void Map::Draw()
 {
@@ -44,20 +46,23 @@ void Map::Init()
 
 }
 
-void Map::TimeLimit()
+bool Map::TimeLimit()
 {
-	time_count+=0.02;
+	time_count+=0.2;
 	if (time_count>=60)
 	{
+		ClearDrawScreen();
+		InitGraph();
+	     m_enemy.DectionCircle;
 		DrawExtendFormatString(100, 100,5, 5, 0xffffff, "Game Clear");
 		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing");
 
-	
 	}
-	
+
 	DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 	
 	
+	return 0;
 }
 
 void Map::BackGround()
