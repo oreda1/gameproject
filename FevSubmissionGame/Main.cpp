@@ -68,7 +68,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			option.DrawFrame();
 			option.OptionText(title);
 		}
-
+		
 		/*•`‰æ‚ÌŠm’è*/
 		ScreenFlip();
 

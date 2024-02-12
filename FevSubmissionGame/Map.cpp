@@ -48,13 +48,16 @@ void Map::Init()
 
 bool Map::TimeLimit()
 {
-	time_count+=0.2;
+	
+	time_count+=0.02;
+    
 	if (time_count>=60)
 	{
+		
 		ClearDrawScreen();
 		InitGraph();
-	     m_enemy.DectionCircle;
-		DrawExtendFormatString(100, 100,5, 5, 0xffffff, "Game Clear");
+	    m_enemy.DectionCircle;
+		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
 		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing");
 
 	}

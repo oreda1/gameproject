@@ -4,6 +4,7 @@
 #include "OptionScene.h"
 
 
+
 TitleScene *scene_title;
 Map* scene_map;
 OptionScene *scene_option;
@@ -100,7 +101,7 @@ bool SceneManager::ChangeScene()
 
 void SceneManager::ExplanationScene()
 {
-	ChangeFont("NomalFontHandle");
+	//ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
 	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);

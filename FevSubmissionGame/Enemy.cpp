@@ -102,7 +102,7 @@ void Enemy::Draw()
 			{
 			
 			 DrawRectGraph(enemyX, enemyY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle, true);
-				
+		 
 			}
 		}
 	}
@@ -238,12 +238,14 @@ void Enemy::InitEnemy()
 void Enemy::EnemyAirCollision()
 {
 	
-	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<16
-		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16)
+	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<8
+		&&character.Player_posX>RabbitX&&character.Player_posX-RabbitX<8
+		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<8
+		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<8)
 	{
 		DrawRectRotaGraph(character.Player_posX+30, character.Player_posY, 0, 0, 120, 120, 1, 0, character.EffectHandle, true);
 		
-
+		
          circlecount = circlecount+1;
 
 		 switch (circlecount)
@@ -270,13 +272,16 @@ void Enemy::EnemyAirCollision()
 			 break;
 		 }
 		
-
+		
+		
 	
 	}
 	//‹ó’†‚É‚¢‚é‚Æ‚«‚Ì©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
-	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<16
-		&&character.Player_posY>enemyY&&character.Player_posY-enemyY<16
-		||enemyY>character.Player_posY&&enemyX>character.Player_posX&&enemyX-character.Player_posX<16&&enemyY-character.Player_posY<16)
+	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<8
+		&& character.Player_posY>enemyY && character.Player_posY - enemyY<8
+		||character.Player_posX>enemyX&&character.Player_posX-enemyX<8
+		&&enemyY>character.Player_posY&&enemyY-character.Player_posY<8
+		)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
 		circlecount = circlecount + 1;
