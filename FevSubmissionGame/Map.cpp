@@ -56,6 +56,8 @@ bool Map::TimeLimit()
 	if (time_count>=60)
 	{
 		
+		
+		
 		ClearDrawScreen();
 		m_enemy.DectionCircle;
 		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");

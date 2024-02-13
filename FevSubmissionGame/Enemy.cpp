@@ -240,10 +240,12 @@ void Enemy::InitEnemy()
 void Enemy::EnemyAirCollision()
 {
 	
-	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<8
-		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<8
-		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<8
-		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<8)
+	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<16
+		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16
+		//&& character.Player_posY>RabbitY && character.Player_posY - RabbitY<16
+		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<16
+		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<16
+		/*&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16*/)
 	{
 		DrawRectRotaGraph(character.Player_posX+30, character.Player_posY, 0, 0, 120, 120, 1, 0, character.EffectHandle, true);
 		
@@ -279,10 +281,10 @@ void Enemy::EnemyAirCollision()
 	
 	}
 	//‹ó’†‚É‚¢‚é‚Æ‚«‚Ì©‚Æª‚Ì“–‚½‚è”»’è,¨‚©‚ç‚Ì‚Ì“–‚½‚è”»’è,
-	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<8
-		&& character.Player_posY>enemyY && character.Player_posY - enemyY<8
-		||character.Player_posX>enemyX&&character.Player_posX-enemyX<8
-		&&enemyY>character.Player_posY&&enemyY-character.Player_posY<8
+	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<16
+		&&character.Player_posY>enemyY && character.Player_posY - enemyY<16
+		||character.Player_posX>enemyX&&character.Player_posX-enemyX<16
+		&&enemyY>character.Player_posY&&enemyY-character.Player_posY<16
 		)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
@@ -320,9 +322,12 @@ void Enemy::EnemyAirCollision()
 
 	if (DectionCircle[5] == false)
 	{
+		en_map.timescore = en_map.timelimit - en_map.time_count;
 		StopMusic();
 		ClearDrawScreen();
-		DrawExtendFormatString(250, 200, 2, 2, 0xffffff, "GameOver\nPlase Put ESC");
+		DrawExtendFormatString(200, 200, 4, 3, 0xff0000, "GameOver");
+		//DrawFormatString(300, 300, 0xffffff, "Score  %f", en_map.timescore);
+		DrawFormatString(250, 300, 0xffffff, "Plase Put ESC");
 		
 		
 	}

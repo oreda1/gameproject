@@ -13,7 +13,10 @@ public:
 	//’n–Ê•`‰æˆÊ’u
 	int GroundX = 300;//320
 	int GroundY=400;//540
+	
 
+	float timescore;
+	float timelimit=60;
 
 	float time_count=0.0;
 

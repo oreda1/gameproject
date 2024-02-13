@@ -3,3 +3,4 @@ C:\Users\Owner\Desktop\ゲーム\FevSubmissionGame\x64\Debug\FevSubmissionGame.e
 C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe
 C:\Users\Owner\Desktop\新しいフォルダー\gameproject\ゲーム\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe
 C:\Users\Owner\Desktop\新しいフォルダー\gameproject\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe
+C:\Users\fko2347033\Documents\sintyoku20240125\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe

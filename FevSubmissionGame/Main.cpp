@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	/*Dxlib‰Šú‰»ˆ—(İ’è‚İ)*/
 	//SetGraphMode(GameWidth, GameHeight, 32);
-	ChangeWindowMode(true);
+	//ChangeWindowMode(true);
 	SetWindowText("UNNAMED");
 	if (DxLib_Init() == -1) { return -1; }
 	SetDrawScreen(DX_SCREEN_BACK);//— ‰æ–Ê‘‚«‚İ

@@ -1,2 +1,3 @@
 C:\Users\fko2347033\Desktop\gameproject\ゲーム\FevSubmissionGame\x64\Release\FevSubmissionGame.exe
 C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\x64\Release\FevSubmissionGame.exe
+C:\Users\fko2347033\Documents\sintyoku20240125\gameproject\FevSubmissionGame\x64\Release\FevSubmissionGame.exe
