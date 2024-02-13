@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "OptionScene.h"
 #include "SceneManager.h"
+#include "GameClearScene.h"
 #include <memory>
 
 
@@ -26,6 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Enemy enemy;
 	OptionScene option;
 	SceneManager scene;
+	GameClearScene clear;
 
 	/*ÉQÅ[ÉÄÉãÅ[Év*/
 	title.TitleMusic();
@@ -59,6 +61,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.EnemyAirCollision();
 			enemy.UpdateEnemy();
 			enemy.AdditionMove();
+			clear.Draw();
 
 		
 		}

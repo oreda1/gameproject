@@ -34,6 +34,7 @@ bool TitleScene::Update()
 
 		return scene.NowScene;//シーン切り替え
 	}
+
 	//メニューの描画
 	for (int i = 0; i < 5; i++) {		//メニュー項目を描画
 	
@@ -56,8 +57,8 @@ int TitleScene::gpUpdateKey() {
 		}
 		else {						//押されていなければ
 		   titleP.Key[i] = 0;
-		}
 
+		}
 	}
 	return 0;
 }

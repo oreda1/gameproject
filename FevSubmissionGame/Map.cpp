@@ -3,9 +3,11 @@
 #include "Dxlib.h"
 #include "SceneManager.h"
 #include "Enemy.h"
+#include "GameClearScene.h"
 
 SceneManager m_scene;
 Enemy m_enemy;
+GameClearScene map_clear;
 
 void Map::Draw()
 {
@@ -50,22 +52,23 @@ bool Map::TimeLimit()
 {
 	
 	time_count+=0.02;
-    
+    DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 	if (time_count>=60)
 	{
 		
 		ClearDrawScreen();
-		InitGraph();
-	    m_enemy.DectionCircle;
+		m_enemy.DectionCircle;
 		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
-		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing");
-
+		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase put ESC");
+		map_clear.Draw();
+		
+	   
+     
 	}
 
-	DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 	
+	 return false;
 	
-	return 0;
 }
 
 void Map::BackGround()

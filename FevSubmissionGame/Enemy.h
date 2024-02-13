@@ -30,8 +30,8 @@ public:
 	int getY = GetRand(5);
 	
 
-	int rabgetX = GetRand(5);
-	int rabgetY = GetRand(5);
+	int rabgetX = GetRand(10-5);
+	int rabgetY = GetRand(10-5);
 
 
 	int rand_rX=GetRand(600);

@@ -1,5 +1,31 @@
-﻿  Enemy.cpp
-C:\Users\Owner\Desktop\新しいフォルダー\gameproject\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
-  (ソース ファイル 'Enemy.cpp' をコンパイルしています)
-  
-  FevSubmissionGame.vcxproj -> C:\Users\Owner\Desktop\新しいフォルダー\gameproject\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe
+﻿  BaseNumber.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  Enemy.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  GameClearScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  Map.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.cpp(54,17): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  Main.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\Dxlib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  Character.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(57,24): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(61,60): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  OptionScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  SceneManager.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  TitleScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(16,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  コードを生成中...
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.cpp(100): warning C4715: 'SceneManager::ChangeScene': 値を返さないコントロール パスがあります。
+  FevSubmissionGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe

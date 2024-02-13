@@ -20,7 +20,6 @@ public:
 	
 private:
 	
-
 	//Ø‚è”²‚­êŠ
 	int CropX=0;
 	int CropY=128;

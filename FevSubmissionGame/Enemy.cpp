@@ -209,6 +209,8 @@ void Enemy::EnemyVerticalMove()
 		}
 	}
 
+	
+
 }
 
 void Enemy::InitEnemy()
@@ -239,8 +241,8 @@ void Enemy::EnemyAirCollision()
 {
 	
 	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<8
-		&&character.Player_posX>RabbitX&&character.Player_posX-RabbitX<8
 		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<8
+		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<8
 		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<8)
 	{
 		DrawRectRotaGraph(character.Player_posX+30, character.Player_posY, 0, 0, 120, 120, 1, 0, character.EffectHandle, true);
@@ -324,6 +326,8 @@ void Enemy::EnemyAirCollision()
 		
 		
 	}
+	
+	
 	
 }
 

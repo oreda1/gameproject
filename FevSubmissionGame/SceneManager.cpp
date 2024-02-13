@@ -68,7 +68,7 @@ bool SceneManager::ChangeScene()
 	
 	if (NowScene==Title)
 	{ 
-		return true;
+		
 		scene_title->gpUpdateKey();
 		scene_title->Update();
 		scene_title->MakeSelectTriangle();
@@ -90,13 +90,18 @@ bool SceneManager::ChangeScene()
 	else if (NowScene==Return_Title)
 	{
 		return true;
+		scene_title->gpUpdateKey();
+		scene_title->Update();
+		scene_title->MakeSelectTriangle();
 	
 	}
 	else if (NowScene==End)
 	{
 		
 	}
+	
 
+	
 }
 
 void SceneManager::ExplanationScene()
@@ -104,6 +109,7 @@ void SceneManager::ExplanationScene()
 	//ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
 	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
+	DrawString(0, 170, "Zキーでスタート",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 

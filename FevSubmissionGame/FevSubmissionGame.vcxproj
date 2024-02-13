@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="BaseNumber.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameClearScene.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="BaseNumber.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameClearScene.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="OptionScene.h" />
     <ClInclude Include="SceneManager.h" />
