@@ -34,11 +34,16 @@ void Map::Draw()
 
 	}
 
+	
+
 }
 
 
-void Map::Update()
+void Map::TimeUpdate()
 {
+	time_count += 0.02;
+	DrawExtendFormatString(220, 0,3,3, 0x0000ff, "%f", time_count);
+
 }
 
 
@@ -50,26 +55,27 @@ void Map::Init()
 
 bool Map::TimeLimit()
 {
+	m_scene.GameClear = false;
 	
-	time_count+=0.02;
-    DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
-	if (time_count>=60)
+	if (time_count >= 60)
 	{
-		
-		
-		
+		m_scene.GameClear = true;
 		ClearDrawScreen();
-		m_enemy.DectionCircle;
+		m_enemy.enemyX = 0;
+		m_enemy.enemyY = 0;
+
+		m_enemy.RabbitX = 0;
+		m_enemy.RabbitY = 0;
+
+	    
 		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
-		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase put ESC");
-		map_clear.Draw();
-		
-	   
+		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase Put ESC");
+
      
 	}
-
 	
-	 return false;
+
+	 return true;
 	
 }
 

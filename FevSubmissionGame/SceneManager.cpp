@@ -55,6 +55,10 @@ bool SceneManager::DivideScene()
 	{
 		NowScene = S_Option;
 	}
+	else if (scene_map->time_count>60)
+	{
+		NowScene = Clear;
+	}
 	else if (titleP.Key[KEY_INPUT_RETURN]&&NowScene==Playing||NowScene==S_Option)
 	{
 		NowScene = Return_Title;
@@ -95,9 +99,10 @@ bool SceneManager::ChangeScene()
 		scene_title->MakeSelectTriangle();
 	
 	}
-	else if (NowScene==End)
+	else if(NowScene==Clear)
 	{
 		
+		scene_map->TimeLimit();
 	}
 	
 
@@ -109,7 +114,7 @@ void SceneManager::ExplanationScene()
 	//ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
 	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
-	DrawString(0, 170, "Zキーでスタート",0xff0000);
+	DrawString(0, 170, "Zキーでスタート\n左上のライフが無くなるとゲームオーバーになるぞ!!",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 

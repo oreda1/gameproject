@@ -11,6 +11,7 @@ public:
 		Title,
 		S_Option,
 		Playing,
+		Clear,
 		Return_Title,
 		End
 	};
@@ -18,8 +19,8 @@ public:
 //Œ»İ‚ÌƒV[ƒ“‚ğ”»•Ê
 Scene NowScene;
 
-
-
+bool GameClear;
+bool GameOver;
 
 bool DivideScene();
 bool ChangeScene();

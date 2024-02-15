@@ -5,6 +5,7 @@
 #include <math.h>
 class  Character character;
 Map en_map;
+SceneManager en_scene;
 
 
 void Enemy::UpdateEnemy()
@@ -64,11 +65,11 @@ void Enemy::AdditionMove()
 		enemyX = rand_rX;
 		enemyY =rand_rY;
 	}
-	if (RabbitX<350 && RabbitY<250)
-	{
-		RabbitY += rabgetY;
-		RabbitX -= rabgetX;
-	}
+	//if (RabbitX<350 && RabbitY<250)
+	//{
+	//	RabbitY += rabgetY;
+	//	RabbitX -= rabgetX;
+	//}
 	if (enemyY<300&&enemyX<100)
 	{
 		enemyX += getX;
@@ -86,7 +87,7 @@ void Enemy::Drawcircle()
        DrawCircle(circleX[i], circleY[i],5,lifecolor[i], DectionCircle[i]);
 	}	
 
-	DrawFormatString(550, 50, 0xffffff, "%d,%d,\n%d,%d", enemyX, enemyY, RabbitX, RabbitY);
+	//DrawFormatString(550, 50, 0xffffff, "%d,%d,\n%d,%d", enemyX, enemyY, RabbitX, RabbitY);
 	
 	
 }
@@ -123,7 +124,7 @@ void Enemy::EnemyMove()
 
 	if (IsFlag == false)
 	{
-		RabbitX += rabgetX-1;
+		RabbitX += rabgetX+1;
 		RabbitY -= rabgetY;
 		
 		//-状態
@@ -239,15 +240,25 @@ void Enemy::InitEnemy()
 
 void Enemy::EnemyAirCollision()
 {
-	
+	//右上,左上,右下,左上
+	//上二つの条件文,プレイヤーが敵より下にいる時の当たり判定
+	//下二つの条件分,プレイヤーが敵より上にいる時の当たり判定
 	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<16
-		&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16
-		//&& character.Player_posY>RabbitY && character.Player_posY - RabbitY<16
-		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<16
 		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<16
-		/*&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16*/)
+
+		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<16
+		&&character.Player_posY>RabbitY && character.Player_posY - RabbitY < 16
+
+		//||RabbitX>character.Player_posX&&RabbitX-character.Player_posX<16
+		//&&RabbitY>character.Player_posY&&RabbitY-character.Player_posY<16
+
+		//||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<16
+		//&&RabbitY>character.Player_posY&& RabbitY-character.Player_posY<16
+
+        )
 	{
-		DrawRectRotaGraph(character.Player_posX+30, character.Player_posY, 0, 0, 120, 120, 1, 0, character.EffectHandle, true);
+		SetDrawBlendMode(DX_BLENDMODE_PMA_INVSRC, 50);
+		
 		
 		
          circlecount = circlecount+1;
@@ -275,16 +286,30 @@ void Enemy::EnemyAirCollision()
 		 default:
 			 break;
 		 }
+	}
+	else
+	{
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 50);
+	}
 		
 		
 		
 	
-	}
-	//空中にいるときの←と↑の当たり判定,→からのの当たり判定,
+	
+	//上二つの条件文,プレイヤーが敵より下にいる時の当たり判定
+	//下二つの条件分,プレイヤーが敵より上にいる時の当たり判定
 	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<16
 		&&character.Player_posY>enemyY && character.Player_posY - enemyY<16
+
 		||character.Player_posX>enemyX&&character.Player_posX-enemyX<16
-		&&enemyY>character.Player_posY&&enemyY-character.Player_posY<16
+		&&character.Player_posY>enemyY && character.Player_posY - enemyY<16
+
+		//||enemyX>character.Player_posX&&enemyX-character.Player_posX<16
+		//&&enemyY>character.Player_posY &&enemyY- character.Player_posY<16
+
+		//||character.Player_posX>enemyX&&character.Player_posX-enemyX<16
+		//&&enemyY>character.Player_posY&&enemyY-character.Player_posY<16
+		
 		)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_INVSRC, 50);
@@ -319,18 +344,31 @@ void Enemy::EnemyAirCollision()
 	}
 
 
-
-	if (DectionCircle[5] == false)
+	
+	if (DectionCircle[5] == false&&en_map.time_count<60)
 	{
-		en_map.timescore = en_map.timelimit - en_map.time_count;
+		
+		//en_map.time= en_map.timescore;
+		//en_map.timescore = en_map.timelimit - en_map.time;
+		en_scene.GameOver = true;
 		StopMusic();
+		en_map.time_count = 0;
+		enemyX, enemyY = 0;
+		RabbitX, RabbitY = 0;
 		ClearDrawScreen();
 		DrawExtendFormatString(200, 200, 4, 3, 0xff0000, "GameOver");
-		//DrawFormatString(300, 300, 0xffffff, "Score  %f", en_map.timescore);
+		//DrawFormatString(230, 250, 0xffffff, "Time %f", en_map.timescore);
 		DrawFormatString(250, 300, 0xffffff, "Plase Put ESC");
 		
 		
 	}
+	else
+	{
+		en_scene.GameOver = false;
+	}
+	
+		
+	
 	
 	
 	
