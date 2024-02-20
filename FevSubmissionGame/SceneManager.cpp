@@ -2,14 +2,24 @@
 #include "TitleScene.h"
 #include "Map.h"
 #include "OptionScene.h"
+#include "Enemy.h"
+#include "Character.h"
+
 
 
 
 TitleScene *scene_title;
 Map* scene_map;
 OptionScene *scene_option;
+Enemy* scene_enemy;
+Character* scene_character;
 
-TitleScene s_title;
+
+
+TitleScene title;
+
+
+
 
 
 
@@ -34,57 +44,72 @@ SceneManager::~SceneManager()
 
 }
 
-void SceneManager::DecisionScene()
-{
-	DivideScene();
-	ChangeScene();
-}
 
-
-
+//シーンをそれぞれ判別する関数
 bool SceneManager::DivideScene()
 {
-	
 	NowScene=Title;
-
-	if (scene_title->triangle.y2==290)
+	if (titleP.Key[KEY_INPUT_Z])
 	{
 		NowScene = Playing;
 	}
-	else if (scene_title->triangle.y2==330)
+	else if (titleP.Key[KEY_INPUT_O])
 	{
 		NowScene = S_Option;
 	}
+<<<<<<< HEAD
+	else if(titleP.Key[KEY_INPUT_RETURN])
+=======
+	else if (scene_map->time_count>60)
+	{
+		NowScene = Clear;
+	}
 	else if (titleP.Key[KEY_INPUT_RETURN]&&NowScene==Playing||NowScene==S_Option)
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	{
 		NowScene = Return_Title;
 	}
-	return false;
+	return NowScene;
+
+	
+	
 }
 
-//実行式
+//NowSceneを判別し、それぞれのシーンにあわせた処理を行う
 bool SceneManager::ChangeScene()
 {
 	
-	if (NowScene==Title)
-	{ 
-		
-		scene_title->gpUpdateKey();
-		scene_title->Update();
-		scene_title->MakeSelectTriangle();
-		
-	}
-	else if (NowScene==S_Option)
-	{ 
-	  scene_option->OptionText(s_title);
-	  scene_option->DrawFrame();
-	
-	}
-    else if (NowScene==Playing)
+	if (NowScene == Title)
 	{
-		return false;
+		scene_title->Update();
+		ExplanationText();
+		scene_title->TitleMusic();
+
+	}
+	else if (NowScene == S_Option)
+	{
+		scene_option->DrawFrame();
+		scene_option->OptionText(title);
+	
+
+	}
+	else if (NowScene == Playing)
+	{
+		scene_character->Draw();
+		scene_character->FallCollision();
+		scene_enemy->Draw();
+		scene_enemy->EnemyMove();
+		scene_enemy->EnemyVerticalMove();
+		scene_enemy->InitEnemy();
+		scene_enemy->UpdateEnemy();
+		scene_enemy->AdditionMove();
+		scene_enemy->EnemyAirCollision();
+		scene_enemy->Drawcircle();
+		scene_map->BackGround();
 		scene_map->Draw();
 		scene_map->TimeLimit();
+<<<<<<< HEAD
+=======
 		scene_map->BackGround();
 	}
 	else if (NowScene==Return_Title)
@@ -95,22 +120,76 @@ bool SceneManager::ChangeScene()
 		scene_title->MakeSelectTriangle();
 	
 	}
-	else if (NowScene==End)
+	else if(NowScene==Clear)
 	{
 		
+		scene_map->TimeLimit();
 	}
 	
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 
+
+	}
+	else if (NowScene == Return_Title)
+	{
+		title.Update();
+		ExplanationText();
+		title.TitleMusic();
+
+	}
+	
+	//現在のシーンを返す　　
+	return NowScene;
+}
+//上二つをまとめた関数
+void SceneManager::DecisionScene()
+{
+<<<<<<< HEAD
+	
+	DivideScene();
+	ChangeScene();
 	
 }
 
-void SceneManager::ExplanationScene()
+//スタートテキスト
+void SceneManager::ExplanationText()
 {
+	int x0 = 0;
+	int x1 = 470;
+	int x2 = 430;
+	int y0 = 100;
+	int y1 = 135;
+	int y2 = 170;
+	int y3 = 20;
+
+	
+	DrawString(x0, y0, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
+	DrawString(x0, y1, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
+	DrawString(x0, y2, "Zキーでスタート",0xff0000);
+	DrawString(x1, x0, "素材提供者様", 0xfffff);
+	DrawString(x2, y2, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
+=======
 	//ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
 	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
-	DrawString(0, 170, "Zキーでスタート",0xff0000);
+	DrawString(0, 170, "Zキーでスタート\n左上のライフが無くなるとゲームオーバーになるぞ!!",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 
+}
+
+void SceneManager::Scene_ChangeKey()
+{
+	GetHitKeyStateAll(scene_key);
+	for (int i = 0; i < 256; i++)
+	{
+		if (scene_key[i] != 0) {
+		   scene_key[i]++;				//加算
+		}
+		else {						//押されていなければ
+			scene_key[i] = 0;
+
+		}
+	}
 }

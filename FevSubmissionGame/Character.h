@@ -23,12 +23,13 @@ public:
 	int Player_posX = 300;
 	int Player_posY = 400;
 	
-	int PlayerHandle=LoadGraph("Cockroach.png");
-	int EffectHandle=LoadGraph("pipo-btleffect088c.png");
-
+	
+int EffectHandle = LoadGraph("pipo-btleffect088c.png");
 
 private:
 
+	//プレイヤー
+	int PlayerHandle = LoadGraph("Cockroach.png");
   //キャラ移動スピード
 	int CharaMoveSpeed=5;
 	//キャラジャンプフラグ
@@ -42,7 +43,8 @@ private:
 	int JumpSpeed = 50;
  
 	//キャラ座標の保存
-	int preservationY;
+	int exceedY;
+	int not_exceedY;
 
 	//キャラ1マス分の大きさ
 	int PlayerChipSizeX=64;

@@ -14,31 +14,21 @@ void Map::Draw()
 	
 	//ƒQ[ƒ€ƒV[ƒ“‚Ìˆ—
 	int MapHandle = LoadGraph("[A]Water3_Cave1_pipo.png");
-
-	for (int x = 0; x< SumMapX; x++)
-	{
-		for (int y = 0; y < SumMapY; y++)
-		{
-		
-                
-			if (MakeMap[y][x] == 1)
-			{				
-
-			DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
-
-			}
+				
+	DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
 
 			
-		}
 
-
-	}
+	
 
 }
 
 
-void Map::Update()
+void Map::TimeUpdate()
 {
+	time_count += 0.02;
+	DrawExtendFormatString(220, 0,3,3, 0x0000ff, "%f", time_count);
+
 }
 
 
@@ -50,26 +40,42 @@ void Map::Init()
 
 bool Map::TimeLimit()
 {
+	m_scene.GameClear = false;
 	
-	time_count+=0.02;
+<<<<<<< HEAD
+	time_count+=time;
     DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 	if (time_count>=60)
 	{
-		
-		
-		
 		ClearDrawScreen();
-		m_enemy.DectionCircle;
 		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
 		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase put ESC");
-		map_clear.Draw();
 		
 	   
-     
 	}
 
-	
 	 return false;
+=======
+	if (time_count >= 60)
+	{
+		m_scene.GameClear = true;
+		ClearDrawScreen();
+		m_enemy.enemyX = 0;
+		m_enemy.enemyY = 0;
+
+		m_enemy.RabbitX = 0;
+		m_enemy.RabbitY = 0;
+
+	    
+		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
+		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase Put ESC");
+
+     
+	}
+	
+
+	 return true;
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	
 }
 

@@ -8,7 +8,8 @@
 
 Character::Character():
 JumpFlag(false),
-preservationY(0)
+exceedY(370),
+not_exceedY(0)
     {
   
     }
@@ -24,8 +25,14 @@ preservationY(0)
 
     }
 
+    //キャラクターを描画する処理
     void Character::Draw()
     {
+<<<<<<< HEAD
+                    
+        DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
+        DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+=======
        
 
         for (int x = 0; x < PlayerPerChipX; x++)
@@ -45,11 +52,13 @@ preservationY(0)
             }
         }
 
-        DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+        //DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 
     }
     
 
+    //キャラクターを描画する処理
     void Character::Move(Map& gamescene)
     {
         
@@ -72,28 +81,6 @@ preservationY(0)
 
         }
 
-        //if (titleP.Key[KEY_INPUT_RIGHT])
-        //{
-        //    Player_posX= CharaMoveSpeed + Player_posX;
-
-        //   PlayerChipSizeX = 0;
-        //   PlayerChipSizeY = 64;
-        //  
-
-        //}
-
-        //if (titleP.Key[KEY_INPUT_LEFT])
-        //{
-        //    Player_posX = Player_posX - CharaMoveSpeed;
-        //    if (Player_posX < 0)
-        //    {
-        //        Player_posX = 0;
-        //        Player_posY = Player_posY;
-        //    }
-        //    PlayerChipSizeX = 32;
-        //    PlayerChipSizeY = 32;
-        //}
-
         FallCollision();
 
     }
@@ -106,25 +93,16 @@ preservationY(0)
     }
 
  
-
+    //キャラクター
     void Character::FallCollision()
     {
-        //if (Player_posY >= 496)
-        //{
-        //    Player_posX = 160;
-        //    Player_posY = 120;
-        //}
-        //if (Player_posY > 368 && Player_posX <= 256)
-        //{
-        //    Player_posY = 368;
-        //}
-        if (Player_posY>370)
+        if (Player_posY>exceedY)
         {
-            Player_posY = 370;
+            Player_posY = exceedY;
         }
-        if (Player_posY<0)
+        if (Player_posY<not_exceedY)
         {
-            Player_posY = 0;
+            Player_posY = not_exceedY;
         }
 
     }

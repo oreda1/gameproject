@@ -22,46 +22,50 @@ public:
 	int enemyX= 300;
 	int	enemyY=368;
 
+	
+
 	//ƒEƒTƒM‚ÌˆÊ’u
 	int RabbitX=200;
 	int	RabbitY= 400;
 
-	int getX = GetRand(5);
-	int getY = GetRand(5);
+
+
+
+	void Drawcircle();
 	
+ 
+private:
 
-	int rabgetX = GetRand(10-5);
-	int rabgetY = GetRand(10-5);
-
-
-	int rand_rX=GetRand(600);
-	int rand_rY=GetRand(450);
-
-	int rand_eX=GetRand(600);
-	int rand_eY=GetRand(448);
-
+	int EnemyPerChraSize = 32;
 	//“G‚ÌˆÚ“®”»’è 
 	bool rabbitHitX;
 	bool rabbitHitY;
 
-
 	//“G‚ÌˆÚ“®”»’è
 	bool enemyHitX;
 	bool enemyHitY;
-
 	//“G‚ª‰æ–Ê‚É‚¢‚é‚©‚Ç‚¤‚©‚Ì”»’è
 	bool IsFlag;
 
 	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
+	int getX = GetRand(5);
+	int getY = GetRand(5);
 
-	void Drawcircle();
-	int circlecount=-1;
+	int rabgetX = GetRand(10 - 5);
+	int rabgetY = GetRand(10 - 5);
+
+
+	int rand_rX = GetRand(600);
+	int rand_rY = GetRand(450);
+
+	int rand_eX = GetRand(600);
+	int rand_eY = GetRand(448);
+	int circlecount = -1;
 	bool DectionCircle[6] = { true,true,true,true,true,true };
-	int circleX[6] = {10,10,10,25,25,25};
-	int circleY[6] = {25,45,65,25,45,65};
+	int circleX[6] = { 10,10,10,25,25,25 };
+	int circleY[6] = { 25,45,65,25,45,65 };
 	int lifecolor[6];
-	int circlecolor=GetColor(255, 0, 0);
- 
+	int circlecolor = GetColor(255, 0, 0);
 
 };
 

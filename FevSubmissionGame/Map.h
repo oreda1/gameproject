@@ -3,7 +3,7 @@ class Map
 {
 public:
 	void Draw();
-	void Update();
+	void TimeUpdate();
 	void Init();
 
   bool TimeLimit();
@@ -16,9 +16,15 @@ public:
 	
 
 	float timescore;
-	float timelimit=60;
+	float time;
+	float timelimit=60.0;
 
+<<<<<<< HEAD
 	float time_count=0.0;
+	float time = 0.02;
+=======
+	float time_count;
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 
 	
 private:

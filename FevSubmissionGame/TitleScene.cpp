@@ -13,10 +13,9 @@ bool TitleScene::Update()
 	//Key入力
 	gpUpdateKey();
 
-	DrawRectGraph(50, 0, 70,30,350,100, TitleHandle, false);
+	//DrawRectGraph(50, 0, 70,30,350,100, TitleHandle, false);
 	
 
-	
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
 		triangle.y1 = 345;
@@ -30,13 +29,20 @@ bool TitleScene::Update()
 		triangle.y2 = 290;
 		triangle.y3 = 330;
 	}
-	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)) {
+<<<<<<< HEAD
+	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)){
+
+		return scene.NowScene;
+=======
+	if ((titleP.Key[KEY_INPUT_Z] ) || (titleP.Key[KEY_INPUT_RETURN])) {
 
 		return scene.NowScene;//シーン切り替え
+
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	}
 
 	//メニューの描画
-	for (int i = 0; i < 5; i++) {		//メニュー項目を描画
+	for (int i = 0; i < 10; i++) {		//メニュー項目を描画
 	
 		ChangeFont("07ふぉんとうは怖い明朝体");
 		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
@@ -78,5 +84,5 @@ void TitleScene::MakeSelectTriangle()
 
 void TitleScene::TitleMusic()
 {
-	PlayMusic("MusMus-BGM-062.mp3",DX_PLAYTYPE_BACK);
+	PlayMusic("MusMus-BGM-062.mp3",DX_PLAYTYPE_LOOP);
 }

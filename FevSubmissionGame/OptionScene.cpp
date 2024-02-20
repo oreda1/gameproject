@@ -2,18 +2,20 @@
 #include "DxLib.h"
 #include "TitleScene.h"
  
+//オプション枠の表示
 void OptionScene::DrawFrame()
 {
 	DrawBox(10,0, 630, 480, 0xffffff,false);
 }
 
+//オプションテキスト
 void OptionScene::OptionText(TitleScene opt_title)
 {
 	
 	opt_title.MakeSelectTriangle();
-	for (int i = 0; i < 30; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		DrawFormatString(option_date->Option_posX,option_date->Option_posY,0xffffff,option_date->OptionItemName);
+		DrawFormatString(option_date->Option_posX, option_date->Option_posY, 0xffffff, option_date->OptionItemName);
 	}
 	
 	
