@@ -64,6 +64,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			clear.Draw();
 			map.TimeLimit();
 			enemy.EnemyAirCollision();
+<<<<<<< HEAD
+=======
+			
+			
+			
+		
+		}
+		else if(scene.NowScene==scene.S_Option)
+		{
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 			
 			
 			
@@ -79,7 +89,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (ProcessMessage() < 0) { return true; }
 		// ‚à‚µ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
 <<<<<<< HEAD
+<<<<<<< HEAD
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) {}
+=======
+		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 =======
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
 >>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90

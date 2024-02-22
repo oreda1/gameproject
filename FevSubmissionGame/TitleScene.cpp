@@ -30,14 +30,20 @@ bool TitleScene::Update()
 		triangle.y3 = 330;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)){
 
 		return scene.NowScene;
 =======
+=======
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	if ((titleP.Key[KEY_INPUT_Z] ) || (titleP.Key[KEY_INPUT_RETURN])) {
 
 		return scene.NowScene;//ÉVÅ[ÉìêÿÇËë÷Ç¶
 
+<<<<<<< HEAD
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+=======
 >>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	}
 

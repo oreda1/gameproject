@@ -58,8 +58,11 @@ bool SceneManager::DivideScene()
 		NowScene = S_Option;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	else if(titleP.Key[KEY_INPUT_RETURN])
 =======
+=======
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	else if (scene_map->time_count>60)
 	{
 		NowScene = Clear;

@@ -53,6 +53,9 @@ not_exceedY(0)
         }
 
         //DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+<<<<<<< HEAD
+>>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+=======
 >>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 
     }
