@@ -14,26 +14,23 @@ public:
 		Clear,
 		Return_Title,
 		End,
-		Clear
 	};
 
 //Œ»İ‚ÌƒV[ƒ“‚ğ”»•Ê
 Scene NowScene;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 bool GameClear;
 bool GameOver;
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-=======
+
+
 bool GameClear;
 bool GameOver;
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 
 bool DivideScene();
 bool ChangeScene();
-void DecisionScene();
+void ExplanationScene();
 
 void ExplanationText();
 

@@ -31,13 +31,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
 	while (true)
 	{
-		scene.GameClear = false;
+		
 		/*画面の初期化*/
 		ClearDrawScreen();
-		scene.DecisionScene();
+		scene.ExplanationScene();
 		/*ゲーム処理*/
-<<<<<<< HEAD
-=======
+
 		if(sceneFlag)
 		{
 			sceneFlag =title.Update();
@@ -64,8 +63,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			clear.Draw();
 			map.TimeLimit();
 			enemy.EnemyAirCollision();
-<<<<<<< HEAD
-=======
+
+
 			
 			
 			
@@ -73,11 +72,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else if(scene.NowScene==scene.S_Option)
 		{
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 			
 			
 			
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 		
 
 		
@@ -88,15 +87,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		// マイナスの値（エラー値）が返ってきたらループを抜ける
 		if (ProcessMessage() < 0) { return true; }
 		// もしＥＳＣキーが押されていたらループから抜ける
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) {}
-=======
+
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-=======
+
+
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 		
 	}
 

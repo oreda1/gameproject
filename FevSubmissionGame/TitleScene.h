@@ -3,6 +3,7 @@
 class TitleScene
 {
 public:
+ 
  bool Update();
 
 	struct Triangle

@@ -6,7 +6,8 @@
 SceneManager scene;
 bool TitleScene::Update()
 {
- 
+
+
 	/*タイトルシーンの処理*/
 	//矢印の描画
 	MakeSelectTriangle();
@@ -14,7 +15,7 @@ bool TitleScene::Update()
 	gpUpdateKey();
 
 	//DrawRectGraph(50, 0, 70,30,350,100, TitleHandle, false);
-	
+
 
 	if (titleP.Key[KEY_INPUT_DOWN])
 	{
@@ -22,45 +23,45 @@ bool TitleScene::Update()
 		triangle.y2 = 330;
 		triangle.y3 = 370;
 	}
-	
+
 	if (titleP.Key[KEY_INPUT_UP])
 	{
 		triangle.y1 = 305;
 		triangle.y2 = 290;
 		triangle.y3 = 330;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)){
+
+	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)) {
 
 		return scene.NowScene;
-=======
-=======
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-	if ((titleP.Key[KEY_INPUT_Z] ) || (titleP.Key[KEY_INPUT_RETURN])) {
 
-		return scene.NowScene;//シーン切り替え
+		if ((titleP.Key[KEY_INPUT_Z]) || (titleP.Key[KEY_INPUT_RETURN])) {
 
-<<<<<<< HEAD
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-=======
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+			return scene.NowScene;//シーン切り替え
+
+
+		}
+
+		//メニューの描画
+		for (int i = 0; i < 10; i++) {		//メニュー項目を描画
+
+			ChangeFont("07ふぉんとうは怖い明朝体");
+			DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
+		}
+
+		//正常終了
+		return true;//シーンを切り替えない
+
 	}
-
-	//メニューの描画
-	for (int i = 0; i < 10; i++) {		//メニュー項目を描画
-	
-		ChangeFont("07ふぉんとうは怖い明朝体");
-		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
-	}
-
-	//正常終了
-	return true;//シーンを切り替えない
 }
 
 
+	
 
-int TitleScene::gpUpdateKey() {
+	
+
+int TitleScene::gpUpdateKey()
+{
 	char tmpkey[256]; //現在のキー入力状態を格納する
 	GetHitKeyStateAll(tmpkey); //すべてのキー入力状態を得る
 	for (int i = 0; i < 256; i++) {	//i番のキーコードに対応するキーが押されていたら

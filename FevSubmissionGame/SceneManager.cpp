@@ -57,18 +57,11 @@ bool SceneManager::DivideScene()
 	{
 		NowScene = S_Option;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-	else if(titleP.Key[KEY_INPUT_RETURN])
-=======
-=======
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	else if (scene_map->time_count>60)
 	{
 		NowScene = Clear;
 	}
 	else if (titleP.Key[KEY_INPUT_RETURN]&&NowScene==Playing||NowScene==S_Option)
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	{
 		NowScene = Return_Title;
 	}
@@ -111,8 +104,6 @@ bool SceneManager::ChangeScene()
 		scene_map->BackGround();
 		scene_map->Draw();
 		scene_map->TimeLimit();
-<<<<<<< HEAD
-=======
 		scene_map->BackGround();
 	}
 	else if (NowScene==Return_Title)
@@ -125,13 +116,7 @@ bool SceneManager::ChangeScene()
 	}
 	else if(NowScene==Clear)
 	{
-		
 		scene_map->TimeLimit();
-	}
-	
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-
-
 	}
 	else if (NowScene == Return_Title)
 	{
@@ -145,10 +130,9 @@ bool SceneManager::ChangeScene()
 	return NowScene;
 }
 //上二つをまとめた関数
-void SceneManager::DecisionScene()
+void SceneManager::ExplanationScene()
 {
-<<<<<<< HEAD
-	
+
 	DivideScene();
 	ChangeScene();
 	
@@ -171,14 +155,14 @@ void SceneManager::ExplanationText()
 	DrawString(x0, y2, "Zキーでスタート",0xff0000);
 	DrawString(x1, x0, "素材提供者様", 0xfffff);
 	DrawString(x2, y2, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
-=======
+
 	//ChangeFont("NomalFontHandle");
 	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
 	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
 	DrawString(0, 170, "Zキーでスタート\n左上のライフが無くなるとゲームオーバーになるぞ!!",0xff0000);
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 
 }
 

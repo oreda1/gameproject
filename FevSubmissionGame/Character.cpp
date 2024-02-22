@@ -28,35 +28,23 @@ not_exceedY(0)
     //キャラクターを描画する処理
     void Character::Draw()
     {
-<<<<<<< HEAD
-                    
+     
         DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
         DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
-=======
-       
 
-        for (int x = 0; x < PlayerPerChipX; x++)
-        {
-            for (int y = 0; y < PlayerPerChipY; y++)
-            {
-                //キャラクターチップ
-                int PlayerX = PlayerPerChipX * x;
-                int PlayerY = PlayerPerChipY * y;
-                if (MakePlayer[y][x] == 1)
-                {                    
-                    DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
-                }
+
+        
+                //キャラクターチップ        
+                                  
+           DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
+                
 
 
 
-            }
-        }
+        
 
         //DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
-<<<<<<< HEAD
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-=======
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
+
 
     }
     

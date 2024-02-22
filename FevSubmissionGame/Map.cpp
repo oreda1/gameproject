@@ -44,8 +44,6 @@ bool Map::TimeLimit()
 {
 	m_scene.GameClear = false;
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
 	time_count+=time;
     DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
 	if (time_count>=60)
@@ -58,7 +56,7 @@ bool Map::TimeLimit()
 	}
 
 	 return false;
-=======
+
 	if (time_count >= 60)
 	{
 		m_scene.GameClear = true;
@@ -78,8 +76,7 @@ bool Map::TimeLimit()
 	
 
 	 return true;
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
-=======
+
 	if (time_count >= 60)
 	{
 		m_scene.GameClear = true;
@@ -99,7 +96,6 @@ bool Map::TimeLimit()
 	
 
 	 return true;
->>>>>>> 2ad6b3a2c1808028c85419110a479e8cbe503a90
 	
 }
 
