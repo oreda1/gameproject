@@ -27,59 +27,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SceneManager scene;
 	GameClearScene clear;
 
+
+
+
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
+	
+	//ゲームシーン繰り返し処理
 	while (true)
 	{
-		
+
 		/*画面の初期化*/
 		ClearDrawScreen();
-		scene.ExplanationScene();
 		/*ゲーム処理*/
-
-		if(sceneFlag)
-		{
-			sceneFlag =title.Update();
-		    scene.ExplanationScene();
-			
-			
-		}
-		else if (scene.NowScene==scene.Playing)
-		{	
-			map.BackGround();
-			map.Draw();
-			map.TimeUpdate();
-			character.Effect();
-			character.Draw();
-			character.Move(map);
-			enemy.Draw();
-			enemy.InitEnemy();	
-			enemy.EnemyVerticalMove();
-			enemy.EnemyMove();	
-			enemy.Drawcircle();
-			enemy.KillerRabbit(character);
-			enemy.UpdateEnemy();
-			enemy.AdditionMove();
-			clear.Draw();
-			map.TimeLimit();
-			enemy.EnemyAirCollision();
-
-
-			
-			
-			
-		
-		}
-		else if(scene.NowScene==scene.S_Option)
-		{
-
-			
-			
-			
-
-		
-
-		
+		scene.ExplanationScene();
 		/*描画の確定*/
 		ScreenFlip();
 
@@ -87,19 +48,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		// マイナスの値（エラー値）が返ってきたらループを抜ける
 		if (ProcessMessage() < 0) { return true; }
 		// もしＥＳＣキーが押されていたらループから抜ける
+		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return scene.Return_Title; }
 
-		else if (CheckHitKey(KEY_INPUT_ESCAPE)) {}
-
-		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
-
-
-		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return title.Update(); }
-
-		
+	 
 	}
-
+		
 	/*Dxlib終了処理*/
 	DxLib::DxLib_End();
 	return 0;
 }
-

@@ -7,135 +7,35 @@
 
 
 
-
-TitleScene *scene_title;
-Map* scene_map;
-OptionScene *scene_option;
-Enemy* scene_enemy;
-Character* scene_character;
-
-
-
-TitleScene title;
-
-
-
-
-
-
-SceneManager::SceneManager():
-	NowScene(Title)
+SceneManager::SceneManager() 
 {
 	
-	scene_title = new TitleScene;
-	scene_map = new Map;
-	scene_option = new OptionScene;
 
 }
 
 SceneManager::~SceneManager()
 {
-	delete scene_title;
-	scene_title = nullptr;
-	delete scene_map;
-	scene_map = nullptr;
-	delete scene_option;
-	scene_option = nullptr;
+	
 
+	
 }
-
 
 //シーンをそれぞれ判別する関数
 bool SceneManager::DivideScene()
 {
-	NowScene=Title;
-	if (titleP.Key[KEY_INPUT_Z])
-	{
-		NowScene = Playing;
-	}
-	else if (titleP.Key[KEY_INPUT_O])
-	{
-		NowScene = S_Option;
-	}
-	else if (scene_map->time_count>60)
-	{
-		NowScene = Clear;
-	}
-	else if (titleP.Key[KEY_INPUT_RETURN]&&NowScene==Playing||NowScene==S_Option)
-	{
-		NowScene = Return_Title;
-	}
-	return NowScene;
-
-	
-	
+	return 0;
 }
 
 //NowSceneを判別し、それぞれのシーンにあわせた処理を行う
 bool SceneManager::ChangeScene()
 {
-	
-	if (NowScene == Title)
-	{
-		scene_title->Update();
-		ExplanationText();
-		scene_title->TitleMusic();
-
-	}
-	else if (NowScene == S_Option)
-	{
-		scene_option->DrawFrame();
-		scene_option->OptionText(title);
-	
-
-	}
-	else if (NowScene == Playing)
-	{
-		scene_character->Draw();
-		scene_character->FallCollision();
-		scene_enemy->Draw();
-		scene_enemy->EnemyMove();
-		scene_enemy->EnemyVerticalMove();
-		scene_enemy->InitEnemy();
-		scene_enemy->UpdateEnemy();
-		scene_enemy->AdditionMove();
-		scene_enemy->EnemyAirCollision();
-		scene_enemy->Drawcircle();
-		scene_map->BackGround();
-		scene_map->Draw();
-		scene_map->TimeLimit();
-		scene_map->BackGround();
-	}
-	else if (NowScene==Return_Title)
-	{
-		return true;
-		scene_title->gpUpdateKey();
-		scene_title->Update();
-		scene_title->MakeSelectTriangle();
-	
-	}
-	else if(NowScene==Clear)
-	{
-		scene_map->TimeLimit();
-	}
-	else if (NowScene == Return_Title)
-	{
-		title.Update();
-		ExplanationText();
-		title.TitleMusic();
-
-	}
-	
-	//現在のシーンを返す　　
-	return NowScene;
+	return 0;
 }
 //上二つをまとめた関数
 void SceneManager::ExplanationScene()
 {
-
-	DivideScene();
 	ChangeScene();
-	
+	DivideScene();
 }
 
 //スタートテキスト
@@ -166,6 +66,7 @@ void SceneManager::ExplanationText()
 
 }
 
+//キー入力
 void SceneManager::Scene_ChangeKey()
 {
 	GetHitKeyStateAll(scene_key);
@@ -180,3 +81,5 @@ void SceneManager::Scene_ChangeKey()
 		}
 	}
 }
+
+

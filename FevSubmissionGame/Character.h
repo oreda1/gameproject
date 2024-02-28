@@ -10,10 +10,8 @@ public:
 	 Character();
 	~Character();
 
-	void Init();
 	void Draw();
 	void Move(Map& gamescene);
-    void Update();
 	void FallCollision();
 	void Effect();
 	int gpUpdateKey();

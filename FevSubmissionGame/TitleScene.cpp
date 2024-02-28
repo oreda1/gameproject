@@ -7,7 +7,6 @@ SceneManager scene;
 bool TitleScene::Update()
 {
 
-
 	/*タイトルシーンの処理*/
 	//矢印の描画
 	MakeSelectTriangle();
@@ -30,35 +29,18 @@ bool TitleScene::Update()
 		triangle.y2 = 290;
 		triangle.y3 = 330;
 	}
+	//メニューの描画
+	for (int i = 0; i < 10; i++) {		//メニュー項目を描画
 
-	if ((titleP.Key[KEY_INPUT_Z] == 1) || (titleP.Key[KEY_INPUT_RETURN] == 1)) {
-
-		return scene.NowScene;
-
-		if ((titleP.Key[KEY_INPUT_Z]) || (titleP.Key[KEY_INPUT_RETURN])) {
-
-			return scene.NowScene;//シーン切り替え
-
-
-		}
-
-		//メニューの描画
-		for (int i = 0; i < 10; i++) {		//メニュー項目を描画
-
-			ChangeFont("07ふぉんとうは怖い明朝体");
-			DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
-		}
-
-		//正常終了
-		return true;//シーンを切り替えない
-
+		ChangeFont("07ふぉんとうは怖い明朝体");
+		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
 	}
+
+	//正常終了
+	return true;//シーンを切り替えない
 }
 
 
-	
-
-	
 
 int TitleScene::gpUpdateKey()
 {

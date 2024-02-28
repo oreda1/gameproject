@@ -9,6 +9,14 @@ SceneManager m_scene;
 Enemy m_enemy;
 GameClearScene map_clear;
 
+Map::Map()
+{
+}
+
+Map::~Map()
+{
+}
+
 void Map::Draw()
 {
 	
@@ -17,11 +25,6 @@ void Map::Draw()
 				
 	DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
 
-			
-
-	
-
-	
 
 }
 

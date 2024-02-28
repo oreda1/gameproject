@@ -57,6 +57,7 @@ void Enemy::UpdateEnemy()
 	
 }
 
+
 void Enemy::AdditionMove()
 {
 
@@ -78,6 +79,7 @@ void Enemy::AdditionMove()
 	
 }
 
+//左上ライフゲージ表示
 void Enemy::Drawcircle()
 {
 	
@@ -92,6 +94,7 @@ void Enemy::Drawcircle()
 	
 }
 
+//獣の描画
 void Enemy::Draw()
 {
 
@@ -99,6 +102,7 @@ void Enemy::Draw()
 	
 }
 
+//ウサギの描画
 void Enemy::KillerRabbit(Character& e_chara)
 {
 	
@@ -108,6 +112,7 @@ void Enemy::KillerRabbit(Character& e_chara)
 
 
 //falseの時に←に移動　trueの時→に移動
+//エネミー(ウサギ)動作
 void Enemy::EnemyMove() 
 {
 
@@ -157,6 +162,7 @@ void Enemy::EnemyMove()
 	}
 }
 
+//エネミー(獣)動作
 void Enemy::EnemyVerticalMove()
 {
 	if (IsFlag == false)
@@ -203,6 +209,7 @@ void Enemy::EnemyVerticalMove()
 
 }
 
+//当たり判定
 void Enemy::InitEnemy()
 {
 	
@@ -227,6 +234,7 @@ void Enemy::InitEnemy()
 
 }
 
+//当たり判定
 void Enemy::EnemyAirCollision()
 {
 	//右上,左上,右下,左上

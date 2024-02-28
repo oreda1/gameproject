@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseNumber.h"
-class TitleScene
+class TitleScene//:public SceneManager
 {
 public:
  

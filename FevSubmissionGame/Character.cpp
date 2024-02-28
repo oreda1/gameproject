@@ -19,12 +19,6 @@ not_exceedY(0)
      
     }
 
-    void Character::Init()
-    {
-       
-
-    }
-
     //キャラクターを描画する処理
     void Character::Draw()
     {
@@ -34,15 +28,10 @@ not_exceedY(0)
 
 
         
-                //キャラクターチップ        
+         //キャラクターチップ        
                                   
            DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
-                
-
-
-
-        
-
+     
         //DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
 
 
@@ -76,14 +65,6 @@ not_exceedY(0)
 
     }
 
-    
-    void Character::Update()
-    {
-
-        
-    }
-
- 
     //キャラクター
     void Character::FallCollision()
     {

@@ -1,10 +1,12 @@
 #pragma once
 #include "BaseNumber.h"
 #include "DxLib.h"
+
 class Character;
 class Enemy
 {
 	
+
 public:
 
 	void Draw();
@@ -22,7 +24,6 @@ public:
 	int enemyX= 300;
 	int	enemyY=368;
 
-	
 
 	//ÉEÉTÉMÇÃà íu
 	int RabbitX=200;
@@ -30,10 +31,8 @@ public:
 
 
 
-
 	void Drawcircle();
 	
- 
 private:
 
 	int EnemyPerChraSize = 32;

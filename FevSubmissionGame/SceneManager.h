@@ -1,10 +1,11 @@
 #pragma once
 #include "DxLib.h"
+class SceneBase;
 class SceneManager
 {
 public:
 	SceneManager();
-	~SceneManager();
+	virtual~SceneManager();
 
 	typedef enum Scene
 	{
@@ -16,17 +17,12 @@ public:
 		End,
 	};
 
+
 //Œ»İ‚ÌƒV[ƒ“‚ğ”»•Ê
 Scene NowScene;
 
-
 bool GameClear;
 bool GameOver;
-
-
-bool GameClear;
-bool GameOver;
-
 
 bool DivideScene();
 bool ChangeScene();

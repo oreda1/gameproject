@@ -146,6 +146,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="OptionScene.cpp" />
+    <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="GameClearScene.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="OptionScene.h" />
+    <ClInclude Include="SceneBase.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TitleScene.h" />
   </ItemGroup>
