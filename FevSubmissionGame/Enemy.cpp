@@ -2,6 +2,7 @@
 #include"DxLib.h"
 #include "BaseNumber.h"
 #include "Character.h"
+#include "SceneBase.h"
 #include <math.h>
 class  Character character;
 Map en_map;
