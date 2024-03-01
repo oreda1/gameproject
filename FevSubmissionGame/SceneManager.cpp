@@ -7,7 +7,8 @@
 
 
 
-SceneManager::SceneManager() 
+SceneManager::SceneManager():
+base_manager(nullptr)
 {
 	
 
@@ -15,7 +16,11 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
-	
+	if (base_manager)
+	{
+		delete base_manager;
+		base_manager = nullptr;
+	}
 
 	
 }
@@ -28,7 +33,7 @@ bool SceneManager::DivideScene()
 
 //NowSceneを判別し、それぞれのシーンにあわせた処理を行う
 bool SceneManager::ChangeScene()
-{
+{ 
 	return 0;
 }
 //上二つをまとめた関数
@@ -63,7 +68,12 @@ void SceneManager::ExplanationText()
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 
+	base_manager->Draw();
+}
 
+void SceneManager::Init()
+{
+	base_manager->Init();
 }
 
 //キー入力

@@ -5,8 +5,6 @@
 class Character;
 class Enemy
 {
-	
-
 public:
 
 	void Draw();

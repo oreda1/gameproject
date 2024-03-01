@@ -106,3 +106,17 @@ void Map::BackGround()
 {
 	DrawGraph(0,0,LoadGraph("pipo-battlebg009.jpg"),true);
 }
+
+void Map::End()
+{
+}
+
+SceneBase* Map::Update()
+{
+	if (CheckHitKeyAll(KEY_INPUT_Z)==1)
+	{
+
+	}
+	
+	return nullptr;
+}

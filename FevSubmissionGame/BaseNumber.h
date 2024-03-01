@@ -29,7 +29,6 @@ namespace{
 	int menuY = 300;
 	MenuElement_t MenuElement[50]{
 
-
 	 {menuX,menuY,"GAME START"}
 
 

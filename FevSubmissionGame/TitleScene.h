@@ -1,10 +1,12 @@
 #pragma once
+#include "SceneBase.h"
 #include "BaseNumber.h"
-class TitleScene//:public SceneManager
+class TitleScene
+//:SceneBase
 {
 public:
  
- bool Update();
+  bool Update();
 
 	struct Triangle
 	{

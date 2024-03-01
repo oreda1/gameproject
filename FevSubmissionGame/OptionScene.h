@@ -1,8 +1,11 @@
 #pragma once
 class TitleScene;
-class OptionScene
+class OptionScene:public SceneBase
 {
 public:
+	virtual void Init();
+	virtual SceneBase*Update();
+	
 
 	void DrawFrame();
 	void OptionText(TitleScene opt_title);

@@ -41,17 +41,6 @@ void GameClearScene::Draw()
 		return;
 
 	}
-	if (clear_scene.NowScene== clear_scene.Playing&&map.time_count>60&&key[KEY_INPUT_1]==1)
-	{
-		//FileRead_open("TitleScene.cpp");
-		title->gpUpdateKey();
-		title->Update();
-		title->MakeSelectTriangle();
-		title->TitleMusic();
-		clear_scene.NowScene = clear_scene.Title;
-
-
-	}
 
 	
 }

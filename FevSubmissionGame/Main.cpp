@@ -28,8 +28,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameClearScene clear;
 
 
-
-
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
 	
@@ -40,7 +38,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		/*画面の初期化*/
 		ClearDrawScreen();
 		/*ゲーム処理*/
-		scene.ExplanationScene();
+		
+	
+		
 		/*描画の確定*/
 		ScreenFlip();
 
@@ -48,7 +48,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		// マイナスの値（エラー値）が返ってきたらループを抜ける
 		if (ProcessMessage() < 0) { return true; }
 		// もしＥＳＣキーが押されていたらループから抜ける
-		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return scene.Return_Title; }
+		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return true; }
 
 	 
 	}

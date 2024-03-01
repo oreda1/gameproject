@@ -2,6 +2,17 @@
 #include "DxLib.h"
 #include "TitleScene.h"
  
+void OptionScene::Init()
+{
+}
+
+SceneBase* OptionScene::Update()
+{
+	return nullptr;
+}
+
+
+
 //オプション枠の表示
 void OptionScene::DrawFrame()
 {

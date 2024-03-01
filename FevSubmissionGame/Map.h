@@ -1,18 +1,22 @@
 #pragma once
 #include "SceneBase.h"
-class Map :public SceneBase
+class Map:public SceneBase
 {
 public:
 	Map();
 	virtual~Map();
 	virtual void Draw();
 
-	virtual void TimeUpdate();
+	void TimeUpdate();
 	virtual void Init();
 
-	virtual  bool TimeLimit();
+	bool TimeLimit();
 
-	virtual void BackGround();
+	void BackGround();
+
+	virtual void End();
+
+	virtual SceneBase*Update();
 
 	//’n–Ê•`‰æˆÊ’u
 	int GroundX = 300;//320

@@ -5,21 +5,7 @@ class SceneManager
 {
 public:
 	SceneManager();
-	virtual~SceneManager();
-
-	typedef enum Scene
-	{
-		Title,
-		S_Option,
-		Playing,
-		Clear,
-		Return_Title,
-		End,
-	};
-
-
-//åªç›ÇÃÉVÅ[ÉìÇîªï 
-Scene NowScene;
+	~SceneManager();
 
 bool GameClear;
 bool GameOver;
@@ -29,11 +15,12 @@ bool ChangeScene();
 void ExplanationScene();
 
 void ExplanationText();
+void Init();
 
-//int NomalFontHandle = CreateFontToHandle(NULL, 30, 1, DX_FONTTYPE_NORMAL);
 
 
 private:
+	SceneBase* base_manager;
 	void Scene_ChangeKey();
 	char scene_key[256];
 
