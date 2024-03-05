@@ -8,8 +8,8 @@ class Enemy
 public:
 
 	void Draw();
-	void KillerRabbit(Character&e_chara);
 	void EnemyMove();
+	void EnemyMove_a();
 	void EnemyVerticalMove();
 	void InitEnemy();
 	void EnemyAirCollision();

@@ -47,7 +47,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		player->Update();
 
 		// カメラ制御.
-		camera->Update(*player);
+		camera->Update();
 
 		// 障害物制御.
         obstructStatic1->Update();

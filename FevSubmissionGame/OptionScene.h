@@ -1,10 +1,15 @@
 #pragma once
+#include "SceneBase.h"
 class TitleScene;
 class OptionScene:public SceneBase
 {
 public:
 	virtual void Init();
 	virtual SceneBase*Update();
+
+	virtual void Draw();
+	virtual void End();
+	
 	
 
 	void DrawFrame();

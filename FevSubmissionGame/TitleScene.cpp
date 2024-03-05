@@ -35,6 +35,10 @@ bool TitleScene::Update()
 		ChangeFont("07‚Ó‚§‚ñ‚Æ‚¤‚Í•|‚¢–¾’©‘Ì");
 		DrawFormatString(MenuElement[i].x, MenuElement[i].y, 0xffffff, MenuElement[i].name);
 	}
+	if (titleP.Key[KEY_INPUT_Z])
+	{
+		return false;
+	}
 
 	//³íI—¹
 	return true;//ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚È‚¢

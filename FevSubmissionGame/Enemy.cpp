@@ -100,32 +100,32 @@ void Enemy::Draw()
 {
 
 	DrawRectGraph(enemyX, enemyY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle, true);
-	
+	DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
 }
 
-//ウサギの描画
-void Enemy::KillerRabbit(Character& e_chara)
-{
-	
-	DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
-	
-}
+
 
 
 //falseの時に←に移動　trueの時→に移動
 //エネミー(ウサギ)動作
 void Enemy::EnemyMove() 
 {
+	EnemyMove_a();
+	EnemyVerticalMove();
+}
+
+void Enemy::EnemyMove_a()
+{
 
 	if (IsFlag == false)
 	{
-		RabbitX += rabgetX+1;
+		RabbitX += rabgetX + 1;
 		RabbitY -= rabgetY;
-		
+
 		//-状態
 		if (rabbitHitY == true)
 		{
-			RabbitY +=7;
+			RabbitY += 7;
 		}
 		else if (rabbitHitX == true)
 		{
@@ -135,30 +135,30 @@ void Enemy::EnemyMove()
 		//+状態
 		if (rabbitHitY == false)
 		{
-			RabbitY -=8;
+			RabbitY -= 8;
 
-		} 
+		}
 		else if (rabbitHitX == false)
 		{
 			RabbitX -= 8;
 
 		}
 		//getが0の時の処理
-		if (rabgetX== 0 && rabbitHitX == true)
+		if (rabgetX == 0 && rabbitHitX == true)
 		{
 			RabbitX += 6;
 		}
 		if (rabgetX == 0 && rabbitHitX == false)
 		{
-			RabbitX-= 7;
+			RabbitX -= 7;
 		}
 		if (rabgetY == 0 && rabbitHitY == true)
 		{
-			RabbitY+= 6;
+			RabbitY += 6;
 		}
-		if (rabgetY == 0 && rabbitHitY== false)
+		if (rabgetY == 0 && rabbitHitY == false)
 		{
-			RabbitY-= 6;
+			RabbitY -= 6;
 		}
 	}
 }

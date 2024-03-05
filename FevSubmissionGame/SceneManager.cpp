@@ -11,6 +11,7 @@ SceneManager::SceneManager():
 base_manager(nullptr)
 {
 	
+	
 
 }
 
@@ -68,7 +69,7 @@ void SceneManager::ExplanationText()
 	DrawString(470, 0, "素材提供者様", 0xfffff);
 	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 
-	base_manager->Draw();
+	//base_manager->Draw();
 }
 
 void SceneManager::Init()

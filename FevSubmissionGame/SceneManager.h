@@ -1,14 +1,29 @@
 #pragma once
 #include "DxLib.h"
+
 class SceneBase;
 class SceneManager
 {
+
 public:
+
+	typedef enum Scene
+	{
+		Title,
+		Playing,
+		Option,
+		End,
+
+	};
+	Scene NowScene;
+
 	SceneManager();
 	~SceneManager();
 
 bool GameClear;
 bool GameOver;
+
+
 
 bool DivideScene();
 bool ChangeScene();

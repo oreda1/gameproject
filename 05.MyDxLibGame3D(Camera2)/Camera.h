@@ -15,10 +15,7 @@ public:
 	Camera();							// コンストラクタ.
 	~Camera();							// デストラクタ.
 
-	void Update(const Player& player);	// 更新.
-
-	// ポジションのgetter/setter.
-	const VECTOR& GetPos() const { return pos; }
+	void Update();	                    // 更新.
 
 private:
 	VECTOR	pos;			// ポジション.

@@ -26,18 +26,46 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	OptionScene option;
 	SceneManager scene;
 	GameClearScene clear;
-
-
+	
 	/*ゲームループ*/
 	bool sceneFlag = true;//true:タイトルシーン,false:ゲームシーン
-	
 	//ゲームシーン繰り返し処理
 	while (true)
 	{
-
 		/*画面の初期化*/
 		ClearDrawScreen();
 		/*ゲーム処理*/
+		if (sceneFlag)
+		{
+			sceneFlag=title.Update();
+			title.TitleMusic(); 
+			scene.ExplanationText(); 
+			
+			
+		}
+		else if (sceneFlag==false)
+		{
+			map.Draw();
+			map.BackGround();
+			map.TimeLimit();
+			map.TimeUpdate();
+			character.Draw();
+			character.FallCollision();
+			character.Move(map);
+			enemy.AdditionMove();
+			enemy.Drawcircle();
+			enemy.UpdateEnemy();
+			enemy.Draw();
+			enemy.EnemyMove();
+			enemy.EnemyAirCollision();
+			
+		
+			
+
+
+
+		}
+	
 		
 	
 		

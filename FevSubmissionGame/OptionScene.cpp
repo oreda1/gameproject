@@ -11,6 +11,14 @@ SceneBase* OptionScene::Update()
 	return nullptr;
 }
 
+void OptionScene::Draw()
+{
+}
+
+void OptionScene::End()
+{
+}
+
 
 
 //オプション枠の表示

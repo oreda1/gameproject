@@ -5,17 +5,16 @@
 #include "Player.h"
 #include "Camera.h"
 
-#define USE_LERP_CAMERA 1
-
 //-----------------------------------------------------------------------------
 // @brief  コンストラクタ.
 //-----------------------------------------------------------------------------
 Camera::Camera()
 {
-	//奥行0.1～1000までをカメラの描画範囲とする
-	SetCameraNearFar(0.1f, 1000.0f);
+    //奥行0.1～1000までをカメラの描画範囲とする
+    SetCameraNearFar(0.1f, 1000.0f);
 
-	pos = VGet(0, 0, 0);
+    //(0,10,-20)の視点から(0,10,0)のターゲットを見る角度にカメラを設置
+    SetCameraPositionAndTarget_UpVecY(VGet(0, 10, -20), VGet(0.0f, 10.0f, 0.0f));
 }
 
 //-----------------------------------------------------------------------------
@@ -29,20 +28,9 @@ Camera::~Camera()
 //-----------------------------------------------------------------------------
 // @brief  更新.
 //-----------------------------------------------------------------------------
-void Camera::Update(const Player& player)
+void Camera::Update()
 {
-#if !USE_LERP_CAMERA
-	// z軸上で、プレイヤーから一定距離離れた状態でプレイヤーを常に見続けるよう位置調整
-	pos = VGet(0, player.GetPos().y + 20.0f, player.GetPos().z - 30.0f);
-#else
-	// lerpを使用して実装.
-	// lerp(VECTOR a, VECTOR b, float t)は
-	// answer = a + ((b-a) * t)
-	VECTOR aimPos = VGet(0, player.GetPos().y + 20.0f, player.GetPos().z - 30.0f); // b
-	VECTOR posToAim = VSub(aimPos, pos);	// (b-a)
-	VECTOR scaledPosToAim = VScale(posToAim, 0.1f);	// ((b-a) * t)
-	pos = VAdd(pos, scaledPosToAim);	// a + ((b-a) * t)
-#endif
+	// TODO:z軸上で、プレイヤーから一定距離離れた状態でプレイヤーを常に見続けるよう位置調整
 	// カメラに位置を反映.
-	SetCameraPositionAndTarget_UpVecY(pos, player.GetPos());
+	//SetCameraPositionAndTarget_UpVecY(pos, player.GetPos());
 }
