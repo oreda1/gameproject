@@ -1,5 +1,29 @@
-﻿  Main.cpp
+﻿  Character.cpp
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(46,24): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Character.cpp(50,60): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Enemy.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  GameClearScene.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  Main.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\Dxlib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
 C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+  Map.cpp
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.cpp(33,20): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  SceneManager.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\SceneManager.h(17,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SceneManager::Scene' の左辺を無視します。
+C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\Map.h(31,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+  コードを生成中...
   FevSubmissionGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\FevSubmissionGame\x64\Debug\FevSubmissionGame.exe

@@ -28,6 +28,7 @@ void Map::Draw()
 }
 
 
+//残り時間
 void Map::TimeUpdate()
 {
 	time_count += 0.02;
@@ -42,6 +43,7 @@ void Map::Init()
 
 }
 
+//残り時間と時間経過後の処理
 bool Map::TimeLimit()
 {
 	m_scene.GameClear = false;
@@ -101,6 +103,8 @@ bool Map::TimeLimit()
 	
 }
 
+
+//背景画像のロード
 void Map::BackGround()
 {
 	DrawGraph(0,0,LoadGraph("pipo-battlebg009.jpg"),true);
@@ -110,6 +114,7 @@ void Map::End()
 {
 }
 
+//シーン遷移を作る予定
 SceneBase* Map::Update()
 {
 	if (CheckHitKeyAll(KEY_INPUT_Z)==1)
