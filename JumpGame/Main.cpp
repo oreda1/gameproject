@@ -1,4 +1,7 @@
 #include "DxLib.h"
+#include "PlayScene.h"
+#include "Player.h"
+#include "BaseScene.h"
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -9,7 +12,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		return -1;			// エラーが起きたら直ちに終了
 	}
-
+	PlayScene* play=new PlayScene;
+	Player* player = new Player;
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// ゲームループ
@@ -20,9 +24,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// 描画を行う前に画面をクリアする
 		ClearDrawScreen();
-
-		// ゲームの処理
-
+		
+		player->Draw();
+		//play->BackGround();
+		
+	
+	    
+	
+		
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

@@ -40,8 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			sceneFlag=title.Update();
 			title.TitleMusic(); 
 			scene.ExplanationText(); 
-			
-			
+
 		}
 		else if (sceneFlag==false)
 		{
@@ -58,9 +57,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.Draw();
 			enemy.EnemyMove();
 			enemy.EnemyAirCollision();
-			
-		
-
 		}
 	
 		
