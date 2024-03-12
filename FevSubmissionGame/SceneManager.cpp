@@ -1,27 +1,27 @@
 #include "SceneManager.h"
-#include "TitleScene.h"
-#include "Map.h"
-#include "OptionScene.h"
-#include "Enemy.h"
-#include "Character.h"
-
 
 
 SceneManager::SceneManager():
+//シーン作成
 base_manager(nullptr)
 {
-	
-	
+	title = new TitleScene;
+	chara = new Character;
+	enemy = new Enemy;
+	optipn = new OptionScene;
+	map = new Map;
 
 }
 
 SceneManager::~SceneManager()
 {
+	//メモリ解放
 	if (base_manager)
 	{
 		delete base_manager;
 		base_manager = nullptr;
 	}
+	
 
 	
 }
@@ -29,6 +29,20 @@ SceneManager::~SceneManager()
 //シーンをそれぞれ判別する関数
 bool SceneManager::DivideScene()
 {
+	Scene_ChangeKey();
+	if (scene_key[KEY_INPUT_Z])
+	{
+		NowScene = Playing;
+	}
+	else if (scene_key[KEY_INPUT_RETURN])
+	{
+		NowScene = Title;
+	}
+	else if (scene_key[KEY_INPUT_O])
+	{
+		NowScene = Option;
+	}
+	
 	return 0;
 }
 

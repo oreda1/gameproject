@@ -22,7 +22,7 @@ void Map::Draw()
 	
 	//ƒQ[ƒ€ƒV[ƒ“‚Ìˆ—
 	int MapHandle = LoadGraph("[A]Water3_Cave1_pipo.png");
-	DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, true);
+	DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, false);
 
 
 }

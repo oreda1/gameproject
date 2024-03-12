@@ -7,7 +7,7 @@
 #include "OptionScene.h"
 #include "SceneManager.h"
 #include "GameClearScene.h"
-#include <memory>
+
 
 
 /*メイン*/
@@ -32,8 +32,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//ゲームシーン繰り返し処理
 	while (true)
 	{
+		
 		/*画面の初期化*/
 		ClearDrawScreen();
+		scene.DivideScene();
 		/*ゲーム処理*/
 		if (sceneFlag)
 		{
@@ -42,7 +44,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			scene.ExplanationText(); 
 
 		}
-		else if (sceneFlag==false)
+		//ゲーム実行画面
+		else if (scene.NowScene==scene.Playing)
 		{
 			map.Draw();
 			map.BackGround();
@@ -51,15 +54,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			character.Draw();
 			character.FallCollision();
 			character.Move(map);
-			enemy.AdditionMove();
 			enemy.Drawcircle();
-			enemy.UpdateEnemy();
 			enemy.Draw();
+			enemy.InitEnemy();
+			enemy.UpdateEnemy();
+			enemy.AdditionMove();
 			enemy.EnemyMove();
 			enemy.EnemyAirCollision();
 		}
-	
-		
 	
 		
 		/*描画の確定*/

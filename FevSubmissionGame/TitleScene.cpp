@@ -37,9 +37,10 @@ bool TitleScene::Update()
 	}
 	if (titleP.Key[KEY_INPUT_Z])
 	{
-		return false;
+		return scene.NowScene;
 	}
-
+	
+	
 	//³íI—¹
 	return true;//ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚È‚¢
 }

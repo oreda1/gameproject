@@ -28,7 +28,7 @@ public:
 	int	RabbitY= 400;
 
 
-
+	//ライフゲージ
 	void Drawcircle();
 	
 private:
