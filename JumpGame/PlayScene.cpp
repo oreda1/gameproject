@@ -17,3 +17,7 @@ void PlayScene::BackGround()
 	int Back = LoadGraph("pipo-bg004a.jpg");
 	DrawGraph(0, 0, Back, false);
 }
+
+void PlayScene::Timer()
+{
+}
