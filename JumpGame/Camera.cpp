@@ -2,8 +2,13 @@
 
 Camera::Camera()
 {
- 
+  
 }
 Camera::~Camera()
 {
+}
+
+void Camera::Watch()
+{
+	//SetCameraPositionAndAngle()
 }

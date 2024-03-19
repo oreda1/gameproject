@@ -6,5 +6,8 @@ class Camera
    Camera();
 	~Camera();
 
+	void Watch();
+
+
 };
 

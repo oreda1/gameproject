@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScene.h"
+#include <vector>
 #include "DxLib.h"
 class Player
 {
@@ -16,8 +17,7 @@ public:
 
 	int PlayerHandle = LoadGraph("3_DF_Actor.png");
 
-	VECTOR Player_pos=VGet(0,0,0);
-
+	VECTOR Player_pos;
 	
 	
 };
