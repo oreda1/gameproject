@@ -9,11 +9,12 @@ namespace{
 	constexpr int Chara_ChipX = 768;
 	constexpr int Chara_ChipY = 512;
 
+    //キャラチップ 8*8=横,12 縦,8  
+	int ChipNum = 64;
 	//画像サイズからキャラチップ一枚あたりのサイズ
 	constexpr int ChipX = 12;
 	constexpr int ChipY = 8;
-	//キャラチップ 8*8 ,8*8
-	int ChipNum = 64;
+	
 }
 
 int Player_Chip[ChipY][ChipX]
