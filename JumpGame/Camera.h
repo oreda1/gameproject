@@ -8,6 +8,9 @@ public:
 	~Camera();
 
 	void Watch();
+
+	const VECTOR& GetPos() const { return pos; }
+	const VECTOR& GetDir() const { return dir; }
 	VECTOR pos;
 
 };
