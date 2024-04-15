@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "PlayScene.h"
 #include "Player.h"
+#include "Camera.h"
 #include "BaseScene.h"
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -14,6 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	PlayScene* play=new PlayScene;
 	Player* player = new Player;
+	Camera* camera=new Camera;
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// ゲームループ
@@ -22,10 +24,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		// このフレームの開始時刻を覚えておく
 		LONGLONG start = GetNowHiPerformanceCount();
 
+		
 		// 描画を行う前に画面をクリアする
 		ClearDrawScreen();
-		
+		camera->Watch();
+		player->Init();
+		player->Update();
 		player->Draw();
+		
+		
+		
 		//play->BackGround();
 		
 	

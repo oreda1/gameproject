@@ -17,18 +17,7 @@ namespace{
 	
 }
 
-int Player_Chip[ChipY][ChipX]
-{
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0}
-	
-};
+
 
 
 Player::Player() 
@@ -43,27 +32,30 @@ Player::~Player()
 void Player::Init()
 {
 	
-	Player_pos = VGet(0, 0, 0);
+	Player_pos = VGet(200, 300, 0);
+	crop = VGet(0, 128, 0);
+	velocity = VGet(0, 100, 0);
 	
 }
-
 
 //64*12,64*8
 void Player::Draw()
 {
-
-	for (int y = 0; y < ChipY; y++)
-	{
-		for (int x = 0; x < ChipX; x++)
-		{
-			DrawGraph(Player_pos.x, Player_pos.y, PlayerHandle, true);
-		}
-
-	}
+	DrawRectGraph(Player_pos.x, Player_pos.y, crop.x , crop.y, ChipNum, ChipNum, PlayerHandle, true);
 	
+
 }
 
 void Player::Update()
 {
+	
+	
+	if (CheckHitKey(KEY_INPUT_SPACE))
+	{
+		Player_pos = VSub(Player_pos, velocity);
+		
+	}
+	
+	
 	
 }

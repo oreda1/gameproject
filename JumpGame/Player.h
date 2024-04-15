@@ -13,11 +13,12 @@ public:
 	void Draw();
 	void Update();
 
-	
-
 	int PlayerHandle = LoadGraph("3_DF_Actor.png");
 
 	VECTOR Player_pos;
+	VECTOR crop;
+	VECTOR velocity;
+
 	
 	
 };
