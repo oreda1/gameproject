@@ -48,13 +48,11 @@ void Player::Draw()
 
 void Player::Update()
 {
-	
-	
 	if (CheckHitKey(KEY_INPUT_SPACE))
 	{
 		Player_pos = VSub(Player_pos, velocity);
-		
 	}
+	Player_pos = VAdd(Player_pos, VGet(1, 0, 0));
 	
 	
 	

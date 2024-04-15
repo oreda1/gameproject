@@ -42,7 +42,7 @@ const int Map::Stage2Data[StageData2ColNum][StageData2RowNum] =
 	{73, 0,73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65},
 	{73,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65},
 };
-
+ 
 const float Map::ChipSize = 0.725f;
 const int Map::ChipPixelSize = 32;
 

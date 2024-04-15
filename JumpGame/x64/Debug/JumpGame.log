@@ -1,7 +1,3 @@
-﻿  Player.cpp
+﻿  Main.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(44,57): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(44,48): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(44,40): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(44,26): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   JumpGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\JumpGame\x64\Debug\JumpGame.exe
