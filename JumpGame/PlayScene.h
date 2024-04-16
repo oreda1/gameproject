@@ -8,7 +8,11 @@ public:
 	virtual void Update();
     virtual void Draw();
 	virtual void BackGround();
-	void Timer();
 
+	void Timer();
+	float time_count=0;
+	float time=0.02;
+
+	int turn=0;
 };
 

@@ -9,7 +9,7 @@ public:
 
 	void Watch();
 
-	const float ChipSize = 0.725f;
+	const float ChipSize =0.725f;
 	const VECTOR& GetPos() const { return pos; }
 	const VECTOR& GetDir() const { return dir; }
 	VECTOR pos;
