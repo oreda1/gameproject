@@ -36,7 +36,7 @@ void Enemy::Draw()
 	{
 		
 		DrawRectGraph(Enemy_pos[i].x, Enemy_pos[i].y, crop.x, crop.y, 64, 64, PlayerHandle, true);
-
+		
 	}
 	
 
