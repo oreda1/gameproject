@@ -10,6 +10,7 @@ void SceneManeger::Init()
 
 void SceneManeger::Update()
 {
+
 }
 
 void SceneManeger::Draw()

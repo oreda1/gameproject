@@ -1,7 +1,5 @@
 #include "DxLib.h"
 #include "PlayScene.h"
-#include "Player.h"
-#include "Enemy.h"
 #include "Camera.h"
 #include "BaseScene.h"
 // プログラムは WinMain から始まります
@@ -16,8 +14,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return -1;			// エラーが起きたら直ちに終了
 	}
 	PlayScene* play=new PlayScene;
-	Player* player = new Player;
-	Enemy* enemy = new Enemy;
 	Camera* camera=new Camera;
 	SetDrawScreen(DX_SCREEN_BACK);
 
@@ -43,12 +39,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		camera->Watch();
 
-		player->Init();
-		player->Update();
-		player->Draw();
+		
 
-		enemy->Init();
-		enemy->Draw();
+		
+	
 		
 				
 		

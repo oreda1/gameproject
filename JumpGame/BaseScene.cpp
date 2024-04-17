@@ -1,5 +1,4 @@
 #include "BaseScene.h"
-#include "Player.h"
 
 void BaseScene::Init()
 {
