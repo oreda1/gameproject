@@ -1,7 +1,3 @@
-﻿  Camera.cpp
-  main.cpp
-  Map.cpp
-  Player.cpp
-  WorldSprite.cpp
-  コードを生成中...
-  MyDxLibGame3D.vcxproj -> C:\Users\Owner\Desktop\新しいフォルダー\gameproject\GameSample\01_2.MyDxLibGame2.5D(2DMultiMap_Answer)\Debug\MyDxLibGame3D.exe
+﻿  Player.cpp
+C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  MyDxLibGame3D.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\GameSample\01_2.MyDxLibGame2.5D(2DMultiMap_Answer)\Debug\MyDxLibGame3D.exe

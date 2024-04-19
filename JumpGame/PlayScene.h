@@ -7,7 +7,7 @@ public:
 	virtual void Init();
 	virtual void Update();
     virtual void Draw();
-	virtual void BackGround();
+	void BackGround();
 
 	void Timer();
 	float time_count=0;
