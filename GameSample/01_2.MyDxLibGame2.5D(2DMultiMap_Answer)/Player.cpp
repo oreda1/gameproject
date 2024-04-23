@@ -41,7 +41,7 @@ void Player::Update()
 
 	// 単純に方向転換
 	dir = VGet(0, 0, 0);
-	if (CheckHitKey(KEY_INPUT_UP))
+	if (Key & PAD_INPUT_UP)
 	{
 		dir = VAdd(dir, VGet(0, 1, 0));
 	}

@@ -6,6 +6,10 @@ public:
 	void Init();
 	void Draw();
 	void Update();
+	void Collision();
+
+    int prev_y,temp_y;
+	bool Jumpflag;
 
 };
 

@@ -2,15 +2,14 @@
 
 void Enemy::Init()
 {
-	int handle[20] = {LoadGraph("3_DF_Actor.png")};
 	pos = VGet(400, 350, 0);
 	velocity = VGet(0, 0, 0);
-	crop = VGet(384, 320, 0);
+	
 }
 
 void Enemy::Draw()
 {
-	DrawRectGraph(pos.x, pos.y, crop.x, crop.y, Chara_Size, Chara_Size, handle, true);
+	DrawGraph(pos.x, pos.y, handle[66], true);
 }
 
 void Enemy::Update()

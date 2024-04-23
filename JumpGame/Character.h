@@ -8,18 +8,21 @@ public:
 	void Init(){};
 	void Draw(){} ;
 	void Update(){};
+	void Collision(){};
 
 	
 	//キャラサイズ
 	static const int Chara_Size = 64;
 
 	//キャラクターハンドル
-    int handle = LoadGraph("3_DF_Actor.png");
+
+	int handle[77];
+	int n_handle = LoadDivGraph("3_DF_Actor.png", 76, 12, 8, Chara_Size, Chara_Size,handle);
 
 	//キャラクター位置
 	VECTOR pos;
-	//移動量
-	VECTOR velocity;
+	//移動量,重力
+	VECTOR velocity,gravity;
     //キャラチップ切り抜き座標
 	VECTOR crop;
 };
