@@ -14,7 +14,7 @@ Camera::~Camera()
 void Camera::Watch()
 {
 
-	//pos = VGet(10, 10, 10);
+	pos = VGet(10, 10, 10);
 	//SetCameraPositionAndAngle(VGet(0.0, 0.0, 0.0), pos.x, pos.y, pos.z);
 	// 大きさ0.5のマップチップを、課題当初のStageData1ColNum個(16)配置する
 	// プレイヤーの地面のY位置を0としたいので、地上部のマップチップの数は二つ減らした位置で調整

@@ -9,6 +9,7 @@ public:
     virtual void Draw();
 	void BackGround();
 
+
 	void Timer();
 	float time_count=0;
 	float time=0.02;

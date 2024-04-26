@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 void Player::Init()
 {
 	pos = VGet(0, 350, 0);
@@ -10,18 +11,9 @@ void Player::Init()
 
 void Player::Draw()
 {
-	
-	for (int i = 24; i < 27; i++)
-	{
-       DrawGraph(pos.x, pos.y, handle[i], true);
-	   
-	}
-	
-	
-	
-	
 
-	
+   DrawGraph(pos.x, pos.y, handle[24], true);
+
 }
 
 void Player::Update()
@@ -60,5 +52,15 @@ void Player::Update()
 
 void Player::Collision()
 {
+	//画面サイズからプレイヤーの位置を出し当たり判定を行う
+	GetScreenState(&Width, &Height, &Color);
+	if (Getpos().x>pos.x&&Getpos().x-pos.x<4)
+	{
+		ClearDrawScreen();
+	}
+
+	
+	
+	
 
 }

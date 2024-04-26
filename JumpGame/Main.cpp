@@ -28,7 +28,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		// このフレームの開始時刻を覚えておく
 		LONGLONG start = GetNowHiPerformanceCount();
 
-		
+
+	
+
 
 
 		// 描画を行う前に画面をクリアする
@@ -40,16 +42,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		DrawLine3D(VGet(0, 0, -lineSize), VGet(0, 0, lineSize), GetColor(0, 0, 255));
 		
 		
-		player->Init();
-		player->Update();
-		player->Draw();
+	
 
 		enemy->Init();
 		enemy->Update();
 		enemy->Draw();
-		
-       
+
+		enemy->Getpos();
+			
+		player->Init();
+		player->Update();
+		player->Draw();
+
 		play->Timer();
+		
 
 		camera->Watch();
 

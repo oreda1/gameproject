@@ -6,6 +6,7 @@ SceneManeger::~SceneManeger()
 
 void SceneManeger::Init()
 {
+
 }
 
 void SceneManeger::Update()

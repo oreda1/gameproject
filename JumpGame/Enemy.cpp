@@ -5,6 +5,7 @@ void Enemy::Init()
 	pos = VGet(400, 350, 0);
 	velocity = VGet(0, 0, 0);
 	
+	
 }
 
 void Enemy::Draw()
@@ -14,4 +15,8 @@ void Enemy::Draw()
 
 void Enemy::Update()
 {
+
+	
 }
+
+
