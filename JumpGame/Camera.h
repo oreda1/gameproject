@@ -1,6 +1,7 @@
 #pragma once
-#include "BaseScene.h"
 #include "DxLib.h"
+#include "Player.h"
+#include "Enemy.h"
 class Camera
 {
 public:
@@ -8,12 +9,12 @@ public:
 	~Camera();
 
 	void Watch();
+	void Update();
+	VECTOR Camera_Pos;
 
-	const float ChipSize =0.725f;
-	const VECTOR& GetPos() const { return pos; }
-	const VECTOR& GetDir() const { return dir; }
-	VECTOR pos;
-	VECTOR	dir;		
+	
+	
+	
 
 };
 

@@ -16,7 +16,9 @@ public:
 
 	//キャラクターハンドル
 
+	
 	int handle[77];
+	int Chara_Number;
 	int n_handle = LoadDivGraph("3_DF_Actor.png", 76, 12, 8, Chara_Size, Chara_Size,handle);
     
 	//画面サイズ
@@ -30,6 +32,8 @@ public:
 
 	//キャラクター位置
 	VECTOR pos;
+	//画面の揺れ判定
+	VECTOR vibration;
 	//移動量,重力
 	VECTOR velocity,gravity;
     //キャラチップ切り抜き座標

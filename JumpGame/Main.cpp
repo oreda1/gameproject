@@ -22,6 +22,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Camera* camera=new Camera;
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	Camera();
+	camera->Watch();
+	enemy->Init();
+	player->Init();
+	play->Init();
 	// ƒQ[ƒ€ƒ‹[ƒv
 	while (ProcessMessage() != -1)
 	{
@@ -44,31 +49,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		
 	
 
-		enemy->Init();
+		
 		enemy->Update();
 		enemy->Draw();
-
 		enemy->Getpos();
 			
-		player->Init();
+		
 		player->Update();
 		player->Draw();
-
 		play->Timer();
 		
+		
+		
+		camera->Update();
 
-		camera->Watch();
-
 		
-
-		
-	
-		
-				
-		
-		
-	
-	    
 	
 		
 

@@ -9,8 +9,11 @@ public:
     virtual void Draw();
 	void BackGround();
 
+	VECTOR BackPos;
+
 
 	void Timer();
+
 	float time_count=0;
 	float time=0.02;
 
