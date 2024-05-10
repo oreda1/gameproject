@@ -15,7 +15,8 @@ void Player::Init()
 void Player::Draw()
 {
   
-   DrawGraph(vibration.x+pos.x,vibration.y+pos.y, handle[Chara_Number],true);
+	DrawBillboard3D(pos, 0, 0, 2, 180, handle[Chara_Number], true);
+  
    Chara_Number += 1;
    if (Chara_Number>=27)
    {

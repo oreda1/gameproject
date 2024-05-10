@@ -9,6 +9,7 @@ public:
     virtual void Draw();
 	void BackGround();
 
+	//”wŒi‰æ‘œˆÊ’u
 	VECTOR BackPos;
 
 

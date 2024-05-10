@@ -9,6 +9,8 @@ public:
 	virtual void Draw()abstract;
 
 
+
+
 private:
 
 };

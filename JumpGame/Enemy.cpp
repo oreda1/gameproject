@@ -20,8 +20,8 @@ void Enemy::Draw()
 	WaitTimer(10);
 	if (pos.x<-128)
 	{
-		//DeleteGraph(handle[Chara_Number]);
-		DrawGraph(pos.x, pos.y, handle[Chara_Number], true);
+		pos = VGet(700, 350, 0);
+	
 	}
 	
 }
