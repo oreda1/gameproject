@@ -1,7 +1,7 @@
 #include "DxLib.h"
 #include "Camera.h"
 #include <memory>
-#include "Player.h"
+
 
 using namespace std;
 // プログラムは WinMain から始まります
@@ -18,10 +18,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);
 	
 	std::shared_ptr<Player>player;
+	player=make_shared<Player>(player);
 	std::shared_ptr<Camera>camera;
+
 	
 	
-	
+	Player();
+	Camera();
 	player->Init();
 	// ゲームループ
 	while (ProcessMessage() != -1)
@@ -33,7 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ゲームの処理
-		camera->Look();
+		
 		player->Draw();
 
 		// 画面が切り替わるのを待つ
@@ -51,7 +54,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			// 16.66ミリ秒(16667マイクロ秒)経過するまで待つ
 		}
 	}
-
+	player->Delete();
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
 	return 0;				// ソフトの終了 
