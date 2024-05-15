@@ -1,12 +1,12 @@
-#include "DxLib.h"
 #include "Camera.h"
-#include <memory>
 
 
-using namespace std;
+
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	Player* player = new Player;
+
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
 	ChangeWindowMode(true);
 
@@ -17,14 +17,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 	
-	std::shared_ptr<Player>player;
-	player=make_shared<Player>(player);
-	std::shared_ptr<Camera>camera;
+
 
 	
 	
-	Player();
-	Camera();
+	
+	player->Load();
 	player->Init();
 	// ゲームループ
 	while (ProcessMessage() != -1)

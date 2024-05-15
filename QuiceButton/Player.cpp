@@ -1,14 +1,19 @@
 #include "Player.h"
 Player::Player():
 	ModelHandle(),
-	pos(VGet(0.0f, 0.0f, 0.0f))
+	pos(VGet(100.0f, 100.0f, 100.0f))
 {
-	ModelHandle = MV1LoadModel("Asset/PlayerModel.mv1");
+	
 }
 void Player::Init()
 {
 	pos;
 	ModelHandle;
+}
+
+void Player::Load()
+{
+	ModelHandle = MV1LoadModel("Asset/PlayerModel.mv1");
 }
 
 void Player::Draw()
@@ -22,7 +27,7 @@ void Player::Update()
 {
 	
 	MV1SetPosition(ModelHandle, pos);
-	//DrawPolygon3D(&ver[0], 6, ModelHandle,true);
+	
 
 }
 
