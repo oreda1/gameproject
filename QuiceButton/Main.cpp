@@ -6,6 +6,7 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Player* player = new Player;
+	Camera* camera = new Camera;
 
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
 	ChangeWindowMode(true);
@@ -19,11 +20,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	
 
 
-	
-	
-	
 	player->Load();
 	player->Init();
+	
+	
 	// ゲームループ
 	while (ProcessMessage() != -1)
 	{
@@ -34,8 +34,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ゲームの処理
-		
+		camera->Look(*player);
+		camera->ViewpointShift();
+		player->Update();
 		player->Draw();
+
+
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

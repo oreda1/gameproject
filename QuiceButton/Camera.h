@@ -7,8 +7,10 @@ class Camera:Player
 public:
 	Camera();
 	void Init();
-	void Look();
+	void Look(Player&player);
 	void ViewpointShift();
+
+
 	VECTOR pos;
 	VECTOR lookpos;
 

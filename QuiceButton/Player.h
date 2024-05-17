@@ -19,7 +19,7 @@ public:
 private:
   
    VECTOR pos;
-   int ModelHandle;
+   int ModelHandle[3],Index[3];
    VERTEX3D ver[6];
 
 };
