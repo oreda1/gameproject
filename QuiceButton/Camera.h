@@ -1,8 +1,7 @@
 #pragma once
 #include "DxLib.h"
 #include "Player.h"
-
-class Camera:Player
+class Camera
 {  
 public:
 	Camera();

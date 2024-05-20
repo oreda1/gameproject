@@ -3,7 +3,7 @@
 Camera::Camera()
 {
 	SetCameraNearFar(1.0f, 1000.0f);
-	pos = VGet(0.0f,300.0f,-150.0f);
+	pos = VGet(0.0f,250.0f,-150.0f);
 }
 
 void Camera::Init()
@@ -25,11 +25,12 @@ void Camera::ViewpointShift()
 
 	if (KEY_INPUT_RIGHT)
 	{
-		pos.x+=10;
+		
+		
 	}
 	if (KEY_INPUT_LEFT)
 	{
-		pos.x -= 10;
+		
 	}
 
 	

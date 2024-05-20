@@ -6,20 +6,21 @@ class Player
 {
 public:
 	Player();
+	virtual ~Player();
 
 	void Init();
 	void Load();
 	void Draw();
 	void Update();
-	void Delete();
+	
 
 	VECTOR& GetPlayerPos(){ return pos;}
 
 
 private:
-  
+
    VECTOR pos;
-   int ModelHandle[3],Index[3];
+   int ModelHandle[3];
    VERTEX3D ver[6];
 
 };

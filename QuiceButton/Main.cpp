@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "PlayScene.h"
 
 
 
@@ -7,6 +8,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	Player* player = new Player;
 	Camera* camera = new Camera;
+	PlayScene* play = new PlayScene;
 
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
 	ChangeWindowMode(true);
@@ -23,7 +25,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player->Load();
 	player->Init();
 	
-	
 	// ゲームループ
 	while (ProcessMessage() != -1)
 	{
@@ -34,16 +35,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ゲームの処理
-		camera->Look(*player);
+	    camera->Look(*player);
 		camera->ViewpointShift();
 		player->Update();
 		player->Draw();
-
-
-
+		play->Button();
+		play->Text();
+		
 		// 画面が切り替わるのを待つ
 		ScreenFlip();
-
+		
 		// escキーでゲーム終了
 		if (CheckHitKey(KEY_INPUT_ESCAPE))
 		{
@@ -56,7 +57,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			// 16.66ミリ秒(16667マイクロ秒)経過するまで待つ
 		}
 	}
-	player->Delete();
+
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
 	return 0;				// ソフトの終了 
