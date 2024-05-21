@@ -13,8 +13,9 @@ public:
 	void Clear();
 private:
 	char button[256];
-	int button_count; 
+	int score_count; 
 	int count;
+	VERTEX3D ver[6];
 
 	
 };

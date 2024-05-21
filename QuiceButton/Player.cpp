@@ -11,7 +11,6 @@ Player::~Player()
 }
 void Player::Init()
 {
-	
 
 }
 
@@ -30,8 +29,8 @@ void Player::Load()
 void Player::Draw()
 {
 	MV1DrawModel(ModelHandle[0]);
-	//MV1DrawModel(ModelHandle[1]);
-	//MV1DrawModel(ModelHandle[2]);
+	MV1DrawModel(ModelHandle[1]);
+	MV1DrawModel(ModelHandle[2]);
 	
 	
 

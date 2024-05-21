@@ -15,6 +15,7 @@ void Camera::Init()
 
 void Camera::Look(Player& player)
 {
+	
 	SetCameraPositionAndTarget_UpVecY(pos,player.GetPlayerPos());
 	DrawFormatString(0,0,0xffffff,"ÉJÉÅÉâà íuÅ@X=%.0f,Y=%.0f,Z=%.0f",pos.x,pos.y,pos.z);
 
@@ -23,14 +24,16 @@ void Camera::Look(Player& player)
 void Camera::ViewpointShift()
 {
 
-	if (KEY_INPUT_RIGHT)
+	if (CheckHitKey(KEY_INPUT_RIGHT))
 	{
 		
+		pos.x++;
 		
 	}
-	if (KEY_INPUT_LEFT)
+	if (CheckHitKey(KEY_INPUT_LEFT))
 	{
-		
+	
+		pos.x--;
 	}
 
 	

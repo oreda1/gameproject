@@ -2,9 +2,8 @@
 
 PlayScene::PlayScene()
 {
-	button[255] = -1;
-	button_count = GetRand(5);
-	count;
+	
+	
 }
 
 void PlayScene::BarkGround()
@@ -22,58 +21,25 @@ void PlayScene::Text()
 
 void PlayScene::Button()
 {
-	GetHitKeyStateAll(button);
-	for (int i = 0; i < 256; i++) {	//i番のキーコードに対応するキーが押されていたら
+	
+	for (int i = 0; i < 256; i++)
+	{
 		if (button[i] != 0) {
-			button[i]++;			//加算
+			button[i]++;				//加算
 		}
 		else {						//押されていなければ
 			button[i] = 0;
 
 		}
 	}
-	if (button_count==1)
-	{
-		button[CheckHitKey(PAD_INPUT_1 || KEY_INPUT_1)];
-	}
-	if (button_count==2)
-	{
-		button[CheckHitKey(PAD_INPUT_2 || KEY_INPUT_1)];
-	}
-	if (button_count==3)
-	{
-		button[CheckHitKey(PAD_INPUT_3 || KEY_INPUT_1)];
-	}
-	if (button_count==4)
-	{
-		button[CheckHitKey(PAD_INPUT_4 || KEY_INPUT_1)];
-	}
-	if (button_count==5)
-	{
-	   button[CheckHitKey(PAD_INPUT_5 || KEY_INPUT_1)];
-	}
 
-	if (button[PAD_INPUT_1||KEY_INPUT_1])
+	if (button[KEY_INPUT_0])
 	{
-		count += 1;
-	}	
-	if (button[PAD_INPUT_2 || KEY_INPUT_1])
-	{
-		count += 1;
-	}	
-	if (button[PAD_INPUT_3 || KEY_INPUT_1])
-	{
-		count += 1;
-	}	
-	if (button[PAD_INPUT_4 || KEY_INPUT_1])
-	{
-		count += 1;
-	}	
-	if (button[PAD_INPUT_5 || KEY_INPUT_1])
-	{
-		count += 1;
+		++score_count;
+      
 	}
-	DrawFormatString(0, 100,0xffffff,"count=%d",count);
+	
+	DrawFormatString(0, 100,0xffffff,"count=%d",score_count);
 
 	
 
@@ -86,8 +52,9 @@ void PlayScene::Button()
 
 void PlayScene::Clear()
 {
-	if (count==15)
+	if (score_count>=15)
 	{
+		DrawString(300, 300, "Clear", 0xffffff);
 
 	}
 }
