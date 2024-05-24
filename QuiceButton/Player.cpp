@@ -1,7 +1,21 @@
 #include "Player.h"
+
+namespace Anim
+{
+
+	float TotalTime;
+	float Nowtime;
+	int Index[5];
+
+
+
+
+}
+
+
 Player::Player():
 	ModelHandle(),
-	pos(VGet(0.0f, 0.0f, 0.0f))
+	pos(VGet(0.0f, 200.0f, 150.0f))
 {
 	
 }
@@ -11,6 +25,8 @@ Player::~Player()
 }
 void Player::Init()
 {
+	Anim::Nowtime = 0.0f;
+	Anim::Index[0] = MV1AttachAnim(ModelHandle[0], 0);
 
 }
 

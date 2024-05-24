@@ -8,7 +8,7 @@ PlayScene::PlayScene()
 
 void PlayScene::BarkGround()
 {
-	
+	SetBackgroundColor(50, 0, 100);
 	
 }
 
@@ -40,10 +40,6 @@ void PlayScene::Button()
 	}
 	
 	DrawFormatString(0, 100,0xffffff,"count=%d",score_count);
-
-	
-
-	
 
 
 

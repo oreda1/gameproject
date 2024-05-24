@@ -2,6 +2,8 @@
 #include "DxLib.h"
 #include "PlayScene.h"
 
+
+
 class Player
 {
 public:
@@ -12,16 +14,17 @@ public:
 	void Load();
 	void Draw();
 	void Update();
-	
-
-	VECTOR& GetPlayerPos(){return pos;}
+	VECTOR& GetPlayerPos() { return pos; }
 
 
 private:
 
-   VECTOR pos;
-   int ModelHandle[3];
-  
+
+	VECTOR pos;
+	int ModelHandle[3];
+
 
 };
+
+
 

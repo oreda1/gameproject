@@ -35,6 +35,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ƒQ[ƒ€‚Ìˆ—
+		play->BarkGround();
 	    camera->Look(*player);
 		camera->ViewpointShift();
 		player->Update();
