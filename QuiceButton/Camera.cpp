@@ -28,20 +28,21 @@ void Camera::ViewpointShift()
 
 	if (CheckHitKey(KEY_INPUT_RIGHT))
 	{
-		
+		pos.x += 1;
 		
 	}
 	if (CheckHitKey(KEY_INPUT_LEFT))
 	{
-	
-	
+		pos.x -= 1;
 	}
 	if (CheckHitKey(KEY_INPUT_DOWN))
 	{
+		pos.z += 10;
 	
 	}	
 	if (CheckHitKey(KEY_INPUT_UP))
 	{
+		pos.z -= 10;
 	
 	}
 

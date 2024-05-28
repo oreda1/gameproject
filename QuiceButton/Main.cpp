@@ -19,20 +19,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 	SetDrawScreen(DX_SCREEN_BACK);
-	
+
 
 
 	player->Load();
 	player->Init();
 	
 	// ゲームループ
-	while (ProcessMessage() != -1)
+	while (play->SceneFlag)
 	{
 		// このフレームの開始時刻を覚えておく
 		LONGLONG start = GetNowHiPerformanceCount();
-
-		// 描画を行う前に画面をクリアする
+	// 描画を行う前に画面をクリアする
 		ClearDrawScreen();
+	
+	
 
 		// ゲームの処理
 		play->BarkGround();

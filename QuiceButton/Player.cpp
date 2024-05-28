@@ -4,6 +4,7 @@ namespace Anim
 {
 
 	float TotalTime;
+	//アニメーション現在の時間
 	float Nowtime;
 	int Index[5];
 
