@@ -5,7 +5,7 @@ PlayScene::PlayScene()
 	
 	GetHitKeyStateAll(button);
 	score_count = 0;
-
+ 
 	
 }
 
@@ -24,60 +24,20 @@ void PlayScene::Text()
 
 void PlayScene::Button()
 {
-	
-	if (SceneFlag==true)
+	Check();
+	if (SceneFlag == true)
 	{
-		switch (push)
-		{
-		case one:
-			if (CheckHitKey(KEY_INPUT_1))
-			{
-				score_count+=1;
-			}
-			break;
-		case two:
-			if (CheckHitKey(KEY_INPUT_2))
-			{
-				score_count += 1;
-			}
-			break;
-		case a:
-			if (CheckHitKey(KEY_INPUT_A))
-			{
-				score_count += 1;
-			}
-			break;
-		case b:
-			if (CheckHitKey(KEY_INPUT_B))
-			{
-				score_count += 1;
-			}
-			break;
-		case tab:
-			if (CheckHitKey(KEY_INPUT_TAB))
-			{
-				score_count += 1;
-			}
-			break;
-		case click:
-			if (CheckHitKey(DX_CHECKINPUT_MOUSE))
-			{
-				score_count += 1;
-			}
-			break;
-		default:
-			break;
-		}
+
 	}
-	if (score_count>score_count+1)
+	if (score_count > score_count + 1)
 	{
-		
+
 	}
-	
-	DrawFormatString(0, 100,0xffffff,"count=%d",score_count);
+
+	DrawFormatString(0, 100, 0xffffff, "count=%d", score_count);
 
 
-	
+
 }
 
 void PlayScene::Clear()
@@ -109,30 +69,34 @@ int PlayScene::Key()
 
 bool PlayScene::Check()
 {
-	int number = GetRand(5);
+	number = GetRand(4);
+
 	if (number == 0)
 	{
-		push = one;
+		push = A;
 	}
-	else if (number == 1)
+	if (number == 1)
 	{
-		push = two;
+		push = B;
 	}
-	else if (number == 2)
+	if (number == 2)
 	{
-		push = a;
+		push = X;
 	}
-	else if (number == 3)
+	if (number == 3)
 	{
-		push = b;
+		push = Y;
 	}
-	else if (number == 4)
-	{
-		push = tab;
-	}
-	else if (number == 5)
-	{
-		push = click;
-	}
-	return false;
+	_number =&number;
+	
+	
+	DrawFormatString(300, 300, 0xffffff, "push=%d", _number);
+
+
+	return push;
+}
+
+void PlayScene::Floor()
+{
+	
 }

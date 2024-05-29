@@ -13,21 +13,22 @@ public:
 	void Clear();
 	int Key();
 	bool Check();
+	void Floor();
+	//true ゲーム画面　false スタート画面
 	bool SceneFlag=true;
 private:
 	char button[256];
 	int key[256];
 	typedef enum Push
 	{
-		one,
-		two,
-		a,
-		b,
-		tab,
-		click
+		A,
+		B,
+		X,
+		Y
 	};
 	Push push;
-
+	int number;
+	int*_number;
 	int score_count;
 	int count;
 	VERTEX3D ver[6];

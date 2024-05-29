@@ -24,24 +24,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	player->Load();
 	player->Init();
+
+
 	
 	// ゲームループ
+	
 	while (play->SceneFlag)
 	{
 		// このフレームの開始時刻を覚えておく
 		LONGLONG start = GetNowHiPerformanceCount();
 	// 描画を行う前に画面をクリアする
 		ClearDrawScreen();
-	
-	
-
 		// ゲームの処理
 		play->BarkGround();
 	    camera->Look(*player);
 		camera->ViewpointShift();
+		play->Button();
 		player->Update();
 		player->Draw();
-		play->Button();
 		play->Text();
 		play->Clear();
 		// 画面が切り替わるのを待つ
@@ -60,6 +60,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			// 16.66ミリ秒(16667マイクロ秒)経過するまで待つ
 		}
 	}
+
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
