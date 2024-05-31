@@ -1,9 +1,8 @@
 ﻿  PlayScene.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.h(28,3): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PlayScene::Push' の左辺を無視します。
   コード生成しています。
-  3 of 20 functions (15.0%) were compiled, the rest were copied from previous compilation.
+  1 of 20 functions ( 5.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   QuiceButton.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\QuiceButton\x64\Release\QuiceButton.exe

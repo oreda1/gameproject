@@ -24,6 +24,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	player->Load();
 	player->Init();
+	play->Init();
 
 
 	
@@ -41,7 +42,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		camera->ViewpointShift();
 		play->Button();
 		player->Update();
-		player->Draw();
+		//player->Draw();
 		play->Text();
 		play->Clear();
 		// ‰æ–Ê‚ªØ‚è‘Ö‚í‚é‚Ì‚ð‘Ò‚Â

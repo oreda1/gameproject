@@ -6,7 +6,7 @@ class PlayScene
 {
 public:
 	PlayScene();
-
+	void Init();
 	void BarkGround();
 	void Text();
 	void Button();
@@ -14,6 +14,9 @@ public:
 	int Key();
 	bool Check();
 	void Floor();
+
+	void CheckKey();
+
 	//true ゲーム画面　false スタート画面
 	bool SceneFlag=true;
 private:
@@ -25,12 +28,13 @@ private:
 		B,
 		X,
 		Y
-	};
-	Push push;
+	}push;
 	int number;
-	int*_number;
+	int _number;
 	int score_count;
-	int count;
+	int pushPoint;
+	int frameCount;
+	bool number_check,_or;
 	VERTEX3D ver[6];
 
 	

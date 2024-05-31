@@ -58,9 +58,9 @@ void Player::Update()
 	MV1SetPosition(ModelHandle[0], pos);
 	if (KEY_INPUT_SPACE)                                                
 	{
-		pos.y -= 10;
+		
 	}
-	//pos.x++;
+	
 	DrawFormatString(0, 20, 0xffffff, "X=%.0f,Y=%.0f,Z=%.0f,", pos.x, pos.y, pos.z);
 
 
