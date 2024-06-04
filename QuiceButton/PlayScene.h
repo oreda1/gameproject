@@ -15,7 +15,7 @@ public:
 	bool Check();
 	void Floor();
 
-	void CheckKey();
+	int CheckKey();
 
 	//true ゲーム画面　false スタート画面
 	bool SceneFlag=true;
@@ -24,16 +24,22 @@ private:
 	int key[256];
 	typedef enum Push
 	{
-		A,
-		B,
-		X,
-		Y
+		A='A',
+		B='B',
+		X='X',
+		Y='Y'
 	}push;
 	int number;
-	int _number;
-	int score_count;
-	int pushPoint;
-	int frameCount;
+	char _number;
+
+	int pushPoint;	
+	
+
+	int score;
+	//1フレーム時間、スコア,ミス
+	int frame_count,time_count,miss_count;
+
+
 	bool number_check,_or;
 	VERTEX3D ver[6];
 
