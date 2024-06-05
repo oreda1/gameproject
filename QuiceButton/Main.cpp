@@ -26,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player->Init();
 	play->Init();
 
-
+	
 	
 	// ƒQ[ƒ€ƒ‹[ƒv
 	

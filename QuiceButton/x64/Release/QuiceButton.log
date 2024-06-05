@@ -1,8 +1,8 @@
 ﻿  PlayScene.cpp
 C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
   コード生成しています。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(147): warning C4715: 'PlayScene::CheckKey': 値を返さないコントロール パスがあります。
-  2 of 20 functions (10.0%) were compiled, the rest were copied from previous compilation.
+C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(110): warning C4715: 'PlayScene::Check': 値を返さないコントロール パスがあります。
+  4 of 20 functions (20.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
