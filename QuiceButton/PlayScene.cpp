@@ -101,6 +101,12 @@ bool PlayScene::Check()
 		return frame_count = 0;
 
 	}
+	//’Ç‰Á—v‘f
+	if (score/10==1&&score%3==2)
+	{
+		
+
+	}
 
 
 
@@ -117,7 +123,7 @@ void PlayScene::Floor()
 int PlayScene::CheckKey()
 {
 	
-
+	
 	switch (number)
 	{
 	case 0:
@@ -136,6 +142,7 @@ int PlayScene::CheckKey()
 		break;
 
 	}
+
 
 
 	if (_number == A && CheckHitKey(KEY_INPUT_A) != 0)
@@ -167,11 +174,15 @@ int PlayScene::CheckKey()
 		number = GetRand(3);
 		time_count = 0;
 	}
+	
+	
+	
+	
+	
+	
 
 
-
-
-	DrawFormatString(300, 400, 0xffffff, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
+	DrawExtendFormatString(200, 400,2,2, 0xffffff, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
 	return number;
 
 
