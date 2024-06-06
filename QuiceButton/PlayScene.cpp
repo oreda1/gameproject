@@ -9,7 +9,7 @@ PlayScene::PlayScene() :
 	score()
 {
 
-	GetHitKeyStateAll(button);
+	
 	time_count = 0;
 	number_check = false;
 	_or = true;
@@ -19,6 +19,8 @@ PlayScene::PlayScene() :
 
 void PlayScene::Init()
 {
+
+	
 	number = GetRand(3);
 }
 
@@ -63,11 +65,13 @@ void PlayScene::Clear()
 
 int PlayScene::Key()
 {
+	GetHitKeyStateAll(button);
 	for (int i = 0; i < 256; i++)
 	{
-		if (button[i] != 0) {
+		if (button[i] != 0&&frame_count % 60 == 0) {
 
 			key[i]++;			//‰ÁŽZ
+			
 		}
 		else {						//‰Ÿ‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
 			key[i] = 0;
@@ -145,21 +149,21 @@ int PlayScene::CheckKey()
 
 
 
-	if (_number == A && CheckHitKey(KEY_INPUT_A) != 0)
+	if (_number == A && key[KEY_INPUT_A]!= 0)
 	{
 		score += 1;
 		number_check = true;
 		number = GetRand(3);
 		time_count = 0;
 	}
-	if (_number == B && CheckHitKey(KEY_INPUT_B) != 0) 
+	if (_number == B &&key[KEY_INPUT_B]!= 0) 
 	{
 		score += 1;
 		number_check = true;
 		number = GetRand(3);
 		time_count = 0;
 	}
-	if (_number == X && CheckHitKey(KEY_INPUT_X) != 0)
+	if (_number == X && key[KEY_INPUT_X] != 0)
 	{
 		score += 1;
 		number_check = true;
@@ -167,7 +171,7 @@ int PlayScene::CheckKey()
 		time_count = 0;
 
 	}
-	if (_number == Y && CheckHitKey(KEY_INPUT_Y) != 0)
+	if (_number == Y && key[KEY_INPUT_Y]!= 0)
 	{
 		score += 1;
 		number_check = true;

@@ -44,6 +44,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		player->Update();
 		//player->Draw();
 		play->CheckKey();
+		play->Key();
 		play->Check();
 		play->Text();
 		play->Clear();
