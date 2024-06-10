@@ -28,6 +28,9 @@ void Player::Init()
 {
 	Anim::Nowtime = 0.0f;
 	Anim::Index[0] = MV1AttachAnim(ModelHandle[0], 0);
+	Anim::Index[1] = MV1AttachAnim(ModelHandle[1], 1);
+	Anim::Index[2] = MV1AttachAnim(ModelHandle[2], 2);
+	Anim::TotalTime = MV1GetAttachAnimTotalTime(ModelHandle[0], Anim::Index[0]);
 
 }
 
@@ -39,15 +42,18 @@ void Player::Load()
 
 
 
-	
 
 }
 
 void Player::Draw()
 {
-	MV1DrawModel(ModelHandle[0]);
-	MV1DrawModel(ModelHandle[1]);
-	MV1DrawModel(ModelHandle[2]);
+
+	for (int i = 0; i < 3; i++)
+	{
+		MV1DrawModel(ModelHandle[i]);
+
+	}
+	
 	
 	
 
@@ -55,11 +61,10 @@ void Player::Draw()
 
 void Player::Update()
 {
-	MV1SetPosition(ModelHandle[0], pos);
-	if (KEY_INPUT_SPACE)                                                
-	{
-		
-	}
+	
+      MV1SetPosition(ModelHandle[0], pos);
+	
+	
 	
 	DrawFormatString(0, 20, 0xffffff, "X=%.0f,Y=%.0f,Z=%.0f,", pos.x, pos.y, pos.z);
 

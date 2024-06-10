@@ -6,10 +6,9 @@ PlayScene::PlayScene() :
 	frame_count(0),
 	pushPoint(0),
 	miss_count(0),
-	score()
+	score(0)
 {
 
-	
 	time_count = 0;
 	number_check = false;
 	_or = true;
@@ -19,8 +18,6 @@ PlayScene::PlayScene() :
 
 void PlayScene::Init()
 {
-
-	
 	number = GetRand(3);
 }
 
@@ -51,14 +48,12 @@ void PlayScene::Button()
 void PlayScene::Clear()
 {
 	DrawExtendFormatString(600, 0, 2, 2, 0x00ffff, "%d", score);
-	if (score == 30)
+	if (score >=30)
 	{
 		ClearDrawScreen();
 		DrawExtendFormatString(200, 100, 2, 2, 0xffffff, "GAMECLEAR");
 		miss_count = 0;
 		time_count = 0;
-		
-
 
 	}
 }
@@ -68,7 +63,7 @@ int PlayScene::Key()
 	GetHitKeyStateAll(button);
 	for (int i = 0; i < 256; i++)
 	{
-		if (button[i] != 0&&frame_count % 60 == 0) {
+		if (button[i] != 0) {
 
 			key[i]++;			//‰ÁŽZ
 			
@@ -101,14 +96,13 @@ bool PlayScene::Check()
 	{
 		ClearDrawScreen();
 		DrawExtendFormatString(200, 100, 2, 2, 0xff0000, "GAMEOVER");
-
 		return frame_count = 0;
 
 	}
 	//’Ç‰Á—v‘f
 	if (score/10==1&&score%3==2)
 	{
-		
+		_number = number;
 
 	}
 
@@ -116,6 +110,7 @@ bool PlayScene::Check()
 
 
 
+	
 
 }
 
@@ -126,7 +121,6 @@ void PlayScene::Floor()
 
 int PlayScene::CheckKey()
 {
-	
 	
 	switch (number)
 	{
@@ -147,42 +141,36 @@ int PlayScene::CheckKey()
 
 	}
 
-
-
-	if (_number == A && key[KEY_INPUT_A]!= 0)
+	if (_number == A && button[KEY_INPUT_A]||button[PAD_INPUT_1])
 	{
-		score += 1;
-		number_check = true;
+		_score = score;
+		score +=1;
 		number = GetRand(3);
 		time_count = 0;
 	}
-	if (_number == B &&key[KEY_INPUT_B]!= 0) 
+	if (_number == B &&button[KEY_INPUT_B] || button[PAD_INPUT_2])
 	{
-		score += 1;
-		number_check = true;
+		_score = score;
+		score+=1;	
 		number = GetRand(3);
 		time_count = 0;
 	}
-	if (_number == X && key[KEY_INPUT_X] != 0)
+	if (_number == X && button[KEY_INPUT_X] || button[PAD_INPUT_3])
 	{
-		score += 1;
-		number_check = true;
+		_score = score;
+		score+=1;
 		number = GetRand(3);
 		time_count = 0;
 
 	}
-	if (_number == Y && key[KEY_INPUT_Y]!= 0)
+	if (_number == Y && button[KEY_INPUT_Y] || button[PAD_INPUT_4])
 	{
-		score += 1;
-		number_check = true;
+		_score = score;
+		score+=1;
 		number = GetRand(3);
 		time_count = 0;
 	}
-	
-	
-	
-	
-	
+
 	
 
 
@@ -194,3 +182,6 @@ int PlayScene::CheckKey()
 
 
 }
+
+
+//https://www.youtube.com/watch?v=REskPu4kVjI

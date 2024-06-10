@@ -34,8 +34,7 @@ private:
 
 	int pushPoint;	
 	
-
-	int score;
+	int score,_score;
 	//1フレーム時間、スコア,ミス
 	int frame_count,time_count,miss_count;
 

@@ -42,7 +42,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		camera->ViewpointShift();
 		play->Button();
 		player->Update();
-		//player->Draw();
+		player->Draw();
 		play->CheckKey();
 		play->Key();
 		play->Check();
