@@ -8,8 +8,8 @@ namespace Anim
 	float Nowtime;
 	int Index[5];
 
-
-
+	//アニメーションハンドル
+	int frame=0,time_frame=0;
 
 }
 
@@ -23,14 +23,19 @@ Player::Player():
 Player::~Player()
 {
 	MV1DeleteModel(ModelHandle[0]);
+	MV1DeleteModel(ModelHandle[1]);
+	MV1DeleteModel(ModelHandle[2]);
+	
 }
 void Player::Init()
 {
-	Anim::Nowtime = 0.0f;
+	
 	Anim::Index[0] = MV1AttachAnim(ModelHandle[0], 0);
 	Anim::Index[1] = MV1AttachAnim(ModelHandle[1], 1);
 	Anim::Index[2] = MV1AttachAnim(ModelHandle[2], 2);
 	Anim::TotalTime = MV1GetAttachAnimTotalTime(ModelHandle[0], Anim::Index[0]);
+	Anim::Nowtime = 0.0f;
+	MV1SetAttachAnimTime(ModelHandle[0], Anim::Index[0], Anim::Nowtime);
 
 }
 
@@ -48,11 +53,29 @@ void Player::Load()
 void Player::Draw()
 {
 
-	for (int i = 0; i < 3; i++)
+	
+	Anim::Nowtime += 50;
+	if (Anim::Nowtime>=Anim::TotalTime)
 	{
-		MV1DrawModel(ModelHandle[i]);
-
+		Anim::Nowtime -= Anim::TotalTime;
+		
 	}
+	MV1SetAttachAnimTime(ModelHandle[0], Anim::Index[0], Anim::Nowtime);
+
+	
+
+	MV1DrawModel(ModelHandle[Anim::frame]);
+	
+	
+
+
+	
+
+		
+		
+
+
+	
 	
 	
 	
@@ -62,10 +85,11 @@ void Player::Draw()
 void Player::Update()
 {
 	
-      MV1SetPosition(ModelHandle[0], pos);
-	
-	
-	
+	MV1SetPosition(ModelHandle[Anim::frame], pos);
+	MV1SetPosition(ModelHandle[Anim::frame+1], pos);
+	MV1SetPosition(ModelHandle[Anim::frame+2], pos);
+
+
 	DrawFormatString(0, 20, 0xffffff, "X=%.0f,Y=%.0f,Z=%.0f,", pos.x, pos.y, pos.z);
 
 

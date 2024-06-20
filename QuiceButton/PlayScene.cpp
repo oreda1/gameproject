@@ -1,5 +1,11 @@
 #include "PlayScene.h"
 
+namespace
+{
+	const char*music_path = "btn08.mp3";
+}
+ 
+
 
 PlayScene::PlayScene() :
 	number(0),
@@ -7,23 +13,33 @@ PlayScene::PlayScene() :
 	pushPoint(0),
 	miss_count(0),
 	score(0)
-{
 
+{
+	
 	time_count = 0;
 	number_check = false;
 	_or = true;
+	SceneFlag = false;
+	
+	
 
 
+}
+
+PlayScene::~PlayScene()
+{
+	
 }
 
 void PlayScene::Init()
 {
 	number = GetRand(3);
+	
 }
 
 void PlayScene::BarkGround()
 {
-	SetBackgroundColor(0, 0, 0);
+	SetBackgroundColor(256, 256, 256);
 	
 }
 
@@ -31,13 +47,46 @@ void PlayScene::Text()
 {
 
 	
-	DrawFormatString(0, 120, 0xffffff, "miss %d", miss_count);
-	DrawFormatString(0, 100, 0xffffff, "count=%d", time_count);
+	DrawFormatString(0, 120, 0x000000, "miss %d", miss_count);
+	DrawFormatString(0, 100, 0x000000, "count=%d", time_count);
 }
 
 void PlayScene::Button()
 {
 	
+	if (_number == A && button[KEY_INPUT_A] || button[PAD_INPUT_1])
+	{
+		_score = score;
+		score += 1;
+		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
+		number = GetRand(3);
+		time_count = 0;
+	}
+	if (_number == B && button[KEY_INPUT_B] || button[PAD_INPUT_2])
+	{
+		_score = score;
+		score += 1;
+		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
+		number = GetRand(3);
+		time_count = 0;
+	}
+	if (_number == X && button[KEY_INPUT_X] || button[PAD_INPUT_3])
+	{
+		_score = score;
+		score += 1;
+		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
+		number = GetRand(3);
+		time_count = 0;
+
+	}
+	if (_number == Y && button[KEY_INPUT_Y]|| button[PAD_INPUT_4])
+	{
+		_score = score;
+		score += 1;
+		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
+		number = GetRand(3);
+		time_count = 0;
+	}
 	
 
 
@@ -51,7 +100,7 @@ void PlayScene::Clear()
 	if (score >=30)
 	{
 		ClearDrawScreen();
-		DrawExtendFormatString(200, 100, 2, 2, 0xffffff, "GAMECLEAR");
+		DrawExtendFormatString(200, 100, 2, 2, 0x000000, "GAMECLEAR");
 		miss_count = 0;
 		time_count = 0;
 
@@ -96,13 +145,14 @@ bool PlayScene::Check()
 	{
 		ClearDrawScreen();
 		DrawExtendFormatString(200, 100, 2, 2, 0xff0000, "GAMEOVER");
+		time_count = 0;
+		score = 0;
 		return frame_count = 0;
 
 	}
 	//’Ç‰Á—v‘f
 	if (score/10==1&&score%3==2)
 	{
-		_number = number;
 
 	}
 
@@ -116,6 +166,22 @@ bool PlayScene::Check()
 
 void PlayScene::Floor()
 {
+	
+}
+
+bool PlayScene::Start()
+{
+	while (SceneFlag==false)
+	{
+		if (button[KEY_INPUT_R])
+		{
+
+			SceneFlag = true;
+		}
+		
+		return true;
+	}
+
 	
 }
 
@@ -141,40 +207,8 @@ int PlayScene::CheckKey()
 
 	}
 
-	if (_number == A && button[KEY_INPUT_A]||button[PAD_INPUT_1])
-	{
-		_score = score;
-		score +=1;
-		number = GetRand(3);
-		time_count = 0;
-	}
-	if (_number == B &&button[KEY_INPUT_B] || button[PAD_INPUT_2])
-	{
-		_score = score;
-		score+=1;	
-		number = GetRand(3);
-		time_count = 0;
-	}
-	if (_number == X && button[KEY_INPUT_X] || button[PAD_INPUT_3])
-	{
-		_score = score;
-		score+=1;
-		number = GetRand(3);
-		time_count = 0;
-
-	}
-	if (_number == Y && button[KEY_INPUT_Y] || button[PAD_INPUT_4])
-	{
-		_score = score;
-		score+=1;
-		number = GetRand(3);
-		time_count = 0;
-	}
-
 	
-
-
-	DrawExtendFormatString(200, 400,2,2, 0xffffff, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
+	DrawExtendFormatString(200, 400,2,2, 0x000000, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
 	return number;
 
 

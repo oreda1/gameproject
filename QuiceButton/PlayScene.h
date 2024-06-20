@@ -6,6 +6,7 @@ class PlayScene
 {
 public:
 	PlayScene();
+	~PlayScene();
 	void Init();
 	void BarkGround();
 	void Text();
@@ -14,6 +15,7 @@ public:
 	int Key();
 	bool Check();
 	void Floor();
+	bool Start();
 
 	int CheckKey();
 
@@ -37,6 +39,9 @@ private:
 	int score,_score;
 	//1フレーム時間、スコア,ミス
 	int frame_count,time_count,miss_count;
+
+    
+	
 
 
 	bool number_check,_or;

@@ -26,10 +26,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player->Init();
 	play->Init();
 
-	
+
+	play->Start();
 	
 	// ゲームループ
-	
 	while (play->SceneFlag)
 	{
 		// このフレームの開始時刻を覚えておく
@@ -40,13 +40,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		play->BarkGround();
 	    camera->Look(*player);
 		camera->ViewpointShift();
-		play->Button();
 		player->Update();
 		player->Draw();
 		play->CheckKey();
 		play->Key();
-		play->Check();
 		play->Text();
+		play->Check();
+		play->Button();	
 		play->Clear();
 		// 画面が切り替わるのを待つ
 		ScreenFlip();
