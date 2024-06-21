@@ -18,7 +18,6 @@ public:
 
 
 private:
- 
 	VECTOR pos;
 	int ModelHandle[3];
 

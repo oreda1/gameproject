@@ -6,6 +6,7 @@
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	
 	Player* player = new Player;
 	Camera* camera = new Camera;
 	PlayScene* play = new PlayScene;
@@ -18,40 +19,41 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return -1;			// エラーが起きたら直ちに終了
 	}
 
-	SetDrawScreen(DX_SCREEN_BACK);
-
-
-
+	
+	//初期化
 	player->Load();
 	player->Init();
 	play->Init();
 
+	//スタートシーン
+    play->Start();
 
-	play->Start();
-	
-	// ゲームループ
+	SetDrawScreen(DX_SCREEN_BACK);
+	// ゲームループ(ゲームシーン)
 	while (play->SceneFlag)
 	{
+		
 		// このフレームの開始時刻を覚えておく
 		LONGLONG start = GetNowHiPerformanceCount();
-	// 描画を行う前に画面をクリアする
+		// 描画を行う前に画面をクリアする
 		ClearDrawScreen();
+
 		// ゲームの処理
 		play->BarkGround();
-	    camera->Look(*player);
+		camera->Look(*player);
 		camera->ViewpointShift();
-		player->Update();
 		player->Draw();
+		player->Update();
 		play->CheckKey();
 		play->Key();
 		play->Text();
 		play->Check();
-		play->Button();	
+		play->Button();
 		play->Clear();
 		// 画面が切り替わるのを待つ
 		ScreenFlip();
-		
-		
+
+
 		// escキーでゲーム終了
 		if (CheckHitKey(KEY_INPUT_ESCAPE))
 		{
@@ -63,6 +65,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 			// 16.66ミリ秒(16667マイクロ秒)経過するまで待つ
 		}
+
+
 	}
 
 

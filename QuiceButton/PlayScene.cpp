@@ -3,6 +3,8 @@
 namespace
 {
 	const char*music_path = "btn08.mp3";
+   
+
 }
  
 
@@ -12,14 +14,15 @@ PlayScene::PlayScene() :
 	frame_count(0),
 	pushPoint(0),
 	miss_count(0),
-	score(0)
+	score(0),
+	start(true)
 
 {
 	
 	time_count = 0;
 	number_check = false;
 	_or = true;
-	SceneFlag = false;
+	SceneFlag =false;
 	
 	
 
@@ -28,7 +31,9 @@ PlayScene::PlayScene() :
 
 PlayScene::~PlayScene()
 {
-	
+
+
+
 }
 
 void PlayScene::Init()
@@ -46,7 +51,6 @@ void PlayScene::BarkGround()
 void PlayScene::Text()
 {
 
-	
 	DrawFormatString(0, 120, 0x000000, "miss %d", miss_count);
 	DrawFormatString(0, 100, 0x000000, "count=%d", time_count);
 }
@@ -105,6 +109,16 @@ void PlayScene::Clear()
 		time_count = 0;
 
 	}
+	if (CheckHitKey(KEY_INPUT_0))
+	{
+		
+        Start();
+		
+		
+
+	}
+	
+	
 }
 
 int PlayScene::Key()
@@ -154,36 +168,44 @@ bool PlayScene::Check()
 	if (score/10==1&&score%3==2)
 	{
 
+	  
 	}
 
 
-
-
-
-	
 
 }
 
 void PlayScene::Floor()
 {
 	
+	
 }
 
 bool PlayScene::Start()
-{
-	while (SceneFlag==false)
+{ 
+	int start_back = LoadGraph("BackText.png");
+	start = true;
+	
+	while (start)
 	{
-		if (button[KEY_INPUT_R])
+		SetDrawScreen(DX_SCREEN_FRONT);
+		DrawGraph(0, 0, start_back, false);
+		if (CheckHitKey(KEY_INPUT_R))
 		{
-
 			SceneFlag = true;
+			start = false;
+			
+
 		}
-		
-		return true;
 	}
 
 	
+	
+
+
+	return true;
 }
+
 
 int PlayScene::CheckKey()
 {

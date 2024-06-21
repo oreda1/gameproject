@@ -16,11 +16,10 @@ public:
 	bool Check();
 	void Floor();
 	bool Start();
-
 	int CheckKey();
 
 	//true ゲーム画面　false スタート画面
-	bool SceneFlag=true;
+	bool SceneFlag;
 private:
 	char button[256];
 	int key[256];
@@ -40,10 +39,9 @@ private:
 	//1フレーム時間、スコア,ミス
 	int frame_count,time_count,miss_count;
 
-    
-	
+	PlayScene* play;
 
-
+	bool start;
 	bool number_check,_or;
 	VERTEX3D ver[6];
 

@@ -1,7 +1,9 @@
 #pragma once
 #include "DxLib.h"
 #include <math.h>
-#include "Player.h"
+#include "Player.h"	
+
+class Player;
 class Camera
 {  
 public:
@@ -10,9 +12,9 @@ public:
 	void Look(Player&player);
 	void ViewpointShift();
 
-
-	VECTOR pos;
-	VECTOR lookpos;
+private:
+	VECTOR pos,lookpos;
+	Player* _player;
 
 
 

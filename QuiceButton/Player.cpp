@@ -71,25 +71,12 @@ void Player::Draw()
 
 	
 
-		
-		
-
-
-	
-	
-	
-	
-
 }
 
 void Player::Update()
 {
 	
 	MV1SetPosition(ModelHandle[Anim::frame], pos);
-	MV1SetPosition(ModelHandle[Anim::frame+1], pos);
-	MV1SetPosition(ModelHandle[Anim::frame+2], pos);
-
-
 	DrawFormatString(0, 20, 0xffffff, "X=%.0f,Y=%.0f,Z=%.0f,", pos.x, pos.y, pos.z);
 
 
