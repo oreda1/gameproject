@@ -11,6 +11,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Camera* camera = new Camera;
 	PlayScene* play = new PlayScene;
 
+
+
+
+
+
+
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
 	ChangeWindowMode(true);
 
@@ -27,6 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//スタートシーン
     play->Start();
+	
 
 	SetDrawScreen(DX_SCREEN_BACK);
 	// ゲームループ(ゲームシーン)
@@ -40,6 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// ゲームの処理
 		play->BarkGround();
+		play->Disturbance();
 		camera->Look(*player);
 		camera->ViewpointShift();
 		player->Draw();

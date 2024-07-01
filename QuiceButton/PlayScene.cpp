@@ -23,7 +23,7 @@ PlayScene::PlayScene() :
 	number_check = false;
 	_or = true;
 	SceneFlag =false;
-	
+	start = true;
 	
 
 
@@ -39,6 +39,9 @@ PlayScene::~PlayScene()
 void PlayScene::Init()
 {
 	number = GetRand(3);
+	score = 0;
+	time_count = 0;
+
 	
 }
 
@@ -111,12 +114,14 @@ void PlayScene::Clear()
 	}
 	if (CheckHitKey(KEY_INPUT_0))
 	{
-		
-        Start();
-		
-		
+		start = true;
+		Start();	
+		Init();
+		SetDrawScreen(DX_SCREEN_BACK);
+
 
 	}
+
 	
 	
 }
@@ -167,7 +172,8 @@ bool PlayScene::Check()
 	//’Ç‰Á—v‘f
 	if (score/10==1&&score%3==2)
 	{
-
+		
+		
 	  
 	}
 
@@ -184,8 +190,7 @@ void PlayScene::Floor()
 bool PlayScene::Start()
 { 
 	int start_back = LoadGraph("BackText.png");
-	start = true;
-	
+
 	while (start)
 	{
 		SetDrawScreen(DX_SCREEN_FRONT);
@@ -194,16 +199,10 @@ bool PlayScene::Start()
 		{
 			SceneFlag = true;
 			start = false;
-			
-
 		}
 	}
 
-	
-	
-
-
-	return true;
+	return start;
 }
 
 
@@ -230,7 +229,7 @@ int PlayScene::CheckKey()
 	}
 
 	
-	DrawExtendFormatString(200, 400,2,2, 0x000000, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
+	DrawExtendFormatString(TextPos.x,TextPos.y,TextPos.z,TextPos.z, 0x000000, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
 	return number;
 
 
@@ -238,6 +237,23 @@ int PlayScene::CheckKey()
 
 
 }
+
+RECTDATA PlayScene::Disturbance()
+{
+	vect = VGet(0, 100, 100);
+	DrawBox(rect.x1, rect.x2, rect.y2+vect.y, rect.y2+vect.y, 0xff0000, true);
+
+
+	return RECTDATA();
+}
+
+
+
+
+
+
+
+
 
 
 //https://www.youtube.com/watch?v=REskPu4kVjI

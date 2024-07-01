@@ -17,6 +17,13 @@ public:
 	void Floor();
 	bool Start();
 	int CheckKey();
+	
+	VECTOR TextPos=VGet(400,200,2);
+
+	RECTDATA Disturbance();
+
+	
+
 
 	//true ゲーム画面　false スタート画面
 	bool SceneFlag;
@@ -44,6 +51,10 @@ private:
 	bool start;
 	bool number_check,_or;
 	VERTEX3D ver[6];
+
+	RECTDATA rect;
+	VECTOR vect;
+
 
 	
 };
