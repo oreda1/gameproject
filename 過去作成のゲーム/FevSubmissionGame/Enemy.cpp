@@ -90,7 +90,6 @@ void Enemy::Drawcircle()
        DrawCircle(circleX[i], circleY[i],5,lifecolor[i], DectionCircle[i]);
 	}	
 
-	//DrawFormatString(550, 50, 0xffffff, "%d,%d,\n%d,%d", enemyX, enemyY, RabbitX, RabbitY);
 	
 	
 }

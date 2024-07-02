@@ -24,7 +24,7 @@ not_exceedY(0)
     {
      
         DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
-        DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
+      
 
 
         

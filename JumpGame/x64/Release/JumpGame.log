@@ -1,0 +1,21 @@
+﻿  BaseScene.cpp
+  Camera.cpp
+  Character.cpp
+  Enemy.cpp
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\Enemy.cpp(14,22): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\Enemy.cpp(14,15): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Main.cpp
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\PlayScene.h(19,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+  Player.cpp
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\PlayScene.h(19,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(33,14): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\Player.cpp(62,14): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  PlayScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\PlayScene.h(19,8): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\fko2347033\Desktop\gameproject\JumpGame\PlayScene.cpp(19,9): warning C4244: '-=': 'double' から 'int' への変換です。データが失われる可能性があります。
+  SceneManeger.cpp
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 39 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  JumpGame.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\JumpGame\x64\Release\JumpGame.exe

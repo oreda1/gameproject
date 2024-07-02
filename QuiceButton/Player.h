@@ -2,8 +2,6 @@
 #include "DxLib.h"
 #include "PlayScene.h"
 
-
-
 class Player
 {
 public:

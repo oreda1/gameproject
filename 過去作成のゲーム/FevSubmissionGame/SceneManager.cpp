@@ -76,14 +76,7 @@ void SceneManager::ExplanationText()
 	DrawString(x1, x0, "素材提供者様", 0xfffff);
 	DrawString(x2, y2, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
 
-	//ChangeFont("NomalFontHandle");
-	DrawString(0, 100, "スペースキーでジャンプ\nESCキーで終了", 0xff0000);
-	DrawString(0, 135, "敵に60秒当たらず\n生き残ればゲームクリアだ!!",0xff0000);
-	DrawString(0, 170, "Zキーでスタート\n左上のライフが無くなるとゲームオーバーになるぞ!!",0xff0000);
-	DrawString(470, 0, "素材提供者様", 0xfffff);
-	DrawString(430, 20, "    ぴぽや倉庫様\nArtificial Providence様\n       他一同",0xffffff);
-
-	//base_manager->Draw();
+	
 }
 
 void SceneManager::Init()

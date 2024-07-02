@@ -1,12 +1,12 @@
-﻿  PlayScene.cpp
-C:\_DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(232,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(232,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(244,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(244,35): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+﻿  Camera.cpp
+  Main.cpp
+  PlayScene.cpp
+C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(238,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(238,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Player.cpp
   コード生成しています。
-  2 of 27 functions ( 7.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\fko2347033\Desktop\gameproject\QuiceButton\PlayScene.cpp(182): warning C4715: 'PlayScene::Check': 値を返さないコントロール パスがあります。
+  All 27 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   コード生成が終了しました。
   QuiceButton.vcxproj -> C:\Users\fko2347033\Desktop\gameproject\QuiceButton\x64\Release\QuiceButton.exe

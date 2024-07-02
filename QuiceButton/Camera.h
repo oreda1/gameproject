@@ -3,7 +3,6 @@
 #include <math.h>
 #include "Player.h"	
 
-class Player;
 class Camera
 {  
 public:

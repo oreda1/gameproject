@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
-	ChangeWindowMode(true);
+	//ChangeWindowMode(true);
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
@@ -30,7 +30,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player->Load();
 	player->Init();
 	play->Init();
-
 	//スタートシーン
     play->Start();
 	
@@ -47,7 +46,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// ゲームの処理
 		play->BarkGround();
-		play->Disturbance();
 		camera->Look(*player);
 		camera->ViewpointShift();
 		player->Draw();
@@ -58,6 +56,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		play->Check();
 		play->Button();
 		play->Clear();
+		play->Disturbance();
 		// 画面が切り替わるのを待つ
 		ScreenFlip();
 

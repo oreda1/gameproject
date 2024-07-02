@@ -75,10 +75,11 @@ void Player::Draw()
 
 void Player::Update()
 {
-	
 	MV1SetPosition(ModelHandle[Anim::frame], pos);
 	DrawFormatString(0, 20, 0xffffff, "X=%.0f,Y=%.0f,Z=%.0f,", pos.x, pos.y, pos.z);
-
+	MV1GetRotationMatrix(ModelHandle[Anim::frame]);
+	
+	
 
 
 }

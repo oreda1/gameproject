@@ -195,10 +195,16 @@ bool PlayScene::Start()
 	{
 		SetDrawScreen(DX_SCREEN_FRONT);
 		DrawGraph(0, 0, start_back, false);
+		DrawFormatString(350, 0, 0xffffff, "Rボタンでスタート\n0ボタンをゲーム中に押すとリセット");
 		if (CheckHitKey(KEY_INPUT_R))
 		{
 			SceneFlag = true;
 			start = false;
+		}
+		if (CheckHitKey(KEY_INPUT_ESCAPE))
+		{
+			SceneFlag = false;
+			break;
 		}
 	}
 
@@ -238,13 +244,13 @@ int PlayScene::CheckKey()
 
 }
 
-RECTDATA PlayScene::Disturbance()
+void PlayScene::Disturbance()
 {
-	vect = VGet(0, 100, 100);
-	DrawBox(rect.x1, rect.x2, rect.y2+vect.y, rect.y2+vect.y, 0xff0000, true);
+	
 
 
-	return RECTDATA();
+
+	
 }
 
 
@@ -256,4 +262,3 @@ RECTDATA PlayScene::Disturbance()
 
 
 
-//https://www.youtube.com/watch?v=REskPu4kVjI
