@@ -8,10 +8,6 @@ protected:
 	virtual void Title()abstract;
 	VECTOR pos;
 
-	
-
-	
-
 
 
 };

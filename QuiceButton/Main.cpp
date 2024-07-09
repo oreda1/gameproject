@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "PlayScene.h"
+#include "SecoundPlayer.h"
 
 
 
@@ -10,6 +11,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Player* player = new Player;
 	Camera* camera = new Camera;
 	PlayScene* play = new PlayScene;
+	SecoundPlayer* secound = new SecoundPlayer;
+	
 
 
 
@@ -18,7 +21,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 	// 一部の関数はDxLib_Init()の前に実行する必要がある
-	//ChangeWindowMode(true);
+	ChangeWindowMode(true);
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
@@ -30,6 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player->Load();
 	player->Init();
 	play->Init();
+	secound->Init();
 	//スタートシーン
     play->Start();
 	
@@ -57,6 +61,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		play->Button();
 		play->Clear();
 		play->Disturbance();
+		secound->Clear();
+		secound->CheckKey();
+		secound->Button();
+
+
 		// 画面が切り替わるのを待つ
 		ScreenFlip();
 

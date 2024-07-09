@@ -54,8 +54,8 @@ void PlayScene::BarkGround()
 void PlayScene::Text()
 {
 
-	DrawFormatString(0, 120, 0x000000, "miss %d", miss_count);
-	DrawFormatString(0, 100, 0x000000, "count=%d", time_count);
+	DrawFormatString(0, 120, 0x000000, "ƒ~ƒX %d", miss_count);
+	DrawFormatString(0, 100, 0x000000, "%d", time_count);
 }
 
 void PlayScene::Button()
@@ -63,7 +63,7 @@ void PlayScene::Button()
 	
 	if (_number == A && button[KEY_INPUT_A] || button[PAD_INPUT_1])
 	{
-		_score = score;
+		
 		score += 1;
 		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
 		number = GetRand(3);
@@ -71,7 +71,7 @@ void PlayScene::Button()
 	}
 	if (_number == B && button[KEY_INPUT_B] || button[PAD_INPUT_2])
 	{
-		_score = score;
+		
 		score += 1;
 		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
 		number = GetRand(3);
@@ -79,7 +79,7 @@ void PlayScene::Button()
 	}
 	if (_number == X && button[KEY_INPUT_X] || button[PAD_INPUT_3])
 	{
-		_score = score;
+		
 		score += 1;
 		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
 		number = GetRand(3);
@@ -88,7 +88,6 @@ void PlayScene::Button()
 	}
 	if (_number == Y && button[KEY_INPUT_Y]|| button[PAD_INPUT_4])
 	{
-		_score = score;
 		score += 1;
 		PlayMusic(music_path, DX_PLAYTYPE_NORMAL);
 		number = GetRand(3);
@@ -103,7 +102,7 @@ void PlayScene::Button()
 
 void PlayScene::Clear()
 {
-	DrawExtendFormatString(600, 0, 2, 2, 0x00ffff, "%d", score);
+	DrawExtendFormatString(0, 0, 2, 2, 0x00ffff, "%d", score);
 	if (score >=30)
 	{
 		ClearDrawScreen();
@@ -235,7 +234,7 @@ int PlayScene::CheckKey()
 	}
 
 	
-	DrawExtendFormatString(TextPos.x,TextPos.y,TextPos.z,TextPos.z, 0x000000, "%c‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢", _number);
+	DrawExtendFormatString(TextPos.x,TextPos.y,TextPos.z,TextPos.z, 0x000000, "%c", _number);
 	return number;
 
 

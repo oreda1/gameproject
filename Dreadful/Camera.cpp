@@ -1,13 +1,20 @@
 #include "Camera.h"
 
-
-
 void Camera::Done()
 {
+	SetCameraNearFar(1, 1000);
+
+}
+
+void Camera::Update()
+{
+
+	
 }
 
 void Camera::Title()
 {
+
 }
 
 VECTOR Camera::Light()
