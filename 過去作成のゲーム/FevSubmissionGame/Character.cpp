@@ -19,7 +19,7 @@ not_exceedY(0)
      
     }
 
-    //ƒLƒƒƒ‰ƒNƒ^[‚ğ•`‰æ‚·‚éˆ—
+    //ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½ï¿½`ï¿½æ‚·ï¿½éˆï¿½ï¿½
     void Character::Draw()
     {
      
@@ -28,44 +28,58 @@ not_exceedY(0)
 
 
         
-         //ƒLƒƒƒ‰ƒNƒ^[ƒ`ƒbƒv        
-                                  
-           DrawRectGraph(Player_posX,Player_posY, PlayerChipSizeX, PlayerChipSizeY, PlayerWidthX, PlayerHeightY, PlayerHandle, true);
-     
-        //DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
-
-
+         //ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½`ï¿½bï¿½v        
+        // Debug position display (uncomment if needed)
+        // DrawFormatString(550, 20, 0xff00ff, "x=%d,y=%d", Player_posX, Player_posY);
     }
     
 
-    //ƒLƒƒƒ‰ƒNƒ^[‚ğ•`‰æ‚·‚éˆ—
+    //ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½ï¿½`ï¿½æ‚·ï¿½éˆï¿½ï¿½
     void Character::Move(Map& gamescene)
     {
         
         gpUpdateKey();
+        // Apply gravity
         Player_posY += Jumpgravity;
-        JumpFlag = true;
-        if (titleP.Key[KEY_INPUT_SPACE]==1&&JumpFlag==true)
+        
+        // Jump logic - only jump when on ground and space key is pressed
+        if (titleP.Key[KEY_INPUT_SPACE] == 1 && JumpFlag == false)
         {
-            Player_posY -= JumpSpeed + JumpInitialVelocity - Jumpgravity;
-           
+            Player_posY -= JumpSpeed + JumpInitialVelocity;
+            JumpFlag = true; // Set flag to prevent continuous jumping
         }
         
 
-        //‰æ–Ê‚Ì”ä—¦320*240
-        //‰æ‘œ‚Ì”ä—¦384*256
+        //ï¿½ï¿½Ê‚Ì”ä—¦320*240
+        //ï¿½æ‘œï¿½Ì”ä—¦384*256
+        // Horizontal movement
+        if (titleP.Key[KEY_INPUT_LEFT])
+        {
+            Player_posX -= CharaMoveSpeed;
+        }
+        if (titleP.Key[KEY_INPUT_RIGHT])
+        {
+            Player_posX += CharaMoveSpeed;
+        }
+        
+        // Down movement (crouch)
         if (titleP.Key[KEY_INPUT_DOWN])
         {
-            Player_posY = CharaMoveSpeed + Player_posY;
-            FallCollision();
-
+            Player_posY += CharaMoveSpeed;
         }
-
+        
+        // Ground collision check
         FallCollision();
+        
+        // Reset jump flag when on ground
+        if (Player_posY >= exceedY)
+        {
+            JumpFlag = false;
+        }
 
     }
 
-    //ƒLƒƒƒ‰ƒNƒ^[
+    //ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[
     void Character::FallCollision()
     {
         if (Player_posY>exceedY)
@@ -84,13 +98,13 @@ not_exceedY(0)
     }
 
     int Character::gpUpdateKey() {
-        char tmpkey[256]; //Œ»İ‚ÌƒL[“ü—Íó‘Ô‚ğŠi”[‚·‚é
-        GetHitKeyStateAll(tmpkey); //‚·‚×‚Ä‚ÌƒL[“ü—Íó‘Ô‚ğ“¾‚é
-        for (int i = 0; i < 256; i++) {	//i”Ô‚ÌƒL[ƒR[ƒh‚É‘Î‰‚·‚éƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç
+        char tmpkey[256]; //ï¿½ï¿½ï¿½İ‚ÌƒLï¿½[ï¿½ï¿½ï¿½Íï¿½Ô‚ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
+        GetHitKeyStateAll(tmpkey); //ï¿½ï¿½ï¿½×‚Ä‚ÌƒLï¿½[ï¿½ï¿½ï¿½Íï¿½Ô‚ğ“¾‚ï¿½
+        for (int i = 0; i < 256; i++) {	//iï¿½Ô‚ÌƒLï¿½[ï¿½Rï¿½[ï¿½hï¿½É‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
             if (tmpkey[i] != 0) {
-                titleP.Key[i]++;				//‰ÁZ
+                titleP.Key[i]++;				//ï¿½ï¿½ï¿½Z
             }
-            else {						//‰Ÿ‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
+            else {						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½
                 titleP.Key[i] = 0;
             }
 
@@ -98,5 +112,5 @@ not_exceedY(0)
         return 0;
     }
 
-    //Artificial Providence —l
-    //‚Ò‚Û‚â‘qŒÉ—l
+    //Artificial Providence ï¿½l
+    //ï¿½Ò‚Û‚ï¿½qï¿½É—l

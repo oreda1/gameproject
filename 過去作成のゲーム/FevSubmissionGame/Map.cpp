@@ -11,6 +11,7 @@ GameClearScene map_clear;
 
 Map::Map()
 {
+	
 }
 
 Map::~Map()
@@ -20,7 +21,7 @@ Map::~Map()
 void Map::Draw()
 {
 	
-	//ƒQ[ƒ€ƒV[ƒ“‚Ìˆ—
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 	int MapHandle = LoadGraph("[A]Water3_Cave1_pipo.png");
 	DrawRectGraph(GroundX, GroundY, CropX, CropY, MapIndicationX, MapIndicationY, MapHandle, false);
 
@@ -28,7 +29,7 @@ void Map::Draw()
 }
 
 
-//c‚èŠÔ
+//ï¿½cï¿½èï¿½ï¿½
 void Map::TimeUpdate()
 {
 	time_count += 0.02;
@@ -43,68 +44,35 @@ void Map::Init()
 
 }
 
-//c‚èŠÔ‚ÆŠÔŒo‰ßŒã‚Ìˆ—
+//ï¿½cï¿½èï¿½Ô‚Æï¿½ï¿½ÔŒoï¿½ßŒï¿½Ìï¿½ï¿½ï¿½
 bool Map::TimeLimit()
 {
 	m_scene.GameClear = false;
 	
+	
 	time_count+=time;
     DrawFormatString(550, 0, 0x0000ff, "%f", time_count);
-	if (time_count>=60)
-	{
-		ClearDrawScreen();
-		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
-		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase put ESC");
-		
-	   
-	}
-
-	 return false;
-
 	if (time_count >= 60)
 	{
-		m_scene.GameClear = true;
-		ClearDrawScreen();
-		m_enemy.enemyX = 0;
-		m_enemy.enemyY = 0;
-
-		m_enemy.RabbitX = 0;
-		m_enemy.RabbitY = 0;
-
-	    
-		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
-		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase Put ESC");
-
-     
+		// Reset enemy positions and show game clear screen
+	m_scene.GameClear = true;
+	ClearDrawScreen();
+	m_enemy.enemyX = 0;
+	m_enemy.enemyY = 0;
+	m_enemy.RabbitX = 0;
+	m_enemy.RabbitY = 0;
+	
+	DrawExtendFormatString(100, 100, 5, 5, 0xffffff, "Game Clear");
+	DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlease Press ESC");
+	
+		return true;
 	}
 	
-
-	 return true;
-
-	if (time_count >= 60)
-	{
-		m_scene.GameClear = true;
-		ClearDrawScreen();
-		m_enemy.enemyX = 0;
-		m_enemy.enemyY = 0;
-
-		m_enemy.RabbitX = 0;
-		m_enemy.RabbitY = 0;
-
-	    
-		DrawExtendFormatString(100,100,5, 5, 0xffffff, "Game Clear");
-		DrawFormatString(200, 200, 0xffffff, "Thank You For Playing\nPlase Put ESC");
-
-     
-	}
-	
-
-	 return true;
-	
+	return false;
 }
 
 
-//”wŒi‰æ‘œ‚Ìƒ[ƒh
+//ï¿½wï¿½iï¿½æ‘œï¿½Ìƒï¿½ï¿½[ï¿½h
 void Map::BackGround()
 {
 	DrawGraph(0,0,LoadGraph("pipo-battlebg009.jpg"),true);
@@ -114,7 +82,7 @@ void Map::End()
 {
 }
 
-//ƒV[ƒ“‘JˆÚ‚ğì‚é—\’è
+//ï¿½Vï¿½[ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
 SceneBase* Map::Update()
 {
 	if (CheckHitKeyAll(KEY_INPUT_Z)==1)
@@ -123,4 +91,10 @@ SceneBase* Map::Update()
 	}
 	
 	return nullptr;
+}
+
+void  MapBuild()
+{
+  
+
 }

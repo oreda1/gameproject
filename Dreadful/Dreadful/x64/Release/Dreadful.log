@@ -1,0 +1,14 @@
+﻿  Camera.cpp
+  Scene.cpp
+  Main.cpp
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Dreadful\Scene.h(2,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  (ソース ファイル 'Camera.cpp' をコンパイルしています)
+  
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Dreadful\Scene.h(2,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  (ソース ファイル 'Scene.cpp' をコンパイルしています)
+  
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Dreadful\Main.cpp(1,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  Player.cpp
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Dreadful\Scene.h(2,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
+  (ソース ファイル 'Player.cpp' をコンパイルしています)
+  

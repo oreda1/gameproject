@@ -1,9 +1,10 @@
 #include "SceneManager.h"
 
 
-SceneManager::SceneManager():
-//シーン作成
-base_manager(nullptr)
+SceneManager::SceneManager() :
+	//シーン作成
+	
+	base_manager(nullptr)
 {
 	title = new TitleScene;
 	chara = new Character;

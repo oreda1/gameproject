@@ -1,18 +1,74 @@
 #include "Enemy.h"
-#include"DxLib.h"
+#include "DxLib.h"
 #include "BaseNumber.h"
 #include "Character.h"
 #include "SceneBase.h"
 #include <math.h>
-class  Character character;
-Map en_map;
-SceneManager en_scene;
+// Removed global variables - now passed as parameters
+
+Enemy::Enemy(), RabbitX(200), RabbitY(400), enemyX(300), enemyY(368)
+{
+};
+
+
+
+void Enemy::Start()
+{
+	RabbitX = 200;
+	RabbitY = 400;
+	
+	// Initialize enemy variables
+	enemyX = 300;
+	enemyY = 368;
+	
+	// Initialize movement variables
+	getX = GetRand(5);
+	getY = GetRand(5);
+	rabgetX = GetRand(5);
+	rabgetY = GetRand(5);
+	
+	// Initialize hit flags
+	rabbitHitX = false;
+	rabbitHitY = false;
+	enemyHitX = false;
+	enemyHitY = false;
+	IsFlag = false;
+	
+	// Initialize random positions
+	rand_rX = GetRand(600);
+	rand_rY = GetRand(450);
+	rand_eX = GetRand(600);
+	rand_eY = GetRand(448);
+	
+	// Initialize circle detection
+	circlecount = -1;
+	for (int i = 0; i < 6; i++) {
+		DectionCircle[i] = true;
+	}
+	
+	// Initialize circle positions
+	circleX[0] = 10; circleX[1] = 10; circleX[2] = 10;
+	circleX[3] = 25; circleX[4] = 25; circleX[5] = 25;
+	circleY[0] = 25; circleY[1] = 45; circleY[2] = 65;
+	circleY[3] = 25; circleY[4] = 45; circleY[5] = 65;
+	
+	// Initialize colors
+	circlecolor = GetColor(255, 0, 0);
+	for (int i = 0; i < 6; i++) {
+		lifecolor[i] = GetColor(255, 255, 255);
+	}
+	
+	// Load graphics
+	EnemyHandle = LoadGraph("RoperMan.png");
+	EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
+}
+
 
 
 void Enemy::UpdateEnemy()
 {
 	//false + true -
-	//Á‚¦‚½Žž‚Ìˆ—
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 	if (RabbitY< 0)
 	{
 		RabbitY = 0;
@@ -34,7 +90,7 @@ void Enemy::UpdateEnemy()
 		rabbitHitX = false;
 	}
 
-	//true‚Ìê‡‘«‚·ˆ—Afalse‚Ìê‡Œ¸‚ç‚·ˆ—
+	//trueï¿½Ìê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Afalseï¿½Ìê‡ï¿½ï¿½ï¿½ç‚·ï¿½ï¿½ï¿½ï¿½
 	if (enemyY<0)
 	{
 		enemyY = 0;
@@ -62,11 +118,7 @@ void Enemy::UpdateEnemy()
 void Enemy::AdditionMove()
 {
 
-	if (en_map.time_count==10)
-	{
-		enemyX = rand_rX;
-		enemyY =rand_rY;
-	}
+	// Random enemy repositioning logic can be implemented here if needed
 	//if (RabbitX<350 && RabbitY<250)
 	//{
 	//	RabbitY += rabgetY;
@@ -80,7 +132,7 @@ void Enemy::AdditionMove()
 	
 }
 
-//¶ãƒ‰ƒCƒtƒQ[ƒW•\Ž¦
+//ï¿½ï¿½ï¿½ãƒ‰ï¿½Cï¿½tï¿½Qï¿½[ï¿½Wï¿½\ï¿½ï¿½
 void Enemy::Drawcircle()
 {
 	
@@ -94,10 +146,11 @@ void Enemy::Drawcircle()
 	
 }
 
-//b‚Ì•`‰æ
+
+//ï¿½bï¿½Ì•`ï¿½ï¿½
 void Enemy::Draw()
 {
-
+	
 	DrawRectGraph(enemyX, enemyY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle, true);
 	DrawRectGraph(RabbitX, RabbitY, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyPerChraSize, EnemyHandle2, true);
 }
@@ -105,23 +158,26 @@ void Enemy::Draw()
 
 
 
-//false‚ÌŽž‚É©‚ÉˆÚ“®@true‚ÌŽž¨‚ÉˆÚ“®
-//ƒGƒlƒ~[(ƒEƒTƒM)“®ì
-void Enemy::EnemyMove() 
+//falseï¿½ÌŽï¿½ï¿½Éï¿½ï¿½ÉˆÚ“ï¿½ï¿½@trueï¿½ÌŽï¿½ï¿½ï¿½ï¿½ÉˆÚ“ï¿½
+//ï¿½Gï¿½lï¿½~ï¿½[(ï¿½Eï¿½Tï¿½M)ï¿½ï¿½ï¿½ï¿½
+void Enemy::EnemyMove()
 {
+
 	EnemyMove_a();
 	EnemyVerticalMove();
-}
+
+} 
 
 void Enemy::EnemyMove_a()
 {
+	
 
 	if (IsFlag == false)
 	{
 		RabbitX += rabgetX + 1;
 		RabbitY -= rabgetY;
 
-		//-ó‘Ô
+		//-ï¿½ï¿½ï¿½
 		if (rabbitHitY == true)
 		{
 			RabbitY += 7;
@@ -131,7 +187,7 @@ void Enemy::EnemyMove_a()
 			RabbitX += 7;
 
 		}
-		//+ó‘Ô
+		//+ï¿½ï¿½ï¿½
 		if (rabbitHitY == false)
 		{
 			RabbitY -= 8;
@@ -142,7 +198,7 @@ void Enemy::EnemyMove_a()
 			RabbitX -= 8;
 
 		}
-		//get‚ª0‚ÌŽž‚Ìˆ—
+		//getï¿½ï¿½0ï¿½ÌŽï¿½ï¿½Ìï¿½ï¿½ï¿½
 		if (rabgetX == 0 && rabbitHitX == true)
 		{
 			RabbitX += 6;
@@ -160,9 +216,10 @@ void Enemy::EnemyMove_a()
 			RabbitY -= 6;
 		}
 	}
+	
 }
 
-//ƒGƒlƒ~[(b)“®ì
+//ï¿½Gï¿½lï¿½~ï¿½[(ï¿½b)ï¿½ï¿½ï¿½ï¿½
 void Enemy::EnemyVerticalMove()
 {
 	if (IsFlag == false)
@@ -186,7 +243,7 @@ void Enemy::EnemyVerticalMove()
 		{
 			enemyY -= 7;
 		}
-		//get‚ª0‚ÌŽž‚Ìˆ—
+		//getï¿½ï¿½0ï¿½ÌŽï¿½ï¿½Ìï¿½ï¿½ï¿½
 		if (getX==0&&enemyHitX==true)
 		{
 			enemyX += 8;
@@ -209,7 +266,7 @@ void Enemy::EnemyVerticalMove()
 
 }
 
-//“–‚½‚è”»’è
+//ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½
 void Enemy::InitEnemy()
 {
 	
@@ -234,14 +291,14 @@ void Enemy::InitEnemy()
 
 }
 
-//“–‚½‚è”»’è
-void Enemy::EnemyAirCollision()
+//ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½
+void Enemy::EnemyAirCollision(Character& character, Map& map, SceneManager& scene)
 {
-	//‰Eã,¶ã,‰E‰º,¶ã
-	//ã“ñ‚Â‚ÌðŒ•¶,ƒvƒŒƒCƒ„[‚ª“G‚æ‚è‰º‚É‚¢‚éŽž‚Ì“–‚½‚è”»’è
-	//‰º“ñ‚Â‚ÌðŒ•ª,ƒvƒŒƒCƒ„[‚ª“G‚æ‚èã‚É‚¢‚éŽž‚Ì“–‚½‚è”»’è
+	//ï¿½Eï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½,ï¿½Eï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½Â‚Ìï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Gï¿½ï¿½è‰ºï¿½É‚ï¿½ï¿½éŽžï¿½Ì“ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½Â‚Ìï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½éŽžï¿½Ì“ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½
 	if (RabbitX>character.Player_posX&&RabbitX-character.Player_posX<16
-		&&character.Player_posY>RabbitY&&character.Player_posY-RabbitY<16
+		&& character.Player_posY > this->RabbitY && character.Player_posY - this->RabbitY < 16
 
 		||character.Player_posX>RabbitX&&character.Player_posX-RabbitX<16
 		&&character.Player_posY>RabbitY && character.Player_posY - RabbitY < 16
@@ -263,22 +320,22 @@ void Enemy::EnemyAirCollision()
 		 switch (circlecount)
 		 {
 		 case 0:
-			 DectionCircle[circlecount] = false;
+			this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 1:
-			 DectionCircle[circlecount] = false;
+			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 2:
-			 DectionCircle[circlecount] = false;
+			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 3:
-			 DectionCircle[circlecount] = false;
+			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 4:
-			 DectionCircle[circlecount] = false;
+			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 5:
-			 DectionCircle[circlecount] = false;
+			 this->DectionCircle[tnis->circlecount] = false;
 			 break;
 		 default:
 			 break;
@@ -293,8 +350,7 @@ void Enemy::EnemyAirCollision()
 		
 	
 	
-	//ã“ñ‚Â‚ÌðŒ•¶,ƒvƒŒƒCƒ„[‚ª“G‚æ‚è‰º‚É‚¢‚éŽž‚Ì“–‚½‚è”»’è
-	//‰º“ñ‚Â‚ÌðŒ•ª,ƒvƒŒƒCƒ„[‚ª“G‚æ‚èã‚É‚¢‚éŽž‚Ì“–‚½‚è”»’è
+
 	if (enemyX>character.Player_posX&&enemyX-character.Player_posX<16
 		&&character.Player_posY>enemyY && character.Player_posY - enemyY<16
 
@@ -342,26 +398,19 @@ void Enemy::EnemyAirCollision()
 
 
 	
-	if (DectionCircle[5] == false&&en_map.time_count<60)
+	if (DectionCircle[5] == false && map.time_count < 60)
 	{
-		
-		//en_map.time= en_map.timescore;
-		//en_map.timescore = en_map.timelimit - en_map.time;
-		en_scene.GameOver = true;
+		// Game over condition
+		scene.GameOver = true;
 		StopMusic();
-		en_map.time_count = 0;
-		enemyX, enemyY = 0;
-		RabbitX, RabbitY = 0;
+		map.time_count = 0;
 		ClearDrawScreen();
 		DrawExtendFormatString(200, 200, 4, 3, 0xff0000, "GameOver");
-		//DrawFormatString(230, 250, 0xffffff, "Time %f", en_map.timescore);
-		DrawFormatString(250, 300, 0xffffff, "Plase Put ESC");
-		
-		
+		DrawFormatString(250, 300, 0xffffff, "Please Press ESC");
 	}
 	else
 	{
-		en_scene.GameOver = false;
+		scene.GameOver = false;
 	}
 	
 		
@@ -370,6 +419,16 @@ void Enemy::EnemyAirCollision()
 	
 	
 }
+
+// è¡çªåˆ¤å®šã®ãƒ˜ãƒ«ãƒ‘ãƒ¼é–¢æ•°
+bool Enemy::CheckCollision(int x1, int y1, int x2, int y2, int distance)
+{
+	int dx = abs(x1 - x2);
+	int dy = abs(y1 - y2);
+	return (dx < distance && dy < distance);
+}
+
+
 
 
 

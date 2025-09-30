@@ -9,6 +9,8 @@ public:
 	void Draw();
 	void Update();
 	void End();
+
+	bool GameClear = false;
 	
 
 };

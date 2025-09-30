@@ -4,6 +4,7 @@
 #include "Map.h"
 #include "TitleScene.h"
 #include "SceneManager.h"
+#include "Enemy.h"	
 #include <memory>
 
 SceneManager clear_scene;
@@ -21,6 +22,7 @@ GameClearScene::GameClearScene()
 GameClearScene::~GameClearScene()
 {
 }
+
 
 void GameClearScene::Init()
 {
@@ -51,4 +53,6 @@ void GameClearScene::Update()
 
 void GameClearScene::End()
 {
+  
+
 }

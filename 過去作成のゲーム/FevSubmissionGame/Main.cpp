@@ -10,15 +10,16 @@
 
 
 
-/*ƒƒCƒ“*/
+/*ï¿½ï¿½ï¿½Cï¿½ï¿½*/
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	/*Dxlib‰Šú‰»ˆ—(İ’è‚İ)*/
+	/*Dxlibï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½İ’èï¿½ï¿½)*/
+	ChangeWindowMode(true);
 	SetWindowText("UNNAMED");
 	if (DxLib_Init() == -1) { return -1; }
-	SetDrawScreen(DX_SCREEN_BACK);//— ‰æ–Ê‘‚«‚İ
+	SetDrawScreen(DX_SCREEN_BACK);//ï¿½ï¿½ï¿½ï¿½Êï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	/*ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìì¬*/
+	/*ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìì¬*/
 	TitleScene title;
 	Map map;
 	Character character;
@@ -26,17 +27,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	OptionScene option;
 	SceneManager scene;
 	GameClearScene clear;
+
+
 	
-	/*ƒQ[ƒ€ƒ‹[ƒv*/
-	bool sceneFlag = true;//true:ƒ^ƒCƒgƒ‹ƒV[ƒ“,false:ƒQ[ƒ€ƒV[ƒ“
-	//ƒQ[ƒ€ƒV[ƒ“ŒJ‚è•Ô‚µˆ—
+	
+	/*ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½v*/
+	bool sceneFlag = true;//true:ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½,false:ï¿½Qï¿½[ï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½ï¿½Jï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	while (true)
 	{
 		
-		/*‰æ–Ê‚Ì‰Šú‰»*/
+		/*ï¿½ï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½*/
 		ClearDrawScreen();
 		scene.DivideScene();
-		/*ƒQ[ƒ€ˆ—*/
+		/*ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 		if (sceneFlag)
 		{
 			sceneFlag=title.Update();
@@ -44,9 +48,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			scene.ExplanationText(); 
 
 		}
-		//ƒQ[ƒ€Às‰æ–Ê
+		//ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½
 		else if (scene.NowScene==scene.Playing)
 		{
+			
 			map.Draw();
 			map.BackGround();
 			map.TimeLimit();
@@ -60,23 +65,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			enemy.UpdateEnemy();
 			enemy.AdditionMove();
 			enemy.EnemyMove();
-			enemy.EnemyAirCollision();
+			enemy.EnemyAirCollision(character, map, scene);
 		}
+
 	
 		
-		/*•`‰æ‚ÌŠm’è*/
+		/*ï¿½`ï¿½ï¿½ÌŠmï¿½ï¿½*/
 		ScreenFlip();
 
-		/*ƒQ[ƒ€ƒ‹[ƒvI—¹ˆ—*/
-		// ƒ}ƒCƒiƒX‚Ì’liƒGƒ‰[’lj‚ª•Ô‚Á‚Ä‚«‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
+		/*ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½vï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+		// ï¿½}ï¿½Cï¿½iï¿½Xï¿½Ì’lï¿½iï¿½Gï¿½ï¿½ï¿½[ï¿½lï¿½jï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½çƒ‹ï¿½[ï¿½vï¿½ğ”²‚ï¿½ï¿½ï¿½
 		if (ProcessMessage() < 0) { return true; }
-		// ‚à‚µ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
+		// ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½rï¿½bï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½çƒ‹ï¿½[ï¿½vï¿½ï¿½ï¿½ç”²ï¿½ï¿½ï¿½ï¿½
 		else if (CheckHitKey(KEY_INPUT_ESCAPE)) { return true; }
 
 	 
 	}
 		
-	/*DxlibI—¹ˆ—*/
+	/*Dxlibï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	DxLib::DxLib_End();
 	return 0;
 }

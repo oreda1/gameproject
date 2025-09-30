@@ -7,62 +7,63 @@ class Enemy
 {
 public:
 
+	Enemy();
 	void Draw();
 	void EnemyMove();
 	void EnemyMove_a();
 	void EnemyVerticalMove();
 	void InitEnemy();
-	void EnemyAirCollision();
 	void UpdateEnemy();
 	void AdditionMove();
+	void EnemyAirCollision(Character& character, Map& map, SceneManager& scene);
+	bool CheckCollision(int x1, int y1, int x2, int y2, int distance);
 	
-	int EnemyHandle = LoadGraph("RoperMan.png");
-
-	//エネミー初期位置
-	int enemyX= 300;
-	int	enemyY=368;
+	int EnemyHandle;
 
 
-	//ウサギの位置
-	int RabbitX=200;
-	int	RabbitY= 400;
+	int enemyX;
+	int	enemyY;
 
 
-	//ライフゲージ
+
+	int RabbitX;
+	int	RabbitY;
+
+
 	void Drawcircle();
 	
 private:
 
 	int EnemyPerChraSize = 32;
-	//敵の移動判定 
+
 	bool rabbitHitX;
 	bool rabbitHitY;
 
-	//敵の移動判定
+	
 	bool enemyHitX;
 	bool enemyHitY;
-	//敵が画面にいるかどうかの判定
+
 	bool IsFlag;
 
-	int EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
-	int getX = GetRand(5);
-	int getY = GetRand(5);
+	int EnemyHandle2;
+	int getX;
+	int getY;
 
-	int rabgetX = GetRand(10 - 5);
-	int rabgetY = GetRand(10 - 5);
+	int rabgetX;
+	int rabgetY;
 
 
-	int rand_rX = GetRand(600);
-	int rand_rY = GetRand(450);
+	int rand_rX;
+	int rand_rY;
 
-	int rand_eX = GetRand(600);
-	int rand_eY = GetRand(448);
-	int circlecount = -1;
-	bool DectionCircle[6] = { true,true,true,true,true,true };
-	int circleX[6] = { 10,10,10,25,25,25 };
-	int circleY[6] = { 25,45,65,25,45,65 };
+	int rand_eX;
+	int rand_eY;
+	int circlecount;
+	bool DectionCircle[6];
+	int circleX[6];
+	int circleY[6];
 	int lifecolor[6];
-	int circlecolor = GetColor(255, 0, 0);
+	int circlecolor;
 
 };
 
