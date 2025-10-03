@@ -1,0 +1,30 @@
+﻿  novel_reader.cpp
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(24,87): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(64,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(66,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(67,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(68,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(74,26): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(95,71): warning C4003: 関数に似たマクロ呼び出し 'max' の引数が不足しています
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(110,38): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(126,26): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(140,61): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(142,26): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(25,13): error C2143: 構文エラー: ';' が 'return' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(65,14): error C2143: 構文エラー: ';' が 'std::cout' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(67,14): error C2143: 構文エラー: ';' が 'std::cout' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(68,14): error C2143: 構文エラー: ';' が 'std::cout' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(69,14): error C2143: 構文エラー: ';' が 'std::cout' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(75,13): error C2143: 構文エラー: ';' が 'return' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(95,71): error C2589: '(': スコープ解決演算子 (::) の右側にあるトークンは使えません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(95,71): error C2059: 構文エラー: ')'
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(95,82): error C2059: 構文エラー: ')'
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(111,25): error C2143: 構文エラー: ';' が 'break' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(127,18): error C2143: 構文エラー: ';' が 'std::cout' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(141,9): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(143,9): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(157,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(158,5): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(163,22): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\Novel\Novel\novel_reader.cpp(164,9): error C2143: 構文エラー: ';' が 'return' の前にありません。

@@ -2,8 +2,7 @@
 #include "DxLib.h"
 #include "BaseNumber.h"
 #include "Map.h"
-#include <memory>
-#include "Enemy.h"
+ 
 
 
 Character::Character():

@@ -3,65 +3,38 @@
 #include "BaseNumber.h"
 #include "Character.h"
 #include "SceneBase.h"
-#include <math.h>
+// <math.h> not needed after removing CheckCollision
 // Removed global variables - now passed as parameters
 
-Enemy::Enemy(), RabbitX(200), RabbitY(400), enemyX(300), enemyY(368)
+Enemy::Enemy() : RabbitX(200), RabbitY(400), enemyX(300), enemyY(368)
 {
+    // Initialize movement variables
+    getX = GetRand(5);
+    getY = GetRand(5);
+    rabgetX = GetRand(5);
+    rabgetY = GetRand(5);
+
+    // Initialize hit flags and state
+    rabbitHitX = false;
+    rabbitHitY = false;
+    enemyHitX = false;
+    enemyHitY = false;
+    IsFlag = false;
+
+    // Initialize circle detection state
+    circlecount = -1;
+    for (int i = 0; i < 6; i++) {
+        DectionCircle[i] = true;
+    }
+
+    // Load graphics
+    EnemyHandle = LoadGraph("RoperMan.png");
+    EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
 };
 
 
 
-void Enemy::Start()
-{
-	RabbitX = 200;
-	RabbitY = 400;
-	
-	// Initialize enemy variables
-	enemyX = 300;
-	enemyY = 368;
-	
-	// Initialize movement variables
-	getX = GetRand(5);
-	getY = GetRand(5);
-	rabgetX = GetRand(5);
-	rabgetY = GetRand(5);
-	
-	// Initialize hit flags
-	rabbitHitX = false;
-	rabbitHitY = false;
-	enemyHitX = false;
-	enemyHitY = false;
-	IsFlag = false;
-	
-	// Initialize random positions
-	rand_rX = GetRand(600);
-	rand_rY = GetRand(450);
-	rand_eX = GetRand(600);
-	rand_eY = GetRand(448);
-	
-	// Initialize circle detection
-	circlecount = -1;
-	for (int i = 0; i < 6; i++) {
-		DectionCircle[i] = true;
-	}
-	
-	// Initialize circle positions
-	circleX[0] = 10; circleX[1] = 10; circleX[2] = 10;
-	circleX[3] = 25; circleX[4] = 25; circleX[5] = 25;
-	circleY[0] = 25; circleY[1] = 45; circleY[2] = 65;
-	circleY[3] = 25; circleY[4] = 45; circleY[5] = 65;
-	
-	// Initialize colors
-	circlecolor = GetColor(255, 0, 0);
-	for (int i = 0; i < 6; i++) {
-		lifecolor[i] = GetColor(255, 255, 255);
-	}
-	
-	// Load graphics
-	EnemyHandle = LoadGraph("RoperMan.png");
-	EnemyHandle2 = LoadGraph("pyon-manjiro1.png");
-}
+// Removed unused Start()
 
 
 
@@ -115,36 +88,9 @@ void Enemy::UpdateEnemy()
 }
 
 
-void Enemy::AdditionMove()
-{
+// Removed unused AdditionMove()
 
-	// Random enemy repositioning logic can be implemented here if needed
-	//if (RabbitX<350 && RabbitY<250)
-	//{
-	//	RabbitY += rabgetY;
-	//	RabbitX -= rabgetX;
-	//}
-	if (enemyY<300&&enemyX<100)
-	{
-		enemyX += getX;
-		enemyY -= getY;
-	}
-	
-}
-
-//���ド�C�t�Q�[�W�\��
-void Enemy::Drawcircle()
-{
-	
-	for (int i = 0; i < 6; i++)
-	{
-	   lifecolor[i] = {static_cast<int>(GetColor(255, 255, 255))};
-       DrawCircle(circleX[i], circleY[i],5,lifecolor[i], DectionCircle[i]);
-	}	
-
-	
-	
-}
+// Removed unused Drawcircle()
 
 
 //�b�̕`��
@@ -266,30 +212,7 @@ void Enemy::EnemyVerticalMove()
 
 }
 
-//�����蔻��
-void Enemy::InitEnemy()
-{
-	
-	if (enemyX > GameWidth-EnemyPerChraSize || enemyY > GameHeight-EnemyPerChraSize || enemyX < 0 || enemyY < 0)
-	{
-		IsFlag = true;	
-	}
-	else 
-	{	
-		IsFlag = false;
-	}
-	if (RabbitX > GameWidth-EnemyPerChraSize || RabbitY > GameHeight-EnemyPerChraSize || RabbitX < 0 || RabbitY < 0)
-	{
-		IsFlag = true;
-		
-	}
-	else 
-	{
-		IsFlag = false;
-	}
-	
-
-}
+// Removed unused InitEnemy()
 
 //�����蔻��
 void Enemy::EnemyAirCollision(Character& character, Map& map, SceneManager& scene)
@@ -335,7 +258,7 @@ void Enemy::EnemyAirCollision(Character& character, Map& map, SceneManager& scen
 			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 case 5:
-			 this->DectionCircle[tnis->circlecount] = false;
+			 this->DectionCircle[this->circlecount] = false;
 			 break;
 		 default:
 			 break;
@@ -420,13 +343,7 @@ void Enemy::EnemyAirCollision(Character& character, Map& map, SceneManager& scen
 	
 }
 
-// 衝突判定のヘルパー関数
-bool Enemy::CheckCollision(int x1, int y1, int x2, int y2, int distance)
-{
-	int dx = abs(x1 - x2);
-	int dy = abs(y1 - y2);
-	return (dx < distance && dy < distance);
-}
+
 
 
 

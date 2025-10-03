@@ -3,6 +3,8 @@
 #include "DxLib.h"
 
 class Character;
+class Map;
+class SceneManager;
 class Enemy
 {
 public:
@@ -12,11 +14,9 @@ public:
 	void EnemyMove();
 	void EnemyMove_a();
 	void EnemyVerticalMove();
-	void InitEnemy();
 	void UpdateEnemy();
-	void AdditionMove();
 	void EnemyAirCollision(Character& character, Map& map, SceneManager& scene);
-	bool CheckCollision(int x1, int y1, int x2, int y2, int distance);
+
 	
 	int EnemyHandle;
 
@@ -30,7 +30,6 @@ public:
 	int	RabbitY;
 
 
-	void Drawcircle();
 	
 private:
 
@@ -53,17 +52,8 @@ private:
 	int rabgetY;
 
 
-	int rand_rX;
-	int rand_rY;
-
-	int rand_eX;
-	int rand_eY;
 	int circlecount;
 	bool DectionCircle[6];
-	int circleX[6];
-	int circleY[6];
-	int lifecolor[6];
-	int circlecolor;
 
 };
 
