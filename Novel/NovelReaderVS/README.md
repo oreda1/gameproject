@@ -1,59 +1,121 @@
-# Novel Reader - Visual Studio Project
+# NovelReaderVS - DxLib版
 
-This is a clean Visual Studio 2022 project for the Novel Reader application.
+DxLibを使用したグラフィカルな小説リーダーアプリケーションです。
 
-## How to Use
+## 新機能
 
-### Method 1: Open in Visual Studio
-1. Double-click `NovelReaderVS.sln` to open in Visual Studio
-2. Press `F5` to build and run the project
-3. Or use Build → Build Solution (Ctrl+Shift+B) then run the executable
+### グラフィカルインターフェース
+- 美しいタイトル画面
+- 滑らかなシーン遷移
+- 視覚的なプログレス表示
 
-### Method 2: Build from Command Line
-1. Open Developer Command Prompt for VS 2022
-2. Navigate to this directory
-3. Run: `msbuild NovelReaderVS.sln`
+### エフェクト機能
+- **フェードイン/アウト**: シーン遷移時の滑らかなフェード効果
+- **タイプライター効果**: テキストが一文字ずつ表示される演出
+- **背景エフェクト**: 背景画像やアニメーション対応
 
-## Project Structure
+### シーン管理
+- **タイトルシーン**: メニュー選択画面
+- **ローディングシーン**: ファイル読み込み画面
+- **小説読み込みシーン**: メインの小説表示画面
+- **エンディングシーン**: 読み終了後の画面
 
-- `NovelReaderVS.sln` - Visual Studio solution file
-- `NovelReaderVS/` - Project directory
-  - `main.cpp` - Main source code
-  - `novel.txt` - Sample novel text file
-  - `NovelReaderVS.vcxproj` - Project file
-  - `NovelReaderVS.vcxproj.filters` - Solution explorer filters
+### 操作方法
+- **Enter/Space**: 次の行へ進む
+- **A**: 自動読み込みモードの切り替え
+- **R**: 最初から読み直す
+- **Esc**: 一時停止/再開
+- **矢印キー**: メニュー選択（タイトル画面）
 
-## Features
+## システム要件
 
-- Console application
-- UTF-8 text file support
-- Line-by-line novel reading
-- Auto mode with customizable speed
-- Manual control options
-
-## Build Configurations
-
-- Debug|Win32 - Debug build for 32-bit
-- Debug|x64 - Debug build for 64-bit
-- Release|Win32 - Release build for 32-bit
-- Release|x64 - Release build for 64-bit
-
-## Requirements
-
-- Visual Studio 2022 Community or higher
 - Windows 10/11
-- C++17 support
+- Visual Studio 2022 (v143)
+- DxLib SDK
+- C++17以上
 
-## Troubleshooting
+## セットアップ
 
-### If project won't open:
-- Make sure Visual Studio 2022 is installed
-- Try opening the .vcxproj file directly
+### 1. DxLib SDKのインストール
+1. [DxLib公式サイト](http://dxlib.o.oo7.jp/)からDxLib SDKをダウンロード
+2. 適当な場所に解凍（例：`C:\DxLib`）
+3. 環境変数`DXSDK_DIR`を設定
 
-### If build fails:
-- Check that you have the correct platform selected (x64 recommended)
-- Make sure all files are present in the project directory
+### 2. プロジェクトのビルド
+1. Visual Studio 2022でソリューションを開く
+2. プラットフォームをx64に設定
+3. ビルド → ソリューションのビルド
 
-### If program crashes:
-- Ensure novel.txt exists in the same directory as the executable
-- Check that text files are in UTF-8 encoding
+## 使用方法
+
+1. `novel.txt`ファイルに小説の内容を記述
+2. アプリケーションを実行
+3. タイトル画面で「小説を読む」を選択
+4. 小説を楽しむ
+
+## ファイル構造
+
+```
+NovelReaderVS/
+├── main.cpp              # メインエントリーポイント
+├── NovelEngine.h         # エンジンのヘッダーファイル
+├── NovelEngine.cpp       # エンジンの実装
+├── novel.txt            # 小説テキストファイル
+└── README.md            # このファイル
+```
+
+## クラス構成
+
+### メインクラス
+- **NovelEngine**: メインエンジン、シーン管理
+- **Scene**: シーンの基底クラス
+- **TitleScene**: タイトル画面
+- **LoadingScene**: ローディング画面
+- **NovelReadingScene**: 小説読み込み画面
+- **EndingScene**: エンディング画面
+
+### ユーティリティクラス
+- **TextRenderer**: テキスト表示とエフェクト管理
+- **FadeManager**: フェードエフェクト管理
+- **BackgroundManager**: 背景画像管理
+- **SoundManager**: 音声管理
+- **InputManager**: 入力管理
+- **NovelData**: 小説データ管理
+
+## カスタマイズ
+
+### テキストエフェクトの変更
+```cpp
+textRenderer.setEffect(TextEffect::TYPEWRITER);
+textRenderer.setTypewriterSpeed(3); // 速度調整
+```
+
+### フェードエフェクトの設定
+```cpp
+fadeManager.startFade(FadeType::FADE_IN, 5, 0x000000);
+```
+
+### 背景画像の設定
+```cpp
+backgroundManager.loadBackground("background.png");
+```
+
+## トラブルシューティング
+
+### コンパイルエラー
+- DxLib SDKが正しくインストールされているか確認
+- 環境変数`DXSDK_DIR`が設定されているか確認
+- プラットフォームがx64に設定されているか確認
+
+### 実行時エラー
+- `novel.txt`ファイルが存在するか確認
+- ファイルの文字エンコーディングがUTF-8か確認
+
+## 今後の拡張予定
+
+- 背景音楽の再生
+- セーブ/ロード機能
+- 設定画面の実装
+- より多くのテキストエフェクト
+- 背景画像のアニメーション
+- 音声効果音の追加
