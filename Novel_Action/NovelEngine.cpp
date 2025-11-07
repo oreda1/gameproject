@@ -1,6 +1,9 @@
 #include "NovelEngine.h"
 #include <iostream>
+#include <fstream>
 #include <algorithm>
+
+
 
 // ========== FadeManager Implementation ==========
 FadeManager::FadeManager() : fadeColor(0x000000), fadeAlpha(0), currentFade(FadeType::NONE), 
@@ -282,17 +285,22 @@ void SoundManager::stopSE() {
     }
 }
 
+// BGMの音量を設定
 void SoundManager::setBGMVolume(int volume) {
     if (bgmHandle != -1) {
-        ChangeVolumeMusicMem(bgmHandle, volume);
+        ChangeVolumeSoundMem(bgmHandle, volume);
     }
 }
 
+// 効果音の音量を設定
 void SoundManager::setSEVolume(int volume) {
     if (seHandle != -1) {
         ChangeVolumeSoundMem(seHandle, volume);
     }
 }
+
+
+
 
 // ========== InputManager Implementation ==========
 InputManager::InputManager() {
@@ -659,8 +667,8 @@ void EndingScene::draw() {
                      0xFFFFFF, endingFontHandle, 0x000000);
     
     DrawString(1024/2 - 150, 768/2 + 50, "Enter または Esc でタイトルに戻る", 0xFFFFFF);
-    
-    fadeManager.draw();
+   
+	fadeManager.draw();
 }
 
 void EndingScene::finalize() {

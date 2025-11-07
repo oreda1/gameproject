@@ -1,18 +1,22 @@
-#include "DxLib.h"
-
-// ƒvƒƒOƒ‰ƒ€‚Í WinMain ‚©‚çn‚Ü‚è‚Ü‚·
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
-	if (DxLib_Init() == -1)		// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
-	{
-		return -1;			// ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
-	}
-
-	DrawPixel(320, 240, GetColor(255, 255, 255));	// “_‚ğ‘Å‚Â
-
-	WaitKey();				// ƒL[“ü—Í‘Ò‚¿
-
-	DxLib_End();				// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
-
-	return 0;				// ƒ\ƒtƒg‚ÌI—¹ 
+#include "NovelEngine.h"
+#include <iostream>
+#include <string>
+#include <DxLib.h>
+int main() {
+    // DxLibã‚’ä½¿ç”¨ã—ãŸæ–°ã—ã„å°èª¬ãƒªãƒ¼ãƒ€ãƒ¼ã‚¨ãƒ³ã‚¸ãƒ³ã‚’åˆæœŸåŒ–
+    NovelEngine engine;
+    
+    // ã‚¨ãƒ³ã‚¸ãƒ³ã®åˆæœŸåŒ–ï¼ˆ1024x768ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºï¼‰
+    if (!engine.initialize(1024, 768)) {
+        std::cerr << "Failed to initialize Novel Engine." << std::endl;
+        return -1;
+    }
+    
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å°èª¬ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¨­å®š
+    engine.setNovelFilename("novel.txt");
+    
+    //ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—ã®å®Ÿè¡Œ
+    engine.run();
+    
+    return 0;
 }

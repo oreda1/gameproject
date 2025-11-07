@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+
 // シーン管理用の列挙型
 enum class SceneType {
     TITLE,
@@ -255,26 +256,26 @@ private:
     std::unique_ptr<Scene> currentScene;
     std::string novelFilename;
     FadeManager fadeManager;
-    
+
     // エンジン初期化
     bool initializeEngine();
     void finalizeEngine();
-    
+
     // シーン管理
     void changeScene(SceneType sceneType);
     void createScene(SceneType sceneType);
-    
+
 public:
     NovelEngine();
     ~NovelEngine();
-    
+
     bool initialize(int width = 1024, int height = 768);
     void run();
     void shutdown();
-    
+
     // シーン制御
     void requestSceneChange(SceneType sceneType);
-    
+
     // ゲッター
     int getScreenWidth() const { return screenWidth; }
     int getScreenHeight() const { return screenHeight; }
