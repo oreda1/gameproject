@@ -5,6 +5,12 @@
 int main() {
     // DxLibを使用した新しい小説リーダーエンジンを初期化
     NovelEngine engine;
+   
+    
+   
+  
+
+
     
     // エンジンの初期化（1024x768のウィンドウサイズ）
     if (!engine.initialize(1024, 768)) {

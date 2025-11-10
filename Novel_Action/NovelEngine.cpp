@@ -4,10 +4,10 @@
 #include <algorithm>
 
 
-
 // ========== FadeManager Implementation ==========
-FadeManager::FadeManager() : fadeColor(0x000000), fadeAlpha(0), currentFade(FadeType::NONE), 
-                             fadeSpeed(10), isFading(false) {}
+FadeManager::FadeManager() : fadeColor(0x000000), fadeAlpha(0), currentFade(FadeType::NONE),
+fadeSpeed(10), isFading(false), screenWidth(1024), screenHeight(768) {
+}
 
 void FadeManager::startFade(FadeType type, int speed, int color) {
     currentFade = type;
@@ -33,34 +33,34 @@ void FadeManager::startFade(FadeType type, int speed, int color) {
 
 void FadeManager::update() {
     if (!isFading) return;
-    
+
     switch (currentFade) {
-        case FadeType::FADE_IN:
-            fadeAlpha -= fadeSpeed;
-            if (fadeAlpha <= 0) {
-                fadeAlpha = 0;
-                isFading = false;
-            }
-            break;
-            
-        case FadeType::FADE_OUT:
-            fadeAlpha += fadeSpeed;
-            if (fadeAlpha >= 255) {
-                fadeAlpha = 255;
-                isFading = false;
-            }
-            break;
-            
-        case FadeType::FADE_IN_OUT:
-            // FADE_IN_OUTの場合は手動で制御する必要があります
-            break;
+    case FadeType::FADE_IN:
+        fadeAlpha -= fadeSpeed;
+        if (fadeAlpha <= 0) {
+            fadeAlpha = 0;
+            isFading = false;
+        }
+        break;
+
+    case FadeType::FADE_OUT:
+        fadeAlpha += fadeSpeed;
+        if (fadeAlpha >= 255) {
+            fadeAlpha = 255;
+            isFading = false;
+        }
+        break;
+
+    case FadeType::FADE_IN_OUT:
+        // FADE_IN_OUTの場合は手動で制御する必要があります
+        break;
     }
 }
 
 void FadeManager::draw() {
     if (fadeAlpha > 0) {
         SetDrawBlendMode(DX_BLENDMODE_ALPHA, fadeAlpha);
-        DrawBox(0, 0, 1024, 768, fadeColor, TRUE);
+        DrawBox(0, 0, screenWidth, screenHeight, fadeColor, TRUE);
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }
 }
@@ -73,11 +73,22 @@ void FadeManager::setFadeColor(int color) {
     fadeColor = color;
 }
 
+void FadeManager::setScreenSize(int width, int height) {
+    screenWidth = width;
+    screenHeight = height;
+}
+
+// FadeManager のゲッタ（ファイル内の適切な位置に追加）
+//int FadeManager::getFadeAlpha() const {
+//    return fadeAlpha;
+//}
+
 // ========== TextRenderer Implementation ==========
 TextRenderer::TextRenderer() : fontHandle(-1), textColor(0xFFFFFF), backgroundColor(0x000000),
-                               textSize(20), lineSpacing(5), maxCharactersPerLine(50),
-                               maxLinesPerPage(10), typewriterSpeed(2), typewriterCounter(0),
-                               isTextComplete(false) {}
+textSize(20), lineSpacing(5), maxCharactersPerLine(50),
+maxLinesPerPage(10), typewriterSpeed(2), typewriterCounter(0),
+isTextComplete(false) {
+}
 
 TextRenderer::~TextRenderer() {
     if (fontHandle != -1) {
@@ -288,7 +299,7 @@ void SoundManager::stopSE() {
 // BGMの音量を設定
 void SoundManager::setBGMVolume(int volume) {
     if (bgmHandle != -1) {
-        ChangeVolumeSoundMem(bgmHandle, volume);
+        SetVolumeMusicMem(volume, bgmHandle);
     }
 }
 
@@ -418,12 +429,13 @@ int NovelData::getTotalChapters() const {
 
 // ========== TitleScene Implementation ==========
 TitleScene::TitleScene(NovelEngine* engine) : Scene(engine), selectedMenuItem(0) {
-    menuItems = {"小説を読む", "設定", "終了"};
+   menuItems = { "小説を読む", "設定", "終了" };
 }
 
 void TitleScene::initialize() {
     titleFontHandle = CreateFontToHandle("ＭＳ ゴシック", 48, 3, DX_FONTTYPE_ANTIALIASING_4X4);
     menuFontHandle = CreateFontToHandle("ＭＳ ゴシック", 24, 3, DX_FONTTYPE_ANTIALIASING_4X4);
+    fadeManager.setScreenSize(engine->getScreenWidth(), engine->getScreenHeight());
     fadeManager.startFade(FadeType::FADE_IN, 5);
 }
 
@@ -455,16 +467,19 @@ void TitleScene::update() {
 }
 
 void TitleScene::draw() {
+    int screenWidth = engine->getScreenWidth();
+    int screenHeight = engine->getScreenHeight();
+    
     // 背景
-    DrawBox(0, 0, 1024, 768, 0x000040, TRUE);
+    DrawBox(0, 0, screenWidth, screenHeight, 0x000040, TRUE);
     
     // タイトル
-    DrawStringToHandle(1024/2 - 200, 150, "Novel Reader", 0xFFFFFF, titleFontHandle, 0x000000);
+    DrawStringToHandle(screenWidth/2 - 200, 150, "Novel Reader", 0xFFFFFF, titleFontHandle, 0x000000);
     
     // メニュー
     for (int i = 0; i < menuItems.size(); i++) {
         int color = (i == selectedMenuItem) ? 0xFFFF00 : 0xFFFFFF;
-        DrawStringToHandle(1024/2 - 100, 300 + i * 50, menuItems[i].c_str(), 
+        DrawStringToHandle(screenWidth/2 - 100, 300 + i * 50, menuItems[i].c_str(), 
                           color, menuFontHandle, 0x000000);
     }
     
@@ -483,6 +498,7 @@ LoadingScene::LoadingScene(NovelEngine* engine) : Scene(engine), loadingCounter(
 
 void LoadingScene::initialize() {
     loadingFontHandle = CreateFontToHandle("ＭＳ ゴシック", 32, 3, DX_FONTTYPE_ANTIALIASING_4X4);
+    fadeManager.setScreenSize(engine->getScreenWidth(), engine->getScreenHeight());
     fadeManager.startFade(FadeType::FADE_IN, 5);
 }
 
@@ -496,14 +512,17 @@ void LoadingScene::update() {
 }
 
 void LoadingScene::draw() {
-    DrawBox(0, 0, 1024, 768, 0x000020, TRUE);
+    int screenWidth = engine->getScreenWidth();
+    int screenHeight = engine->getScreenHeight();
+    
+    DrawBox(0, 0, screenWidth, screenHeight, 0x000020, TRUE);
     
     std::string displayText = loadingText;
     for (int i = 0; i < (loadingCounter / 20) % 4; i++) {
         displayText += ".";
     }
     
-    DrawStringToHandle(1024/2 - 150, 768/2 - 50, displayText.c_str(), 
+    DrawStringToHandle(screenWidth/2 - 150, screenHeight/2 - 50, displayText.c_str(), 
                      0xFFFFFF, loadingFontHandle, 0x000000);
     
     fadeManager.draw();
@@ -526,6 +545,7 @@ void NovelReadingScene::initialize() {
     textRenderer.setText(novelData.getCurrentLine());
     currentChapterTitle = novelData.getCurrentChapter();
     
+    fadeManager.setScreenSize(engine->getScreenWidth(), engine->getScreenHeight());
     fadeManager.startFade(FadeType::FADE_IN, 5);
 }
 
@@ -552,8 +572,11 @@ void NovelReadingScene::update() {
 }
 
 void NovelReadingScene::draw() {
+    int screenWidth = engine->getScreenWidth();
+    int screenHeight = engine->getScreenHeight();
+    
     // 背景
-    DrawBox(0, 0, 1024, 768, 0x000000, TRUE);
+    DrawBox(0, 0, screenWidth, screenHeight, 0x000000, TRUE);
     
     // 章タイトル
     drawChapterTitle();
@@ -602,49 +625,55 @@ void NovelReadingScene::handleInput() {
 }
 
 void NovelReadingScene::drawUI() {
+    int screenWidth = engine->getScreenWidth();
+    int screenHeight = engine->getScreenHeight();
+    
     // プログレスバー
     int progressWidth = 300;
     int progressHeight = 10;
-    int progressX = 1024 - progressWidth - 20;
-    int progressY = 768 - progressHeight - 20;
+    int progressX = screenWidth - progressWidth - 20;
+    int progressY = screenHeight - progressHeight - 20;
     
     // 背景
     DrawBox(progressX, progressY, progressX + progressWidth, progressY + progressHeight, 
            0x404040, TRUE);
     
     // プログレス
-    int currentProgress = (int)((float)novelData.getCurrentLineNumber() / 
-                               novelData.getTotalLines() * progressWidth);
-    DrawBox(progressX, progressY, progressX + currentProgress, progressY + progressHeight, 
-           0x00FF00, TRUE);
+    if (novelData.getTotalLines() > 0) {
+        int currentProgress = (int)((float)novelData.getCurrentLineNumber() / 
+                                   novelData.getTotalLines() * progressWidth);
+        DrawBox(progressX, progressY, progressX + currentProgress, progressY + progressHeight, 
+               0x00FF00, TRUE);
+    }
     
     // 情報表示
     std::string info = "行: " + std::to_string(novelData.getCurrentLineNumber()) + 
                       "/" + std::to_string(novelData.getTotalLines());
-    DrawString(progressX, progressY - 20, info.c_str(), 0xFFFFFF);
+    DrawFormatString(progressX, progressY - 20, 0xFFFFFF, info.c_str());
     
     if (autoMode) {
-        DrawString(50, 768 - 50, "自動読み込みモード", 0xFFFF00);
+        DrawFormatString(50, screenHeight - 50, 0xFFFF00, "自動読み込みモード");
     }
     
     if (isPaused) {
-        DrawString(50, 768 - 80, "一時停止中", 0xFF0000);
+        DrawFormatString(50, screenHeight - 80, 0xFF0000, "一時停止中");
     }
 }
 
 void NovelReadingScene::drawChapterTitle() {
     if (!currentChapterTitle.empty()) {
-        DrawString(50, 50, currentChapterTitle.c_str(), 0xFFFF00);
+        DrawFormatString(50, 50, 0xFFFF00, currentChapterTitle.c_str());
     }
 }
 
 // ========== EndingScene Implementation ==========
 EndingScene::EndingScene(NovelEngine* engine) : Scene(engine), endingCounter(0) {
     endingText = "お疲れ様でした！";
-}
+};
 
 void EndingScene::initialize() {
     endingFontHandle = CreateFontToHandle("ＭＳ ゴシック", 32, 3, DX_FONTTYPE_ANTIALIASING_4X4);
+    fadeManager.setScreenSize(engine->getScreenWidth(), engine->getScreenHeight());
     fadeManager.startFade(FadeType::FADE_IN, 5);
 }
 
@@ -661,12 +690,16 @@ void EndingScene::update() {
 }
 
 void EndingScene::draw() {
-    DrawBox(0, 0, 1024, 768, 0x400040, TRUE);
+    int screenWidth = engine->getScreenWidth();
+    int screenHeight = engine->getScreenHeight();
     
-    DrawStringToHandle(1024/2 - 200, 768/2 - 50, endingText.c_str(), 
+    DrawBox(0, 0, screenWidth, screenHeight, 0x400040, TRUE);
+    
+    DrawStringToHandle(screenWidth/2 - 200, screenHeight/2 - 50, endingText.c_str(), 
                      0xFFFFFF, endingFontHandle, 0x000000);
     
-    DrawString(1024/2 - 150, 768/2 + 50, "Enter または Esc でタイトルに戻る", 0xFFFFFF);
+    DrawFormatString(screenWidth/2 - 150, screenHeight/2 + 50, 0xFFFFFF, "Enter または Esc でタイトルに戻る");
+    
    
 	fadeManager.draw();
 }
@@ -677,7 +710,8 @@ void EndingScene::finalize() {
 
 // ========== NovelEngine Implementation ==========
 NovelEngine::NovelEngine() : screenWidth(1024), screenHeight(768), isRunning(false),
-                             currentSceneType(SceneType::TITLE) {}
+                             currentSceneType(SceneType::TITLE), sceneChangePending(false),
+                             pendingSceneType(SceneType::TITLE) {}
 
 NovelEngine::~NovelEngine() {
     finalizeEngine();
@@ -696,16 +730,28 @@ bool NovelEngine::initialize(int width, int height) {
 }
 
 bool NovelEngine::initializeEngine() {
+    // ウィンドウモードに設定
+    ChangeWindowMode(TRUE);
+    
+    // グラフィックモードを設定
+    SetGraphMode(screenWidth, screenHeight, 32);
+    
+    // DxLibの初期化
     if (DxLib_Init() == -1) {
         return false;
     }
     
-    SetGraphMode(screenWidth, screenHeight, 32);
-    if (SetDrawScreen(DX_SCREEN_BACK) == -1) {
-        return false;
-    }
+    // 描画先を裏画面に設定
+    SetDrawScreen(DX_SCREEN_BACK);
     
+    // 文字コード形式を設定
     SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8);
+    
+    // フレームレート制御（60FPS）
+    SetWaitVSyncFlag(TRUE);
+    
+    // FadeManagerに画面サイズを設定
+    fadeManager.setScreenSize(screenWidth, screenHeight);
     
     return true;
 }
@@ -722,17 +768,26 @@ void NovelEngine::run() {
     isRunning = true;
     
     while (ProcessMessage() == 0 && isRunning) {
+        // 画面をクリア
+        ClearDrawScreen();
+        
+        // フェードの更新
         fadeManager.update();
         
+        // シーン遷移の処理
+        updateSceneTransition();
+        
+        // シーンの更新と描画
         if (currentScene) {
             currentScene->update();
             currentScene->draw();
         }
         
+        // フェードの描画（最前面）
         fadeManager.draw();
         
+        // 画面をフリップ
         ScreenFlip();
-        ClearDrawScreen();
     }
 }
 
@@ -741,12 +796,24 @@ void NovelEngine::shutdown() {
 }
 
 void NovelEngine::requestSceneChange(SceneType sceneType) {
-    fadeManager.startFade(FadeType::FADE_OUT, 10);
-    
-    // フェードアウト完了後にシーン変更
-    if (fadeManager.isComplete()) {
-        changeScene(sceneType);
-        fadeManager.startFade(FadeType::FADE_IN, 10);
+    if (!sceneChangePending) {
+        sceneChangePending = true;
+        pendingSceneType = sceneType;
+        // フェードアウトを開始
+        fadeManager.startFade(FadeType::FADE_OUT, 10);
+    }
+}
+
+void NovelEngine::updateSceneTransition() {
+    if (sceneChangePending) {
+        // フェードアウトが完了したかチェック
+        if (fadeManager.isComplete() && fadeManager.getFadeAlpha() >= 255) {
+            // シーンを変更
+            changeScene(pendingSceneType);
+            // フェードインを開始
+            fadeManager.startFade(FadeType::FADE_IN, 10);
+            sceneChangePending = false;
+        }
     }
 }
 

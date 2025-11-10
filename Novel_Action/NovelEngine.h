@@ -1,5 +1,5 @@
 #pragma once
-#include "DxLib.h"
+#include <DxLib.h>
 #include <string>
 #include <vector>
 #include <memory>
@@ -37,6 +37,8 @@ private:
     FadeType currentFade;
     int fadeSpeed;
     bool isFading;
+    int screenWidth;
+    int screenHeight;
 
 public:
     FadeManager();
@@ -45,6 +47,8 @@ public:
     void draw();
     bool isComplete() const;
     void setFadeColor(int color);
+    void setScreenSize(int width, int height);
+    int getFadeAlpha() const { return fadeAlpha; }
 };
 
 // テキストレンダリング管理クラス
@@ -155,6 +159,9 @@ public:
     int getTotalChapters() const;
 };
 
+// 前方宣言
+class NovelEngine;
+
 // シーンマネージャー（抽象基底クラス）
 class Scene {
 protected:
@@ -256,6 +263,8 @@ private:
     std::unique_ptr<Scene> currentScene;
     std::string novelFilename;
     FadeManager fadeManager;
+    bool sceneChangePending;
+    SceneType pendingSceneType;
 
     // エンジン初期化
     bool initializeEngine();
@@ -264,6 +273,7 @@ private:
     // シーン管理
     void changeScene(SceneType sceneType);
     void createScene(SceneType sceneType);
+    void updateSceneTransition();
 
 public:
     NovelEngine();
