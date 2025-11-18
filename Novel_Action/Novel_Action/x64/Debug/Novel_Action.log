@@ -1,8 +1,4 @@
-﻿  main.cpp
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\main.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(524,5): warning MSB8004: Output ディレクトリの末尾がスラッシュではありません。Output ディレクトリが適切に評価されるようにするために、このビルド インスタンスによってスラッシュが追加されます。
   NovelEngine.cpp
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
@@ -21,4 +17,3 @@ C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(672,
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(701,74): error C2001: 定数が 2 行目に続いています。
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(704,2): error C2146: 構文エラー: ')' が、識別子 'fadeManager' の前に必要です。
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(704,2): error C2146: 構文エラー: ';' が、識別子 'fadeManager' の前に必要です。
-  コードを生成中...

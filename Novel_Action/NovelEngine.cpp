@@ -97,7 +97,7 @@ TextRenderer::~TextRenderer() {
 }
 
 bool TextRenderer::initialize() {
-    fontHandle = CreateFontToHandle("ＭＳ ゴシック", textSize, 3, DX_FONTTYPE_ANTIALIASING_4X4);
+    fontHandle = CreateFontToHandle("ＭＳゴシック", textSize, 3, DX_FONTTYPE_ANTIALIASING_4X4);
     return fontHandle != -1;
 }
 

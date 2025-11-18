@@ -7,14 +7,9 @@ int main() {
     NovelEngine engine;
    
     
-   
-  
-
-
-    
     // エンジンの初期化（1024x768のウィンドウサイズ）
     if (!engine.initialize(1024, 768)) {
-        std::cerr << "Failed to initialize Novel Engine." << std::endl;
+        std::cerr << "Failed to initialize NovelEngine." << std::endl;
         return -1;
     }
     
