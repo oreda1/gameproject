@@ -1,11 +1,12 @@
-#pragma once
+#ifndef NOVEL_ENGINE_H
+#define NOVEL_ENGINE_H
+
 #include <DxLib.h>
 #include <string>
 #include <vector>
 #include <memory>
 
-
-// シーン管理用の列挙型
+// Scene type enumeration
 enum class SceneType {
     TITLE,
     LOADING,
@@ -13,7 +14,7 @@ enum class SceneType {
     ENDING
 };
 
-// テキスト表示エフェクト用の列挙型
+// Text effect enumeration
 enum class TextEffect {
     NONE,
     TYPEWRITER,
@@ -21,7 +22,7 @@ enum class TextEffect {
     WAVE
 };
 
-// フェードエフェクト用の列挙型
+// Fade effect enumeration
 enum class FadeType {
     NONE,
     FADE_IN,
@@ -29,7 +30,7 @@ enum class FadeType {
     FADE_IN_OUT
 };
 
-// フェード管理クラス
+// Fade manager class
 class FadeManager {
 private:
     int fadeColor;
@@ -48,10 +49,10 @@ public:
     bool isComplete() const;
     void setFadeColor(int color);
     void setScreenSize(int width, int height);
-    int getFadeAlpha() const { return fadeAlpha; }
+    int getFadeAlpha() const;
 };
 
-// テキストレンダリング管理クラス
+// Text renderer class
 class TextRenderer {
 private:
     int fontHandle;
@@ -82,7 +83,7 @@ public:
     void clear();
 };
 
-// 背景管理クラス
+// Background manager class
 class BackgroundManager {
 private:
     int backgroundHandle;
@@ -99,7 +100,7 @@ public:
     void clear();
 };
 
-// サウンド管理クラス
+// Sound manager class
 class SoundManager {
 private:
     int bgmHandle;
@@ -119,7 +120,7 @@ public:
     void setSEVolume(int volume);
 };
 
-// 入力管理クラス
+// Input manager class
 class InputManager {
 private:
     bool keyStates[256];
@@ -133,7 +134,7 @@ public:
     bool isKeyDown(int key);
 };
 
-// 小説データ管理クラス
+// Novel data class
 class NovelData {
 private:
     std::vector<std::string> lines;
@@ -159,10 +160,10 @@ public:
     int getTotalChapters() const;
 };
 
-// 前方宣言
+// Forward declaration
 class NovelEngine;
 
-// シーンマネージャー（抽象基底クラス）
+// Scene manager (abstract base class)
 class Scene {
 protected:
     NovelEngine* engine;
@@ -176,7 +177,7 @@ public:
     virtual void finalize() = 0;
 };
 
-// タイトルシーン
+// Title scene
 class TitleScene : public Scene {
 private:
     int titleFontHandle;
@@ -193,7 +194,7 @@ public:
     void finalize() override;
 };
 
-// ローディングシーン
+// Loading scene
 class LoadingScene : public Scene {
 private:
     int loadingFontHandle;
@@ -209,7 +210,7 @@ public:
     void finalize() override;
 };
 
-// 小説読み込みシーン
+// Novel reading scene
 class NovelReadingScene : public Scene {
 private:
     TextRenderer textRenderer;
@@ -237,7 +238,7 @@ private:
     void drawChapterTitle();
 };
 
-// エンディングシーン
+// Ending scene
 class EndingScene : public Scene {
 private:
     int endingFontHandle;
@@ -253,7 +254,7 @@ public:
     void finalize() override;
 };
 
-// メインエンジンクラス
+// Main engine class
 class NovelEngine {
 private:
     int screenWidth;
@@ -266,11 +267,11 @@ private:
     bool sceneChangePending;
     SceneType pendingSceneType;
 
-    // エンジン初期化
+    // Engine initialization
     bool initializeEngine();
     void finalizeEngine();
 
-    // シーン管理
+    // Scene management
     void changeScene(SceneType sceneType);
     void createScene(SceneType sceneType);
     void updateSceneTransition();
@@ -283,12 +284,14 @@ public:
     void run();
     void shutdown();
 
-    // シーン制御
+    // Scene control
     void requestSceneChange(SceneType sceneType);
 
-    // ゲッター
+    // Getters
     int getScreenWidth() const { return screenWidth; }
     int getScreenHeight() const { return screenHeight; }
     const std::string& getNovelFilename() const { return novelFilename; }
     void setNovelFilename(const std::string& filename) { novelFilename = filename; }
 };
+
+#endif // NOVEL_ENGINE_H

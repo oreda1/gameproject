@@ -1,19 +1,72 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(524,5): warning MSB8004: Output ディレクトリの末尾がスラッシュではありません。Output ディレクトリが適切に評価されるようにするために、このビルド インスタンスによってスラッシュが追加されます。
+﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(534,5): warning MSB8004: Output ディレクトリの末尾がスラッシュではありません。Output ディレクトリが適切に評価されるようにするために、このビルド インスタンスによってスラッシュが追加されます。
   NovelEngine.cpp
 C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'NovelEngine.cpp' をコンパイルしています)
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(56,5): error C2059: 構文エラー: '}'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(171,9): error C2065: 'startLine': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(174,18): error C2065: 'startLine': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(174,53): error C2065: 'startLine': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,40): error C2065: 'startLine': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9): error C2664: 'int DxLib::DrawStringToHandle(int,int,const TCHAR *,unsigned int,int,unsigned int,int)': 引数 2 を 'const _Elem *' から 'int' へ変換できません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9): error C2664:         with
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9): error C2664:         [
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9): error C2664:             _Elem=char
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9): error C2664:         ]
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(176,41):
+      この変換が可能なコンテキストはありません。
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\プロジェクトに追加すべきファイル_VC用\DxLib.h(3890,14):
+      'DxLib::DrawStringToHandle' の宣言を確認してください
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(175,9):
+      引数リスト '(int, const _Elem *, int, int, int)' を一致させようとしているとき
+          with
+          [
+              _Elem=char
+          ]
   
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(176,34): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(419,22): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(427,25): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(432,51): error C3688: リテラル サフィックス '邨ゆｺ・' が無効です。リテラル演算子またはリテラル演算子テンプレート 'operator ""邨ゆｺ・' が見つかりません
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(449,70): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(655,59): error C2001: 定数が 2 行目に続いています。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(656,5): error C2143: 構文エラー: ')' が '}' の前にありません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(656,5): error C2143: 構文エラー: ';' が '}' の前にありません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(671,18): error C2001: 定数が 2 行目に続いています。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(672,1): error C2143: 構文エラー: ';' が '}' の前にありません。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(701,74): error C2001: 定数が 2 行目に続いています。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(704,2): error C2146: 構文エラー: ')' が、識別子 'fadeManager' の前に必要です。
-C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(704,2): error C2146: 構文エラー: ';' が、識別子 'fadeManager' の前に必要です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(223,25): error C2601: 'BackgroundManager::draw': ローカル関数の定義が正しくありません。
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(220,34):
+      この行に含まれる '{' に対応するものがありません
+  
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(229,25): error C2601: 'BackgroundManager::clear': ローカル関数の定義が正しくありません。
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(220,34):
+      この行に含まれる '{' に対応するものがありません
+  
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(238,30): error C2143: 構文エラー: ';' が ':' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(238,30): error C2059: 構文エラー: ':'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(238,81): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(240,16): error C2352: 'SoundManager::~SoundManager': 非静的メンバー関数の呼び出しにはオブジェクトが必要です
+      C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.h(112,6):
+      'SoundManager::~SoundManager' の宣言を確認してください
+  
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(241,5): error C2059: 構文エラー: 'if'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(241,26): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(242,24): error C2065: 'bgmHandle': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(244,9): error C2065: 'seHandle': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(245,24): error C2065: 'seHandle': 定義されていない識別子です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(294,5): error C2059: 構文エラー: 'if'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(294,26): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(294,26): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(297,1): error C2059: 構文エラー: '}'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(297,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(300,25): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(300,25): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(303,1): error C2059: 構文エラー: '}'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(303,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(309,30): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(309,30): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(409,22): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(417,25): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(422,51): error C3688: リテラル サフィックス '邨ゆｺ・' が無効です。リテラル演算子またはリテラル演算子テンプレート 'operator ""邨ゆｺ・' が見つかりません
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(438,70): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(624,50): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(625,5): error C2143: 構文エラー: ')' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(625,5): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(642,18): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(643,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(672,74): error C2001: 定数が 2 行目に続いています。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(675,2): error C2146: 構文エラー: ')' が、識別子 'fadeManager' の前に必要です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(675,2): error C2146: 構文エラー: ';' が、識別子 'fadeManager' の前に必要です。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(720,5): error C2059: 構文エラー: 'return'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(721,1): error C2059: 構文エラー: '}'
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(721,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(723,36): error C2143: 構文エラー: ';' が '{' の前にありません。
+C:\Users\Nishimura Shuichi\Desktop\gameproject\Novel_Action\NovelEngine.cpp(723,36): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
